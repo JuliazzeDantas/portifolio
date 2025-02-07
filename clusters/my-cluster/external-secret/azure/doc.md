@@ -1,0 +1,1 @@
+# Template de como conectar o external secret na azure
