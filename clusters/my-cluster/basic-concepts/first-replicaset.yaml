@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: ReplicaSet
 metadata:
   name: frontend-rs
-  namespace: 
+  namespace: basic-concepts
   labels:
     apps: my-app
     tier: frontend
