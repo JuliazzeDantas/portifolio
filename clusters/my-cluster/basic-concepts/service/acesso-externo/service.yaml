@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nodeport-service
+  namespace: basic-concepts
+spec:
+  type: NodePort
+  selector:
+    type: teste-externo
+  ports:
+    - port: 80
+      targetPort: 8080
+      nodePort: 30008
+    - port: 443
+      targetPort: 8443
+      nodePort: 30009

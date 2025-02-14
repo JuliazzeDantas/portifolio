@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-apache
+  namespace: basic-concepts
+  labels:
+    type: web-server
+spec:
+  containers:
+    - name: web-server-apache
+      image: httpd
+      ports:
+        - containerPort: 80
