@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-nginx-service
+  namespace: basic-concepts
+  labels:
+    name: destino
+spec:
+  containers:
+  - name: nginx
+    image: nginx:1.14
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+    ports:
+      - containerPort: 8080
+  - name: tomcat
+    image: tomcat:9.0
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+    ports:
+      - containerPort: 8443
