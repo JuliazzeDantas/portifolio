@@ -13,8 +13,8 @@ spec:
     - port: 8080
       name: nginx
       targetPort: 8080
-      nodePort: 30080
+      nodePort: 30100
     - port: 443
       name: tomcat
       targetPort: 8443
-      nodePort: 30443
+      nodePort: 30101
