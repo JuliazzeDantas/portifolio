@@ -1,7 +1,0 @@
-apiVersion: v1
-kind: Pod
-metadata:
-  name: pod-tomcat
-  namespace: basic-concepts
-  labels:
-    type: web-server
