@@ -6,11 +6,13 @@ metadata:
 spec:
   type: NodePort
   selector:
-    type: teste-externo
+    type: web-server
   ports:
     - port: 80
+      name: nginx
       targetPort: 8080
       nodePort: 30008
     - port: 443
+      name: tomcat
       targetPort: 8443
       nodePort: 30009
