@@ -1,19 +1,20 @@
-# Configuração de um Service para comunicação interna entre os pods do cluster (Cluster IP)
 apiVersion: v1
 kind: Service
 metadata:
-  name: service-cluster-ip
+  name: service-node-port
   namespace: basic-concepts
   labels:
     type: teste-service
 spec:
-  type: ClusterIP
+  type: NodePort
   selector:
     type: teste-service
   ports:
     - port: 8080
       name: nginx
       targetPort: 8080
+      nodePort: 30080
     - port: 443
       name: tomcat
       targetPort: 8443
+      nodePort: 30443
