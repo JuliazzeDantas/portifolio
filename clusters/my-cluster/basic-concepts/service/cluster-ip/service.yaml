@@ -9,7 +9,7 @@ metadata:
 spec:
   type: ClusterIP
   selector:
-    type: web-server
+    type: culter-ip-service
   ports:
     - port: 8080
       name: nginx
