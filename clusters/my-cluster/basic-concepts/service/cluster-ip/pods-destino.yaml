@@ -4,7 +4,7 @@ metadata:
   name: pod-nginx-service
   namespace: basic-concepts
   labels:
-    name: destino
+    type: teste-service
 spec:
   containers:
   - name: nginx

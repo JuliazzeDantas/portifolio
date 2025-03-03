@@ -4,12 +4,16 @@ kind: Service
 metadata:
   name: cluster-ip-service
   namespace: basic-concepts
+  labels:
+    type: teste-service
 spec:
   type: ClusterIP
   selector:
     type: web-server
   ports:
-    - port: 80
+    - port: 8080
+      name: nginx
       targetPort: 8080
     - port: 443
+      name: tomcat
       targetPort: 8443
