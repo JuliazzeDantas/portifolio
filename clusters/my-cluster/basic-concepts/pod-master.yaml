@@ -1,0 +1,55 @@
+# Esse manifesto contém um Pod com todos os conceitos aprendidos
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-master
+  namespace: basic-concepts
+  labels:
+    type: master
+spec:
+  containers:
+    - name: nginx-pod
+      image: nginx # nome da imagem
+      
+      resources:
+        requests: # Requisição de recursos mínimos
+          memory: "64Mi"
+          cpu: "250m"
+        limits: # Requisição de recursos máximos
+          memory: "128Mi"
+          cpu: "500m"
+      ports:
+        - containerPort: 8080 # porta exposta do container
+
+      volumeMounts:
+        - name: volume-host-path # nome do volume
+          mountPath: /caminhp/hospath # caminho onde o volume será montado
+        - name: volume-empty-dir # nome do volume
+          mountPath: /caminho/emptyDir # caminho onde o volume será montado
+
+      livenessProbe: #Faz verificações no container
+        exec:
+          command: #colocar lista de comandos. COloquei uma lista qualquer só para preencher o campo
+            - cat
+            - fake-folder
+        initialDelaySeconds: 5 # Tempo que demora para começar
+        periodSeconds: 5 # Tempo de espera entre as verificações
+        failureThreshold: 3 # Número de tentativas de executar o comando antes de acusar falha
+  
+  volumes:
+    - name: volume-host-path # nome do volume
+      hostPath: # tipo de volume
+        path: /var/lib/persist-1 # caminho do volume no node
+
+    - name: volume-empty-dir # nome do volume
+      emptyDir: {} # tipo de volume
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: first-deployment
+  namespace: basic-concepts
+  labels:
+    app: frontend
+spec:
+  template:
+    metadata:
+      name: alpine-deployment
+      labels:
+        env: production
+    spec:
+      containers:
+      - name: alpine
+        image: alpine:3.12
+  selector:
+    matchLabels:
+      env: production
+  
+  replicas: 1

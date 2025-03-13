@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-manager-resources
+  namespace: basic-concepts
+spec:
+  containers:
+    - name: spache-container
+      image: httpd
+      resources:
+        requests:
+          memory: "64Mi"
+          cpu: "250m"
+        limits:
+          memory: "128Mi"
+          cpu: "500m"
+    
+    - name: redis-container
+      image: redis
+      resources:
+        requests:
+          memory: "100Mi"
+          cpu: "250m"
+        limits:
+          memory: "300Mi"
+          cpu: "1000m"

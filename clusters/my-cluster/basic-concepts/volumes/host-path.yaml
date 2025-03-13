@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+    name: hospath-pod
+    namespace: basic-concepts
+spec:
+    containers:
+      - name: redis-pod
+        image: redis
+        volumeMounts: # Definição de montagem dos volume
+          - name: "hostpath-vol" # Sempre colocar entre aspas duplas 
+            mountPath: "/cache" # Sempre colocar entre aspas duplas
+        
+    volumes:
+      - name: hostpath-vol
+        hostPath:
+          path: "/var/lib/persist-2"
