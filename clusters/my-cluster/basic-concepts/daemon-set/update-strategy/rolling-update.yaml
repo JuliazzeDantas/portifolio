@@ -5,7 +5,7 @@ metadata:
   labels:
     app: monitoring
 
-spec:
+spec: 
   template:
     metadata:
       name: my-container-daemonset
