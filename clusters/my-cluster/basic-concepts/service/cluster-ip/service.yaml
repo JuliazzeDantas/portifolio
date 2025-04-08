@@ -8,7 +8,7 @@ metadata:
     type: teste-service
 spec:
   type: ClusterIP
-  selector:
+  selector: 
     type: teste-service
   ports:
     - port: 8080
