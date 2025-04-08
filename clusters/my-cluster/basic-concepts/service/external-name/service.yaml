@@ -4,7 +4,7 @@ metadata:
   name: service-external-name
   namespace: basic-concepts
   labels:
-    type: teste-service
+    type: teste-service 
 spec:
   type: ExternalName
   ExternalName: link-prototipo-demonstracao.com
