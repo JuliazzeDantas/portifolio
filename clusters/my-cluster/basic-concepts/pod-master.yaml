@@ -5,7 +5,7 @@ metadata:
   name: pod-master
   namespace: basic-concepts
   labels:
-    type: master
+    type: master 
 spec:
   containers:
     - name: nginx-pod
