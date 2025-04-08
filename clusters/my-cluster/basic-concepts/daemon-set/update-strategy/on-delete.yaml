@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: daemonset-on-delete
+  labels:
+    app: monitoring
+
+spec:
+  template:
+    metadata:
+      name: my-container-daemonset
+      labels:
+        tier: frontend
+        apps: monitoring
+    spec:
+      containers:
+      - name: nginx-daemonset
+        image: nginx:1.19.0
+
+  updateStrategy:
+    type: OnDelete # Atualiza os pods do DaemonSet quando o pod é deletado
+
+  selector:
+    matchLabels:
+      apps: monitoring

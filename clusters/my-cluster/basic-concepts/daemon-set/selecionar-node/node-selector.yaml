@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: daemonset-node-selector 
+  labels:
+    app: monitoring
+
+spec:
+  template:
+    metadata:
+      name: my-container-daemonset
+      labels:
+        tier: frontend
+        apps: monitoring
+
+    spec:
+      containers:
+      - name: nginx-daemonset
+        image: nginx:1.19.0
+      nodeSelector: # Seleciona os nodes que terão o Pod do DaemonSet usando a label como filtro
+        test: example
+      
+  selector:
+    matchLabels:
+      apps: monitoring

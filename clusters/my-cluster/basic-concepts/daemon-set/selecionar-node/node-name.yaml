@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: daemonset-node-name 
+  labels:
+    app: monitoring
+
+spec:
+  template:
+    metadata:
+      name: my-container-daemonset
+      labels:
+        tier: frontend
+        apps: monitoring
+
+    spec:
+      containers:
+      - name: nginx-daemonset
+        image: nginx:1.19.0
+      nodeName: mycluster-worker # Nome do node em que o pod será criado
+
+  selector:
+    matchLabels:
+      apps: monitoring

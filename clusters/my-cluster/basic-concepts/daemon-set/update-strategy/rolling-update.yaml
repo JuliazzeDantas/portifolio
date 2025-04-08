@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: daemonset-rolling-update 
+  labels:
+    app: monitoring
+
+spec:
+  template:
+    metadata:
+      name: my-container-daemonset
+      labels:
+        tier: frontend
+        apps: monitoring
+    spec:
+      containers:
+      - name: nginx-daemonset
+        image: nginx:1.19.0
+  
+
+  updateStrategy:
+    type: RollingUpdate # Atualiza os pods do DaemonSet de forma rolling
+    rollingUpdate:
+      maxUnavailable: 1 # Número de pods que ficarão indisponíveis de um a vez durante a atualização. default = 1
+
+  selector:
+    matchLabels:
+      apps: monitoring
