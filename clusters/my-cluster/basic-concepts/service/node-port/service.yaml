@@ -7,7 +7,7 @@ metadata:
     type: teste-service
 spec:
   type: NodePort
-  selector:
+  selector: 
     type: teste-service
   ports:
     - port: 8080
