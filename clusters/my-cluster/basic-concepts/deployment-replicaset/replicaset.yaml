@@ -1,25 +1,25 @@
-# apiVersion: apps/v1
-# kind: ReplicaSet
-# metadata:
-#   name: first-replicaset
-#   namespace: basic-concepts
-#   labels:
-#     app: frontend
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: first-replicaset
+  namespace: basic-concepts
+  labels:
+    app: frontend
 
-# spec:
-#   template:
-#     metadata:
-#       name: alpine-replicaset
-#       labels:
-#         tier: frontend
-#         apps: my-app
+spec:
+  template: 
+    metadata:
+      name: alpine-replicaset
+      labels:
+        tier: frontend
+        apps: my-app
 
-#     spec:
-#       containers:
-#       - name: my-nginx
-#         image: nginx:1.19.0
-#   selector:
-#     matchLabels:
-#       apps: my-app
+    spec:
+      containers:
+      - name: my-nginx
+        image: nginx:1.19.0
+  selector:
+    matchLabels:
+      apps: my-app
 
-#   replicas: 4
+  replicas: 4
