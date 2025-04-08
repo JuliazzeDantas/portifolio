@@ -7,7 +7,7 @@ metadata:
     app: frontend
 spec:
   template:
-    metadata:
+    metadata: 
       name: alpine-deployment
       labels:
         env: production
