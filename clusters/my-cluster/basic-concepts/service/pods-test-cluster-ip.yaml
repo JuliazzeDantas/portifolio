@@ -16,7 +16,7 @@ spec:
     ports:
       - containerPort: 8080
   - name: tomcat
-    image: tomcat:9.0
+    image: tomcat:9.0 
     resources:
       limits:
         memory: "128Mi"
