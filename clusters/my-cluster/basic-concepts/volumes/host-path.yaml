@@ -3,7 +3,7 @@ kind: Pod
 metadata:
     name: hospath-pod
     namespace: basic-concepts
-spec:
+spec: 
     containers:
       - name: redis-pod
         image: redis
