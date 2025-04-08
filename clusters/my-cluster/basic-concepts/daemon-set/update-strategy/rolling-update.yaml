@@ -11,7 +11,7 @@ spec:
       name: my-container-daemonset
       labels:
         tier: frontend
-        apps: monitoring
+        apps: monitoring 
     spec:
       containers:
       - name: nginx-daemonset

@@ -22,5 +22,4 @@ spec:
 
   selector:
     matchLabels:
-      apps: monitoring
-      
+      apps: monitoring 
