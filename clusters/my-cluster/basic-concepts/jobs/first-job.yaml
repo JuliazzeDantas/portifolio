@@ -1,0 +1,23 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: first-job
+  #namespace: basic-concepts
+spec: #Spec do Job
+  completions: 10 # Número de execuções do Job (Opcional) - Número de Pods criados
+  completionMode: "Indexed" # Indexa o nome dos Pods criados pelo job (Opcional)
+  parallelism: 2 # Número de Pods que podem ser executados em paralelo (Opcional)
+  activeDeadlineSeconds: 15 # Tempo máximo de execução do Job (Opcional)
+  template:
+    metadata:
+      name: pod-do-meu-job
+      namespace: basic-concepts
+    spec: # Especificações do Pod 
+      restartPolicy: Never
+      containers:
+        - name: my-container-busybox
+          image: busybox
+          command: 
+            - "bin/sh"
+            - "-c"
+            - "for i in 1 2; do echo Lucky number $i = $((1 + RANDOM % 70)); done"

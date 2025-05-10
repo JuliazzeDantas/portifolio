@@ -1,0 +1,27 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: first-cronjob # máximo de 52 caracteres
+  #namespace: basic-concepts
+spec: # Spec do CronJob
+  startingDeadlineSeconds: 10 # Intervalo de tempo em que o cronjob Schedule conta a quantidade de trabalhos perdidos. Deve ser maior que 10 segundos
+  failedJobsHistoryLimit: 5
+  successfulJobsHistoryLimit: 10
+  schedule: "* * * * *"
+  jobTemplate:
+    spec: # Spec do Job. Todas as especificações qque foram colocadas nos Jobs pode ser colocadas aqui
+      completions: 10
+      completionMode: "Indexed"
+      parallelism: 3
+      template:
+        spec: # Spec do Pod
+          containers: 
+          - name: cronjob-container
+            image: busybox
+            command:
+              - /bin/sh
+              - -c
+              - date; echo Hello from the Kubernetes cluster
+          restartPolicy: OnFailure
+
+
