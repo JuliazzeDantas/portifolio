@@ -18,6 +18,9 @@ spec:
   containers:
   - name: my-container
     image: nginx
+    envFrom:
+    - configMapRef:
+        name: my-cm # Referenciando o configmap
     volumeMounts: # Container referenciando o volume do configmap para poder acessar as variáveis de ambiente
     - name: my-volume 
       mountPath: /etc/config
