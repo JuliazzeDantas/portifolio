@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: my-cm
+  #namespace: basic-concepts
+data: # Lugar com as Chave valor das variáveis de ambiente
+  database: mongodb
+  database_uri: mongodb://mongodb:27017
+  backgroung.color: red
+#immutable: true # Essa flag impede  o COnfigMap de ser alterado depois de criado
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-pod-cm
+  labels:
+    name: my-cm
+spec:
+  containers:
+  - name: my-container
+    image: nginx
+    envFrom: # COntainer referenciando de onde tirará as variaáveis de ambiente
+      - configMapRef:
+          name: my-cm
