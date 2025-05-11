@@ -13,6 +13,7 @@ spec: # Spec do CronJob
       completions: 10
       completionMode: "Indexed"
       parallelism: 3
+      backoffLimit: 2
       template:
         spec: # Spec do Pod
           containers: 

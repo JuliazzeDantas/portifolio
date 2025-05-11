@@ -8,6 +8,7 @@ spec: #Spec do Job
   completionMode: "Indexed" # Indexa o nome dos Pods criados pelo job (Opcional)
   parallelism: 2 # Número de Pods que podem ser executados em paralelo (Opcional)
   activeDeadlineSeconds: 15 # Tempo máximo de execução do Job (Opcional)
+  backoffLimit: 2 # Número de tentativas de execução do Job (Opcional)
   template:
     metadata:
       name: pod-do-meu-job
