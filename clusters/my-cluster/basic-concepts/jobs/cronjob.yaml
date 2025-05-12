@@ -5,9 +5,9 @@ metadata:
   #namespace: basic-concepts
 spec: # Spec do CronJob
   startingDeadlineSeconds: 10 # Intervalo de tempo em que o cronjob Schedule conta a quantidade de trabalhos perdidos. Deve ser maior que 10 segundos
-  failedJobsHistoryLimit: 5
-  successfulJobsHistoryLimit: 10
-  schedule: "* * * * *"
+  failedJobsHistoryLimit: 5 # Quantidade de Jobs que falharam e que serão mantidos na memória
+  successfulJobsHistoryLimit: 10 # Quantidade de Jobs que foram executados com sucesso e que serão mantidos na memória
+  schedule: "* * * * *" # Schedule do CronJob. O padrão é o mesmo do cron do Linux. Esse padrão é o mesmo que a cada minuto
   jobTemplate:
     spec: # Spec do Job. Todas as especificações qque foram colocadas nos Jobs pode ser colocadas aqui
       completions: 10
