@@ -1,0 +1,119 @@
+name: 'Deploy DAGs'
+description: 'Actions para realizar o deploy das DAGs'
+
+inputs:
+  dags_destination_path:
+    description: 'Destination path for DAGs'
+    required: true
+  dags_source_path:
+    description: 'Source path for DAGs'
+    required: true
+  app_id: 
+     description: "Id do GitHub App"
+     required: true
+  private_key: 
+    description: "Private key do Github App"
+    required: true
+  branch:
+    description: 'Branch name'
+    required: true
+    default: ${{ github.ref_name }}
+
+
+runs:
+  using: 'composite'
+  steps:
+     - 
+       name: Checkout
+       uses: actions/checkout@v4
+       with :
+        ref: ${{ github.ref_name }}
+     -
+       name: Generate GitHub App Token
+       id: generate-token
+       uses: actions/create-github-app-token@v1
+       with:
+         app-id: ${{ inputs.app_id }}
+         private-key: ${{ inputs.private_key }}
+         owner: ${{ github.repository_owner }}
+         repositories: |
+           action-deploy-dags
+     -
+       name: Extract Information
+       run: |
+         echo "repo_name=${GITHUB_REPOSITORY##*/}" >> $GITHUB_ENV
+         echo "UUID=${{ github.repository }}-${{ github.run_id }}-${{ inputs.branch }}" >> $GITHUB_ENV
+       shell: bash
+     - 
+       name: Send deployment request
+       run: |
+        curl -L \
+        -X POST \
+        -H "Accept: application/vnd.github+json" \
+        -H "Authorization: Bearer ${{ steps.generate-token.outputs.token }}" \
+        -H "X-GitHub-Api-Version: 2022-11-28" \
+        https://api.github.com/repos/JuliazzeDantas/action-deploy-dags/actions/workflows/deploy-dags-${{ inputs.branch }}.yaml/dispatches \
+        -d '{"ref":"main", "inputs": {
+                         "dags_destination_path": "${{ inputs.dags_destination_path }}", 
+                         "dags_source_path":"${{ inputs.dags_source_path }}", 
+                         "repositorio": "${{ env.repo_name }}", 
+                         "branch": "${{ inputs.branch }}", 
+                         "token":"${{ github.token }}",
+                         "UUID": "${{ env.UUID }}"
+                         }}'
+       shell: bash
+     - 
+       name: Make API request to get workflow runs
+       id: api-request
+       run: |
+         sleep 10
+         sudo apt-get install jq
+         curl -L \
+         -H "Accept: application/vnd.github+json" \
+         -H "Authorization: Bearer ${{ steps.generate-token.outputs.token }}" \
+         -H "X-GitHub-Api-Version: 2022-11-28" \
+         https://api.github.com/repos/JuliazzeDantas/action-deploy-dags/actions/runs > runs.json  
+         jq '.workflow_runs[] | select(.name == "Workflow-${{ env.UUID }}")' runs.json > filtered_run.json     
+         html_url=$(jq -r '.html_url' filtered_run.json)
+         id=$(jq -r '.id' filtered_run.json)
+         echo "html_url=$html_url" >> $GITHUB_ENV
+         echo "id=$id" >> $GITHUB_ENV
+       shell: bash
+          
+     - 
+       name: Display Status Again
+       run: |
+         while true; do
+          curl -L \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer ${{ steps.generate-token.outputs.token }}" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            https://api.github.com/repos/JuliazzeDantas/action-deploy-dags/actions/runs/${{ env.id }} > runs.json                
+            conclusion=$(jq -r '.conclusion' runs.json)
+            echo "A action está em execução"
+            echo "Você pode pegar mais informações sobre sua action clicando no link abaixo"
+            echo "${{ env.html_url}}" 
+           
+          if [ "$conclusion" == "success" ]; then
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "# Status da Action" >> $GITHUB_STEP_SUMMARY
+            echo "## Sua Action foi finalizada com sucesso!" >> $GITHUB_STEP_SUMMARY
+            echo "Você pode pegar mais informações sobre sua action clicando no link abaixo" >> $GITHUB_STEP_SUMMARY
+            echo "${{ env.html_url}}" >> $GITHUB_STEP_SUMMARY
+            echo "DEPLOY CONCLUÍDO COM SUCESSO!"
+            break
+          fi
+          if [ "$conclusion" == "failure" ]; then
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "# Status da Action" >> $GITHUB_STEP_SUMMARY
+            echo "## A execução da sua Action falhou!" >> $GITHUB_STEP_SUMMARY
+            echo "Você pode pegar mais informações sobre sua action clicando no link abaixo" >> $GITHUB_STEP_SUMMARY
+            echo "${{ env.html_url}}l" >> $GITHUB_STEP_SUMMARY
+            echo "DEPLOY FALHOU!"
+            exit 1
+            break
+          fi
+          
+          sleep 10
+         done
+       shell: bash

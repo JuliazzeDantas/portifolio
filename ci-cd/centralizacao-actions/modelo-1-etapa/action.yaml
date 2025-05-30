@@ -1,0 +1,97 @@
+name: 'Publicar DAGs na Azure'
+description: 'Composite Action para publicar DAGs no Azure Storage'
+inputs:
+  dags_destination_path:
+    description: 'Caminho de destino dos DAGs'
+    required: true
+  dags_source_path:
+    description: 'Caminho de origem dos DAGs'
+    required: true
+  branch:
+    description: 'Branch de origem dos DAGs'
+    required: true
+  repositorio:
+    description: 'Repositório de origem dos DAGs'
+    required: true
+  uuid:
+    description: 'Identificador da execução'
+    required: true
+  repo_access_token:
+    description: 'Token de acesso ao repositório'
+    required: true
+  azure_storage_account_name:
+    description: 'Azure Storage Account Name'
+    required: true
+  azure_storage_account_key:
+    description: 'Azure Storage Account Key'
+    required: true
+  azure_share_name:
+    description: 'Azure Share Name'
+    required: true
+  azure_dags_path:
+    description: 'Caminho base dos DAGs no Azure'
+    required: true
+
+runs:
+  using: "composite"
+  steps: # código genérico de deploy de dags na Azure
+    - name: Checkout código-fonte
+      uses: actions/checkout@v4
+      with:
+        ref: ${{ inputs.branch }}
+        repository: ${{ inputs.repositorio }}
+        token: ${{ inputs.repo_access_token }}
+
+    - name: Instalar Azure CLI
+      shell: bash
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y curl
+        curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+        az version
+
+    - name: Verificar se diretório existe no Azure Storage
+      shell: bash
+      run: |
+        az storage directory exists \
+          --account-key "${{ inputs.azure_storage_account_key }}" \
+          --account-name "${{ inputs.azure_storage_account_name }}" \
+          --name "${{ inputs.azure_dags_path }}/${{ inputs.dags_destination_path }}" \
+          --share-name "${{ inputs.azure_share_name }}"
+
+    - name: Instalar módulo PowerShell AZ
+      shell: pwsh
+      run: |
+        Set-PSRepository -Name 'PSGallery' -InstallationPolicy Trusted
+        Install-Module -Name Az -Force
+
+    - name: Remover locks de arquivos no Azure Storage
+      shell: pwsh
+      run: |
+        $Context = New-AzStorageContext `
+          -StorageAccountName "${{ inputs.azure_storage_account_name }}" `
+          -StorageAccountKey "${{ inputs.azure_storage_account_key }}"
+        Close-AzStorageFileHandle `
+          -Context $Context `
+          -ShareName "${{ inputs.azure_share_name }}" `
+          -Recursive `
+          -Path "${{ inputs.azure_dags_path }}/${{ inputs.dags_destination_path }}" `
+          -CloseAll
+
+    - name: Deletar arquivos existentes no destino
+      shell: bash
+      run: |
+        az storage file delete-batch \
+          --source "${{ inputs.azure_share_name }}/${{ inputs.azure_dags_path }}/${{ inputs.dags_destination_path }}" \
+          --account-name "${{ inputs.azure_storage_account_name }}" \
+          --account-key "${{ inputs.azure_storage_account_key }}"
+
+    - name: Publicar novos DAGs no Azure Storage
+      shell: bash
+      run: |
+        az storage file upload-batch \
+          --destination "${{ inputs.azure_share_name }}/${{ inputs.azure_dags_path }}" \
+          --source "${{ inputs.dags_source_path }}" \
+          --account-name "${{ inputs.azure_storage_account_name }}" \
+          --account-key "${{ inputs.azure_storage_account_key }}" \
+          --destination-path "./${{ inputs.dags_destination_path }}"

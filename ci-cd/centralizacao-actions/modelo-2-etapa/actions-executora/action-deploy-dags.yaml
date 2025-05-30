@@ -1,0 +1,87 @@
+name: Publicar Dags na Azure - Exemplo de Portfólio
+run-name: Workflow-${{ inputs.UUID }}
+
+on:
+  workflow_dispatch:
+    inputs:
+      dags_destination_path:
+        description: 'Caminho de destino dos DAGs'
+        required: true
+      dags_source_path:
+        description: 'Caminho de origem dos DAGs'
+        required: true
+      branch:
+        description: 'Branch de origem dos DAGs'
+        required: true
+        default: 'main'
+      repositorio:
+        description: 'Repositório de origem dos DAGs'
+        required: true
+      uuid:
+        description: 'Identificador da execução'
+        required: true
+
+jobs:
+  publicar-dag:
+    runs-on: ubuntu-latest
+    env:
+      DAGS_DESTINATION_PATH: ${{ inputs.dags_destination_path }}
+      DAGS_SOURCE_PATH: ${{ inputs.dags_source_path }}
+
+    steps: # Código genérico de deploy de dags na Azure
+      - name: Checkout código-fonte
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.branch }}
+          repository: example-org/${{ inputs.repositorio }}
+          token: ${{ secrets.REPO_ACCESS_TOKEN }}
+
+      - name: Instalar Azure CLI
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y curl
+          curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+          az version
+
+      - name: Verificar se diretório existe no Azure Storage
+        run: |
+          az storage directory exists \
+            --account-key ${{ secrets.AZURE_STORAGE_ACCOUNT_KEY }} \
+            --account-name ${{ secrets.AZURE_STORAGE_ACCOUNT_NAME }} \
+            --name ${{ secrets.AZURE_DAGS_PATH }}/${{ env.DAGS_DESTINATION_PATH }} \
+            --share-name ${{ secrets.AZURE_SHARE_NAME }}
+
+      - name: Instalar módulo PowerShell AZ
+        shell: pwsh
+        run: |
+          Set-PSRepository -Name 'PSGallery' -InstallationPolicy Trusted
+          Install-Module -Name Az -Force
+
+      - name: Remover locks de arquivos no Azure Storage
+        shell: pwsh
+        run: |
+          $Context = New-AzStorageContext `
+            -StorageAccountName ${{ secrets.AZURE_STORAGE_ACCOUNT_NAME }} `
+            -StorageAccountKey ${{ secrets.AZURE_STORAGE_ACCOUNT_KEY }}
+          Close-AzStorageFileHandle `
+            -Context $Context `
+            -ShareName ${{ secrets.AZURE_SHARE_NAME }} `
+            -Recursive `
+            -Path ${{ secrets.AZURE_DAGS_PATH }}/${{ env.DAGS_DESTINATION_PATH }} `
+            -CloseAll
+
+      - name: Deletar arquivos existentes no destino
+        run: |
+          az storage file delete-batch \
+            --source ${{ secrets.AZURE_SHARE_NAME }}/${{ secrets.AZURE_DAGS_PATH }}/${{ env.DAGS_DESTINATION_PATH }} \
+            --account-name ${{ secrets.AZURE_STORAGE_ACCOUNT_NAME }} \
+            --account-key ${{ secrets.AZURE_STORAGE_ACCOUNT_KEY }}
+
+      - name: Publicar novos DAGs no Azure Storage
+        run: |
+          az storage file upload-batch \
+            --destination ${{ secrets.AZURE_SHARE_NAME }}/${{ secrets.AZURE_DAGS_PATH }} \
+            --source "${{ env.DAGS_SOURCE_PATH }}" \
+            --account-name ${{ secrets.AZURE_STORAGE_ACCOUNT_NAME }} \
+            --account-key ${{ secrets.AZURE_STORAGE_ACCOUNT_KEY }} \
+            --destination-path "./${{ env.DAGS_DESTINATION_PATH }}"
