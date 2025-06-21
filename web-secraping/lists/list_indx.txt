@@ -1,0 +1,8 @@
+    https://statusinvest.com.br/criptomoedas/btc
+    https://statusinvest.com.br/criptomoedas/eth
+    https://statusinvest.com.br/indices/ibovespa
+    https://statusinvest.com.br/indices/indice-dividendos
+    https://statusinvest.com.br/indices/indice-small-cap
+    https://statusinvest.com.br/indices/ifix
+    https://statusinvest.com.br/indices/suno-30
+    https://statusinvest.com.br/indices/eua/sp-500

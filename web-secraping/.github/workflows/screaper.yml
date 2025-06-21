@@ -1,0 +1,33 @@
+name: Create Repository Cookiecutter Azureml
+
+on:
+  push:
+
+jobs:
+    create-repo:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repository content
+              uses: actions/checkout@v4
+              with:
+                ref: "use-bs4"
+
+
+            - name: Setup python
+              uses: actions/setup-python@v5
+              with:
+                python-version: '3.x' 
+
+            
+            - name: Install dependencies
+              run: |
+                python -m pip install --upgrade pip
+                pip install -r requirements.txt
+
+            - name: Get Datas
+              run: echo "DATA=$(python3 scrape_data.py)" >> $GITHUB_ENV
+            
+            - name: Show data
+              run: echo "${{ env.DATA }}"
+
+  
