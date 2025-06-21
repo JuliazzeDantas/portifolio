@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: pomerium
+  namespace: pomerium-zero
+type: Opaque
+stringData:
+  pomerium_zero_token: AMf-vBwnKC3Tt5nOECDoPwDmcIkrgK6nZQhBuaQNPV6Ralfkwbk500dQ5_dwHkPhFJlB_5SDdm_zZrcCGn03QWUp6nipjN15SZOKMxCJsguQB9mTGMJPQx7khbbCe-fCWIkvWlC4mvdGmRu9kxdgHlkcERgio8XYL_MF56fyVtmR_F_b58Au2YC3AGrpjuik40BQLoiVJxzq

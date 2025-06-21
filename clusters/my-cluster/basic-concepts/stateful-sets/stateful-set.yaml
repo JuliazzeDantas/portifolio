@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: StatefulSet
+metadata:
+  name: my-stateful-set
+spec: 
+  selector:
+    matchLabels:
+      app: nginx-app-nodes
+  serviceName: "stateful-sets-service"
+  replicas: 5 
+  template:
+    metadata:
+      labels:
+        app: nginx-app-nodes
+    spec:
+      containers:
+        - name: nginx-container
+          image: nginx:latest
+          volumeMounts:
+            - name: my-pv
+          mountPath: /usr/share/nginx/html
+  
+  volumeClaimTemplates:
+    - metadata:
+        name: my-pv
+      spec:
+        resources:
+          requests:
+            storage: 1Gi
+        storageClassName: my-storage-class
