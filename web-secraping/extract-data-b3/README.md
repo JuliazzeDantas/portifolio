@@ -12,7 +12,7 @@ O script abre um navegador e pega os dados do site do Status Invest. Após fazer
 
 #### Imprimir em Telq
 
-'''source venv/bin/activate'''
+`source venv/bin/activate`
 
-'''python3 scrape_data.py <brasilian_stock>'''
+`ython3 scrape_data.py <brasilian_stock>`
 It will return a JSON with valuation data from this stock
