@@ -1,12 +1,12 @@
-#Brazilian Stocks Data Extractor
-##Purpose
+# Brazilian Stocks Data Extractor
+## Purpose
 This project was designed to extract valuation data of companies listed on B3 (the Brazilian stock exchange).
 
-##How It Works
+## How It Works
 The script opens a browser and fetches data from the Status Invest website. After that, it builds a JSON with the information and prints it on the screen.
 
-##How to Run the Project
-###Print to Screen
+## How to Run the Project
+### Print to Screen
 
 `source venv/bin/activate`
 
