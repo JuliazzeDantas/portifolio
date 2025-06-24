@@ -8,6 +8,8 @@ The script opens a browser and fetches data from the Status Invest website. Afte
 ## How to Run the Project
 ### Print to Screen
 
+`git clone https://github.com/JuliazzeDantas/portifolio/tree/main/web-secraping/extract-data-b3`
+
 `source venv/bin/activate`
 
 `python3 scrape_data.py <brasilian_stock>`
