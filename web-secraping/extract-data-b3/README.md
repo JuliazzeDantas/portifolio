@@ -1,18 +1,18 @@
-# Extrator de Dados de Ações Brasileiras
+# Brazilian Stocks Data Extractor
+## Purpose
+This project was designed to extract valuation data of companies listed on B3 (the Brazilian stock exchange).
 
-## Propósito
+## How It Works
+The script opens a browser and fetches data from the Status Invest website. After that, it builds a JSON with the information and prints it on the screen.
 
-Esse projeto foi pensado para extrair dados de valuation de empresas listadas na B3.
+## How to Run the Project
+### Print to Screen
 
-## Funcionamento
+`git clone https://github.com/JuliazzeDantas/portifolio/tree/main/web-secraping/extract-data-b3`
 
-O script abre um navegador e pega os dados do site do Status Invest. Após fazer isso, ele monta um JSON com as informações e printa ele na tela
+`source venv/bin/activate`
 
-### Como Rodar o projeto
+`python3 scrape_data.py <brasilian_stock>`
 
-#### Imprimir em Telq
-
-~~~~source venv/bin/activate~~~~
-
-python3 scrape_data.py '<brasilian_stock>'
 It will return a JSON with valuation data from this stock
+
