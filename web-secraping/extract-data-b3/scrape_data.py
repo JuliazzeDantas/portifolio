@@ -16,6 +16,7 @@ import asyncio
 import sys
 import json
 
+
 #xpath_botao_fechar_anuncio = '/html/body/div[19]/div//section/div/div/div/div[2]/button'
 #xpath_verificador_anuncio = '/html/body/div[27]/div//section/div/div/div'  # if style = flex: fecha anuncio.  flex -> none
 
@@ -62,9 +63,9 @@ class Scraper():
             return None
         else:
             if "%" in value:
-                return float(value.replace('%', '').replace(',', '.'))/100
+                return str(float(value.replace('%', '').replace(',', '.'))/100)
             else:
-                return float(value.replace(',', '.'))
+                return value.replace(',', '.')
 
 
     def close_ad(self, driver):
@@ -359,7 +360,9 @@ class Scraper():
 
 def main(stock):
     scraper = Scraper()
-    print(json.dumps(scraper.get_acao_valuation(stock), indent=4, ensure_ascii=False))
+    scrape_data = scraper.get_acao_valuation(stock)
+    print(json.dumps(scrape_data, indent=4, ensure_ascii=False))
+    return scrape_data
 
 if __name__ == "__main__":
     main(sys.argv[1])  # Executar código

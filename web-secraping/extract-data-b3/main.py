@@ -1,4 +1,5 @@
 from scrape_data import Scraper
+from pymongo import MongoClient
 import sys
 import json
 
@@ -6,16 +7,17 @@ def main(stock):
     # Instanciando o objeto Scraper
     scraper = Scraper()
 
-    # Get list of Stocks
-    with open('lists/list_acao.txt', 'r') as arq:
-        acoes = arq.readlines()
-    arq.close()
+    scraper = Scraper()
+    scrape_data = scraper.get_acao_valuation(stock)
+    print(json.dumps(scrape_data, indent=4, ensure_ascii=False))
 
-    acoes = [acao.strip() for acao in acoes]
-    print(acoes)
+    client = MongoClient("mongodb://localhost:27017/")
 
-    # passar para
-    print(json.dumps(scraper.get_acao_valuation(stock), indent=4, ensure_ascii=False))
+    mongo_db = client["stock_valuation"]
+    valuation_collection = mongo_db["valuation"]
+
+    valuation_collection.insert_one(scrape_data)
+    
 
 if __name__ == "__main__":
     print(main(sys.argv[1]))
