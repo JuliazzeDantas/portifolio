@@ -341,7 +341,6 @@ class Scraper():
     # Montar estrutra final da ação
     def get_acao_valuation(self, codigo):
         self.set_url_acao(codigo)
-        print("Let's Go!")
         return { datetime.now().strftime("%Y-%m-%d %H:%M") : {
                 "Nome" : asyncio.run(self.get_name()),
                 "Código" : codigo,

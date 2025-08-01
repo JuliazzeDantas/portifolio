@@ -16,7 +16,7 @@ RUN apt-get -y update && apt-get install -y wget curl \
 && apt-get install -y google-chrome-stable xvfb
 
 
-RUN apt-get -y update
+RUN  apt-get update && apt-get install -y git
 
 
 # Install Chrome Driver
@@ -30,7 +30,6 @@ COPY requirements.txt .
 
 RUN pip install \
     --no-cache-dir \
-    --user \
     -r ./requirements.txt \
 && rm -rf ./requirements.txt
 
