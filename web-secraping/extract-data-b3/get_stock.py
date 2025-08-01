@@ -1,20 +1,18 @@
 from scrape_data import Scraper
 import sys
 
-def main(stock):
+def main(stocks):
+    
+    # Se stocks não for uma lista, transforma em lista
+    if isinstance(stocks, str):
+        stocks = [stocks]
+    
     # Instanciando o objeto Scraper
     scraper = Scraper()
 
-    # Get list of Stocks
-    with open('lists/list_acao.txt', 'r') as arq:
-        acoes = arq.readlines()
-    arq.close()
-
-    acoes = [acao.strip() for acao in acoes]
-    print(acoes)
-
-    # passar para
-    print(scraper.get_acao_valuation(stock))
+    # Para cada stock na lista recebida, chama o método
+    for stock in stocks:
+        print(scraper.get_acao_valuation(stock))
 
 if __name__ == "__main__":
     print(main(sys.argv[1]))
