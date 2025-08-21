@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jupyter-deployment
+  namespace: jupyter
+  labels:
+    app: jupyter-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jupyter-app
+  template:
+    metadata:
+      labels:
+        app: jupyter-app
+    spec:
+      containers:
+      - name: jupyer-container
+        image: jupyter/minimal-notebook:2022-12-05
+        ports:
+          - containerPort: 8888
+        command: ["start-notebook.sh"]
+        args: ["--NotebookApp.token=''"]
+        
