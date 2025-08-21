@@ -1,0 +1,25 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: my-cluster-role
+rules:
+- apiGroups: [""] # EScolhas as APIs que o usuário tem acesso
+  resources: ["pods", "deployment"] # Escolha os recursos
+  verbs: ["get", "watch", "list"] # Escolha as ações que o usuário pode tomar nos recursos listados anteriormente
+
+---
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: my-rolebinding
+subjects:
+- kind: User
+  name: my-user
+  apiGroup: rbac.authorization.k8s.io
+- kind: Group
+  name: fmsdoi-sdfksdifjsdf-fsdfdsfsd-fsdfsd #Object Id Fictício
+roleRef:
+  kind: ClusterRole
+  name: my-cluster-role
+  apiGroup: rbac.authorization.k8s.io
