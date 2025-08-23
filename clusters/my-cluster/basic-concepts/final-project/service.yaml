@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: jupyter-service
+  namespace: jupyter
+spec:
+  type: NodePort
+  selector:
+    app: jupyter-app
+  ports:
+    - name: jupyter-svc
+      port: 8888
+      nodePort: 32074
