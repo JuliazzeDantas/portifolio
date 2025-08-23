@@ -12,6 +12,7 @@ from selenium.common.exceptions import NoSuchElementException
 
 import sys
 import time
+import tempfile
 
 class Scraper():
     driver:webdriver.Chrome
@@ -24,7 +25,7 @@ class Scraper():
         # Configura Options para o selelnium rodar em modo headless
         self.options = webdriver.ChromeOptions()
         self.options.add_argument("--no-sandbox")
-        # self.options.add_argument("--headless=new")
+        self.options.add_argument("--headless=new")
         self.options.add_argument("ignore-certificate-errors")
         self.options.add_argument("--start-fullscreen")
         self.options.add_argument("--disable-logging")
@@ -61,6 +62,8 @@ class Scraper():
                 self.driver.find_element(By.XPATH, xpath_button_search_2).click()
             except NoSuchElementException:
                 print("Second approach also failed. Exiting...")
+                return 0
+        return 1
 
     def get_information_from_products(self):
         for cont in range(2,60):
@@ -70,15 +73,15 @@ class Scraper():
                 # print(f"Product {cont} - XPATH {xpath_product}")
                 class_information = 'div.a-section.a-spacing-small.puis-padding-left-small.puis-padding-right-small'
                 value = product.find_element(By.CSS_SELECTOR, class_information).text
-                print(xpath_product)
+                print(value)
             except NoSuchElementException:
                 print(f"FAIL: Product {cont} - XPATH {xpath_product}")
 
     xpath_button_next = '/html/body/div[1]/div[1]/div[1]/div[1]/div/span[1]/div[1]/div[68]/div/div/span/ul/li[4]/span/a'
 
-    /html/body/div[1]/div[1]/div[1]/div[1]/div/span[1]/div[1]/div[54]/div/div/span/ul/li[4]/span/a
-    /html/body/div[1]/div[1]/div[1]/div[1]/div/span[1]/div[1]/div[68]/div/div/span/ul/li[5]/span/a
-    /html/body/div[1]/div[1]/div[1]/div[1]/div/span[1]/div[1]/div[68]/div/div/span/ul/li[5]
+    # /html/body/div[1]/div[1]/div[1]/div[1]/div/span[1]/div[1]/div[54]/div/div/span/ul/li[4]/span/a
+    # /html/body/div[1]/div[1]/div[1]/div[1]/div/span[1]/div[1]/div[68]/div/div/span/ul/li[5]/span/a
+    # /html/body/div[1]/div[1]/div[1]/div[1]/div/span[1]/div[1]/div[68]/div/div/span/ul/li[5]
 
 
     # aria-disabled="true"
@@ -112,8 +115,10 @@ def main():
     scraper = Scraper()
     time.sleep(2)  # Espera o site carregar
     try:
-        scraper.input_new_product('shoes')
-        scraper.get_information_from_products()
+        if scraper.input_new_product('shoes') == 1:
+            scraper.get_information_from_products()
+        else:
+            print("Could not find the search input field.")
     except Exception as e:
         print("ERRO!")
         print(e)
