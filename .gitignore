@@ -1,1 +1,3 @@
-/backstage/secrets/backstage-secret.yaml
+# Secrets - never commit
+kubernetes/backstage/secrets/
+kubernetes/bacsktage/secrets/
