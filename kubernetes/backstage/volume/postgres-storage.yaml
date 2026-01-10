@@ -1,0 +1,14 @@
+# kubernetes/postgres-storage.yaml
+# Para Kind, usamos o StorageClass 'standard' que provisiona volumes automaticamente
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: postgres-storage-claim
+  namespace: backstage
+spec:
+  storageClassName: standard
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 2G
