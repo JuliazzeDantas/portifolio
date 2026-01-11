@@ -1,7 +1,7 @@
 import { SignInPage } from '@backstage/core-components';
 import { makeStyles } from '@material-ui/core/styles';
-import { Grid, Typography, Box } from '@material-ui/core';
-import { ComponentProps } from 'react';
+import { Grid, Typography, Box, Button } from '@material-ui/core';
+import { ComponentProps, useRef } from 'react';
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -54,6 +54,40 @@ const useStyles = makeStyles(theme => ({
   signInWrapper: {
     width: '100%',
     maxWidth: 400,
+  },
+  // Esconde o SignInPage original mas mantém funcional
+  hiddenSignIn: {
+    position: 'absolute',  // Remove do fluxo normal
+    opacity: 0,            // Invisível
+    pointerEvents: 'none', // Não clicável pelo mouse
+    height: 0,             // Sem altura
+    overflow: 'hidden',    // Esconde qualquer conteúdo que vaze
+  },
+  // Botão customizado de login
+  loginButton: {
+    background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+    color: '#fff',
+    padding: '16px 48px',
+    fontSize: '1.2rem',
+    fontWeight: 600,
+    borderRadius: 50,
+    textTransform: 'none' as const,
+    boxShadow: '0 4px 15px rgba(102, 126, 234, 0.4)',
+    transition: 'all 0.3s ease',
+    '&:hover': {
+      transform: 'translateY(-2px)',
+      boxShadow: '0 6px 20px rgba(102, 126, 234, 0.6)',
+    },
+  },
+  loginButtonWrapper: {
+    display: 'flex',
+    flexDirection: 'column' as const,
+    alignItems: 'center',
+    gap: 16,
+  },
+  loginSubtext: {
+    color: '#666',
+    fontSize: '0.9rem',
   },
   // Animações CSS
   '@keyframes float': { // Animação de flutuar
@@ -123,6 +157,16 @@ type SignInPageProps = ComponentProps<typeof SignInPage>;
 
 export const CustomSignInPage = (props: SignInPageProps) => {
   const classes = useStyles();
+  const signInRef = useRef<HTMLDivElement>(null);
+
+  // Função que clica no botão do SignInPage original
+  const handleLogin = () => {
+    // Procura o botão dentro do SignInPage escondido e clica nele
+    const button = signInRef.current?.querySelector('button');
+    if (button) {
+      button.click();
+    }
+  };
 
   return (
     <div className={classes.container}>
@@ -171,11 +215,24 @@ export const CustomSignInPage = (props: SignInPageProps) => {
           </Box>
         </Grid>
 
-        {/* Painel direito - Formulário de login */}
+        {/* Painel direito - Botão de login customizado */}
         <Grid item xs={12} md={6} className={classes.rightPanel}>
-          <div className={classes.signInWrapper}>
-            {/* Componente de SignIn padrão do Backstage */}
-            <SignInPage {...props} />
+          <div className={classes.loginButtonWrapper}>
+            <Button 
+              className={classes.loginButton}
+              onClick={handleLogin}
+              variant="contained"
+            >
+              🚀 Entrar no Portal
+            </Button>
+            <Typography className={classes.loginSubtext}>
+              Clique para acessar sua conta
+            </Typography>
+          </div>
+
+          {/* SignInPage escondido - mantém a funcionalidade */}
+          <div ref={signInRef} className={classes.hiddenSignIn}>   {/* usa o ref para conectar ele com o botão atraves do handler */}
+            <SignInPage {...props} auto={false} /> {/* Sempre que o botão for clicado, ele disparará o handler para que o SignInPage seja acionado */}
           </div>
         </Grid>
       </Grid>

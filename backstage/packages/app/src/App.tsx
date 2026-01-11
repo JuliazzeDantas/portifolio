@@ -58,7 +58,7 @@ const app = createApp({
     });
   },
   components: {
-    SignInPage: props => <CustomSignInPage {...props} auto providers={['guest']} />,
+    SignInPage: props => <CustomSignInPage {...props} providers={['guest']} />,
   },
 });
 
