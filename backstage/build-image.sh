@@ -105,10 +105,19 @@ fi
 
 echo ""
 echo "======================================================"
+echo "⏳ Waiting for Backstage pod to be ready..."
+echo "======================================================"
+kubectl wait --for=condition=ready pod -l app=backstage -n backstage --timeout=120s
+
+echo ""
+echo "======================================================"
 echo "✓ Process completed!"
 echo "======================================================"
 echo ""
-echo "To access the application, run:"
-echo "  kubectl port-forward -n backstage svc/backstage 7007:7007"
+echo "To access the application, access: http://localhost:7007"
 echo ""
-echo "Then access: http://localhost:7007"
+echo "======================================================"
+echo "Forwarding port 7007 from 'backstage' service to localhost..."
+echo "======================================================"
+kubectl port-forward -n backstage svc/backstage 7007:7007
+
