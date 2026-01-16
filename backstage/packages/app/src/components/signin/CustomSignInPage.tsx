@@ -1,11 +1,11 @@
 import { SignInPage } from '@backstage/core-components';
 import { makeStyles } from '@material-ui/core/styles';
-import { Grid, Typography, Box, Button } from '@material-ui/core';
+import { Grid, Typography, Button } from '@material-ui/core';
 import { ComponentProps, useRef } from 'react';
 
-import adventureLoginPanel from '../../images/signInImages/adventureLogin.png';
-import scrollPanel from '../../images/signInImages/scrollPanel.png';
-import backstageLogo from '../../images/signInImages/backstageLogo.png';
+import adventureLoginPanel from './images/adventureLogin.png';
+import scrollPanel from './images/scrollPanel.png';
+import backstageLogo from './images/backstageLogo.png';
 
 // Importando CSS externo
 import './styles/particle.css';
@@ -83,7 +83,7 @@ const useStyles = makeStyles(theme => ({
   },
   // Botão customizado de login
   loginButton: {
-    background: 'radial-gradient(ellipse, #021461 0%, #03faee 100%)',
+    background: 'radial-gradient(ellipse, #021461 0%, #bff5f8 100%)',
     color: '#fff',
     padding: '16px 48px',
     fontSize: '1.2rem',
