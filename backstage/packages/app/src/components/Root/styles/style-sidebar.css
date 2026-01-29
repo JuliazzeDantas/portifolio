@@ -1,0 +1,27 @@
+.sidebar-style {
+  background-image: url('../images/SideBarWood.png');
+  background-size: cover;
+  background-color: rgba(247, 218, 177, 0.8); /* navigation.background */
+
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+
+  box-shadow:  
+    inset -13px -1px 5px 2px rgba(96, 56, 23, 0.6),
+    inset -5px -1px 5px 2px rgba(54, 27, 4, 0.8);
+}
+
+.sidebar-divider {
+  width: 80%;
+  position: relative;
+  left: -10px;
+  height: 4px;
+  background: rgba(0,0,0,0.9);
+  margin: 7px auto 7px auto;
+  border: none;
+}
+
+
