@@ -1,0 +1,63 @@
+
+.button {
+	width: 95%;
+  left: -30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0px auto 10px;
+
+  
+  font-size: 35px;  
+  font-weight: bold;
+  font-family: sans-serif;
+
+  border:none;
+  transition: color 0.3s, text-shadow 0.3s;
+}
+
+.button:hover {
+  /* Cor da fonte antes do efeito */
+  color: rgba(153, 252, 255, 0.799);
+  /* filter: blur(0.5px); */
+  /* Efeito engraved: sombra clara acima e escura abaixo para simular escultura interna */
+    text-shadow:
+      0 0 15px #00fff7,
+      0 0 30px #00fff7,
+      0 0 60px #ffffff,
+      0 0 80px #00fff7;
+  /* Efeito de brilho esverdeado no texto */
+   /* text-shadow: 0 0 2px rgb(255, 153, 247), 0 0 4px rgb(255, 207, 153), 0 0 8px rgb(11, 143, 1); */
+  /* Remover fundo e outros efeitos para focar no brilho do texto */
+  background: transparent;
+  box-shadow: none;
+}
+
+.button:active {
+  color: #ffd700; /* dourado */
+  text-shadow:
+    0 0 15px #ffd700,
+    0 0 30px #ffd700,
+    0 0 60px #fff8dc,
+    0 0 80px #ffd700;
+}
+
+.engraved-text {
+  background-color: #231101;
+  -webkit-background-clip: text;
+  color: transparent;
+  text-shadow: 3px 5px 1px rgba(181, 81, 41, 0.5);
+}
+
+.sidebar-logo-root {
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 40px auto 20px auto;
+
+}
+
+.sidebar-link {
+  margin: 0;
+}
