@@ -73,7 +73,7 @@ export const CustomRoot = ({ children }: PropsWithChildren<{}>) => (
           <SidebarGroup label="Character">
             <SidebarButton path="/home" text="Character" />
             <SidebarButton path="/catalog" text="Inventory" />
-            <SidebarButton path="/catalog" text="Skills" />
+            <SidebarButton path="/catalog" text="Magics" />
             <SidebarButton path="/docs" text="Docs" />
           </SidebarGroup>
 

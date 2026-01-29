@@ -1,0 +1,10 @@
+/* Cor de fundo para teste visual */
+.low-panel {
+    background-color: #87CEEB;
+    box-sizing: border-box;
+    flex: 1 1 33%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}

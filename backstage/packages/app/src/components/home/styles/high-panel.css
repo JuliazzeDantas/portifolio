@@ -1,0 +1,37 @@
+.high-panel {
+  height: 15%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  
+}
+
+.photo-box {
+  position: absolute;
+    height: 150px;
+    width: 150px;
+  top: 30px;
+  left: 35px;
+  border: 2px solid #000; /* cor e espessura da borda */
+  background: transparent; /* centro transparente */
+  box-sizing: border-box;
+}
+
+.basic-information{
+  position: absolute;
+  top: 10px;
+  left: 205px; 
+  
+  background: transparent; /* centro transparente */
+  box-sizing: border-box;
+  height: 150px;
+  width: 620px;
+  /* TEXTO */
+  color: #000;
+  font-size: 1.3em;
+  font-family: 'Cinzel', 'Times New Roman', Times, serif;
+}
