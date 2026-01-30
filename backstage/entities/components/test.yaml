@@ -1,0 +1,17 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: test-component
+  description: Componente de exemplo atrelado a um repositório no GitHub
+  tags:
+    - exemplo
+    - github
+spec:
+  type: service
+  owner: equipe-exemplo
+  lifecycle: production
+  system: sistema-exemplo
+  links:
+    - url: https://github.com/JuliazzeDantas/WebScraping
+      title: Repositório no GitHub
+  repository: https://github.com/JuliazzeDantas/WebScraping

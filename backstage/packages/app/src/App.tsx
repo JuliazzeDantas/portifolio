@@ -23,7 +23,9 @@ import { UserSettingsPage } from '@backstage/plugin-user-settings';
 import { apis } from './apis';
 import { entityPage } from './components/catalog/EntityPage';
 import { searchPage } from './components/search/SearchPage';
-import { Root } from './components/Root';
+import { CustomRoot } from './components/Root/CustomRoot';
+// import { Root } from './components/Root/Root';
+
 
 import {
   AlertDisplay,
@@ -37,6 +39,10 @@ import { RequirePermission } from '@backstage/plugin-permission-react';
 import { catalogEntityCreatePermission } from '@backstage/plugin-catalog-common/alpha';
 import { NotificationsPage } from '@backstage/plugin-notifications';
 import { SignalsDisplay } from '@backstage/plugin-signals';
+
+
+import { HomepageCompositionRoot } from '@backstage/plugin-home';
+import { HomePage } from './components/home/HomePage';
 
 const app = createApp({
   apis,
@@ -64,7 +70,10 @@ const app = createApp({
 
 const routes = (
   <FlatRoutes>
-    <Route path="/" element={<Navigate to="catalog" />} />
+     <Route path="/" element={<Navigate to="home" />} />
+    <Route path="/home" element={<HomepageCompositionRoot />}>
+      <HomePage />
+    </Route>
     <Route path="/catalog" element={<CatalogIndexPage />} />
     <Route
       path="/catalog/:namespace/:kind/:name"
@@ -106,7 +115,7 @@ export default app.createRoot(
     <OAuthRequestDialog />
     <SignalsDisplay />
     <AppRouter>
-      <Root>{routes}</Root>
+        <CustomRoot>{routes}</CustomRoot>
     </AppRouter>
   </>,
 );

@@ -1,0 +1,45 @@
+
+
+
+.container {
+    width: 100%;
+    min-height: 1520px; /* ajuste conforme a altura real da imagem, altere se necessário */
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    align-items: stretch;
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: auto;
+    border-top-right-radius: 20px;
+    box-shadow: inset 30px 0px 5px 0px rgba(0, 0, 0, 0.4);
+    /* background-image: url('../images/backgroundHomePage.png'); */
+    background-color: rgb(249, 220, 187);
+    background-repeat: no-repeat;
+    background-size: 90% auto;
+    background-position: top center;
+}
+
+
+.margin {
+  position: absolute;
+  top: 2%;
+  left: 4%;
+  right: 4%;
+  bottom: 2%;
+  border: 2px solid #000; /* cor e espessura da borda */
+  background: transparent; /* centro transparente */
+  box-sizing: border-box;
+}
+
+
+
+
+
+
+/* @media (max-width: 600px) {
+    .rightPanel {
+        border-radius: 0;
+    }
+} */
+
