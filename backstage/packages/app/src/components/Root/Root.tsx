@@ -70,7 +70,8 @@ export const Root = ({ children }: PropsWithChildren<{}>) => (
       <Sidebar>
         <div className={"sidebar-style"}>
           <SidebarLogo />
-          <SidebarGroup label="Search" icon={<SearchIcon />} to="/search">
+          <SidebarGroup icon={<SearchIcon />} to="/search">
+            <p className="engraved-text">Search</p>
             <SidebarSearchModal />
           </SidebarGroup>
           <SidebarDivider />

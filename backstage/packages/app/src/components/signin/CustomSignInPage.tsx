@@ -91,11 +91,7 @@ const useStyles = makeStyles(theme => ({
     borderRadius: 80,
     textTransform: 'none' as const,
     boxShadow: '0 4px 15px rgba(102, 126, 234, 0.4)',
-                                                                                                                                                                                                                                                                                                                                                                                                                                            transition: 'all 0.3s ease',
-                                                                                                                                                                                                                                                                                                                                                                                                                                            '&:hover': {
-                                                                                                                                                                                                                                                                                                                                                                                                                                              transform: 'translateY(-2px)',
-                                                                                                                                                                                                                                                                                                                                                                                                                                              boxShadow: '0 6px 20px rgba(102, 126, 234, 0.6)',
-                                                                                                                                                                                                                                                                                                                                                                                                                                            },
+    
   },
   loginButtonWrapper: {
     display: 'flex',

@@ -24,7 +24,8 @@ import { apis } from './apis';
 import { entityPage } from './components/catalog/EntityPage';
 import { searchPage } from './components/search/SearchPage';
 import { CustomRoot } from './components/Root/CustomRoot';
-import { Root } from './components/Root/Root';
+// import { Root } from './components/Root/Root';
+
 
 import {
   AlertDisplay,
@@ -39,9 +40,9 @@ import { catalogEntityCreatePermission } from '@backstage/plugin-catalog-common/
 import { NotificationsPage } from '@backstage/plugin-notifications';
 import { SignalsDisplay } from '@backstage/plugin-signals';
 
+
 import { HomepageCompositionRoot } from '@backstage/plugin-home';
 import { HomePage } from './components/home/HomePage';
-import { UnifiedThemeProvider } from '@backstage/theme';
 
 const app = createApp({
   apis,
