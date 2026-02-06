@@ -3,10 +3,10 @@ import { HomepageCompositionRoot } from '@backstage/plugin-home';
 import { Grid } from '@material-ui/core';
 import { useNavigate } from 'react-router-dom';
 
-import '../../components/home/styles/core-page.css';
-import '../../components/home/styles/high-panel.css';
-import '../../components/home/styles/medium-panel.css';
-import '../../components/home/styles/low-panel.css';
+import '../../core-styles/core-page.css';
+import './styles/high-panel.css';
+import './styles/medium-panel.css';
+import './styles/low-panel.css';
 
 
 export const HomePage = () => {
