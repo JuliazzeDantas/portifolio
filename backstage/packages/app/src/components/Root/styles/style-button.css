@@ -22,9 +22,9 @@
   /* filter: blur(0.5px); */
   /* Efeito engraved: sombra clara acima e escura abaixo para simular escultura interna */
     text-shadow:
-      0 0 15px #00fff7,
+      0 0 15px #d2f1f0,
       0 0 30px #00fff7,
-      0 0 60px #ffffff,
+      0 0 60px #01e6f6,
       0 0 80px #00fff7;
   /* Efeito de brilho esverdeado no texto */
    /* text-shadow: 0 0 2px rgb(255, 153, 247), 0 0 4px rgb(255, 207, 153), 0 0 8px rgb(11, 143, 1); */
@@ -43,10 +43,11 @@
 }
 
 .engraved-text {
-  background-color: #231101;
+  padding-right: 30px;
+  background-color: rgba(35, 17, 1, 0.8);
   -webkit-background-clip: text;
   color: transparent;
-  text-shadow: 3px 5px 1px rgba(181, 81, 41, 0.5);
+  text-shadow: 4px 0px 1px rgba(181, 81, 41, 0.4);
 }
 
 .sidebar-logo-root {
