@@ -154,9 +154,9 @@ export const CustomSignInPage = (props: SignInPageProps) => {
   // Gera partículas com raio, delay e velocidade dentro de intervalos definidos
   const minVelocity = 0.7;
   const particlesConfig = [
-    ...Array.from({ length: 50 }, () => ({
-      radius: Math.floor(Math.random() * 60) + 60,
-      delay: +(Math.random() * 6).toFixed(2),
+    ...Array.from({ length: 80 }, () => ({
+      radius: Math.floor(Math.random() * 9) + 12,
+      delay: -Math.abs(+(Math.random() * 15).toFixed(2)),
       velocity: +((Math.random() + minVelocity)* 6).toFixed(2),
     })),
   ];
@@ -201,7 +201,7 @@ export const CustomSignInPage = (props: SignInPageProps) => {
               style={{
                 ['--particle-velocity' as any]: `${p.velocity}s`,
                 animationDelay: `${p.delay}s`,
-                ['--particle-radius' as any]: `${p.radius}px`,
+                ['--particle-radius' as any]: `${p.radius}vmin`,
               }}
             />
           ))}
