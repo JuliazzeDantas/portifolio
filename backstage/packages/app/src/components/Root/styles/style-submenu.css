@@ -1,0 +1,73 @@
+
+@keyframes slideFromSidebar {
+    0% {
+        clip-path: inset(0 100% 0 0);
+    }
+    100% {
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+.submenu {
+    width: 350px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    left: 224px;
+    top: 0;
+    z-index: 100;
+    /* background-image: url('../images/SubmenuWood.png'); */
+    background-size: cover;
+    background-color: rgba(54, 27, 4, 0.0);
+    padding: 0.5rem 0;
+    animation: slideFromSidebar 0.5s ease-out forwards;
+    background-image: linear-gradient(to right, rgba(55, 250, 244, 0.7), transparent);
+
+    overflow: visible !important;
+}
+
+
+.submenu-item {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    background: transparent;
+    cursor: pointer;
+    text-align: left;
+    font-size: 35px;  
+    font-weight: bold;
+    font-family: sans-serif;
+
+    color: rgb(23, 23, 67);
+    
+    text-shadow:
+        0 0 15px rgb(222, 219, 244),
+        0 0 15px rgb(211, 206, 246),
+        0 0 15px rgb(192, 173, 249);
+
+    animation: float 2.5s ease-in-out infinite;
+}
+
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(8px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.submenu-item:hover {
+    animation: float 0s ease-in-out infinite;
+    box-shadow:
+        inset 0 0 10px 5px rgba(255, 255, 255, 0.3);
+    text-shadow:
+        0 0 15px rgb(86, 10, 249),
+        0 0 15px rgb(32, 5, 238),
+        0 0 15px rgb(21, 6, 226);
+}
