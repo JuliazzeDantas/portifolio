@@ -3,18 +3,18 @@ import { HomepageCompositionRoot } from '@backstage/plugin-home';
 import { Grid } from '@material-ui/core';
 import { useNavigate } from 'react-router-dom';
 
-import '../../core-styles/core-page.css';
+import '../../core/core-styles/core-page.css';
 import './styles/high-panel.css';
 import './styles/medium-panel.css';
 import './styles/low-panel.css';
 
+import { DefaultPage } from '../../core/DefaultPage';
 
 export const HomePage = () => {
   const navigate = useNavigate();
   return (
     <HomepageCompositionRoot>
-      <Grid container direction="column" className="container">
-        <div className='margin'> 
+      <DefaultPage titleHeader="Character Profile">
           <Grid item className="high-panel">
             <div className="photo-box"></div>
             <div className="basic-information">
@@ -60,8 +60,7 @@ export const HomePage = () => {
           <Grid item className="low-panel">
             Painel Inferior
           </Grid>
-        </div>
-      </Grid>
+      </DefaultPage>
     </HomepageCompositionRoot>
   );
 };
