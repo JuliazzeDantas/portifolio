@@ -1,7 +1,5 @@
 
 import React from 'react';
-import { Grid } from '@material-ui/core';
-import { UrlPatternDiscovery } from '@backstage/core-app-api';
 
 import '../../core/core-styles/core-page.css';
 import './styles/inventory.css';
