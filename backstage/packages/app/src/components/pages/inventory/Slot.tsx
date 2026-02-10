@@ -1,3 +1,5 @@
+import React from 'react';
+
 type Slot = {
     name?: string,
     image?: string, 
@@ -14,7 +16,7 @@ export const SlotInventory: React.FC<Slot> = ({name, image, aspectRatio}) => {
 	else {
 		return (
 			<div className='slot' style={{flexDirection:'column'}}>
-				<img className="item" src={image} style={{aspectRatio: `1 / ${aspectRatio}`}} />
+				<img className="item" src={image} alt={`Inventory item: ${name}`} style={{aspectRatio: `1 / ${aspectRatio}`}} />
 				<div className="item-label">{name}</div>
 			</div>
 		);

@@ -8,7 +8,7 @@
 
     background-color: transparent;
     border: 1.5px solid #000; /* cor e espessura da borda */
-    border-collapse: collapse;
+
     box-sizing: border-box;
 }
 
@@ -31,13 +31,11 @@
 
     object-fit: cover;
 
-    border: transparent
+    
 }
 
 .slot:hover .item {
     width: 90%;  
-    transform: translateY(-10%);
-
 
    animation: selectInventoryItem 0.8s linear infinite;
 }
