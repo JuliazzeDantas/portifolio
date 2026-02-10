@@ -1,0 +1,74 @@
+.slot {
+    width: 25%;
+    aspect-ratio: 1 / 1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: transparent;
+    border: 1.5px solid #000; /* cor e espessura da borda */
+
+    box-sizing: border-box;
+}
+
+.slot:hover {
+    border: 1.5px solid #000; /* cor e espessura da borda */
+    cursor: pointer; /* muda o cursor para indicar que é clicável */
+
+    box-shadow: 
+        inset 0px 0px 20px 7px rgba(247, 247, 247, 0.89);
+}
+
+.item {
+    /* position: center; */
+    width: 65%;  
+   
+
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    object-fit: cover;
+
+    
+}
+
+.slot:hover .item {
+    width: 90%;  
+
+   animation: selectInventoryItem 0.8s linear infinite;
+}
+
+@keyframes selectInventoryItem {
+    0% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(4deg);
+    }
+    50% {
+        transform: rotate(0deg);
+    }
+    75%{
+        transform: rotate(-4deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+.item-label {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+
+    color: #ffffff;
+}
+
+.slot:hover .item-label {
+    transform: translateY(-10%);
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+}

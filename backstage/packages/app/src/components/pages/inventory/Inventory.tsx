@@ -1,87 +1,49 @@
 
 import React from 'react';
-import { Grid } from '@material-ui/core';
 
-import '../../core-styles/core-page.css';
-import './styles/item.css'
+import '../../core/core-styles/core-page.css';
+import './styles/inventory.css';
 
-export const InventoryPage: React.FC = () => {
+import scroll from './images/scroll.png';
+import book from './images/book.png';
+
+import {SlotInventory} from './Slot';
+import { DefaultPage } from '../../core/DefaultPage';
+
+export const InventoryPage: React.FC= () => {
 	return (
-		<Grid container direction="column" className="container">
-		  	<div className='margin'>
+		<DefaultPage titleHeader="Inventory">
 				<div className='row' style={{ display: 'flex', flexDirection: 'row' }}>
-					<div className='item'>
-					</div>
-					<div className='item'>
-					</div>
-					<div className='item'>
-					</div>
-					<div className='item'>
-					</div>
+					<SlotInventory name="Scroll" image={scroll} aspectRatio={0.75} />
+					<SlotInventory name="Book" image={book} aspectRatio={0.6} />
+					<SlotInventory name="Scroll" image={scroll} aspectRatio={0.75} />
+					<SlotInventory />
+						
 				</div>
 				<div className='row' style={{ display: 'flex', flexDirection: 'row' }}>
-					<div className='item'>
-					</div>
-					<div className='item'>
-					</div>
-					<div className='item'>
-					</div>
-					<div className='item'>
-					</div>
+					<SlotInventory />
+					<SlotInventory />
+					<SlotInventory />
+					<SlotInventory />
 				</div>
 				<div className='row' style={{ display: 'flex', flexDirection: 'row' }}>
-					<div className='item'>
-					</div>
-					<div className='item'>
-					</div>
-					<div className='item'>
-					</div>
-					<div className='item'>
-					</div>
+					<SlotInventory />
+					<SlotInventory />
+					<SlotInventory />
+					<SlotInventory />
 				</div>
 				<div className='row' style={{ display: 'flex', flexDirection: 'row' }}>
-					<div className='item'>
-					</div>
-					<div className='item'>
-					</div>
-					<div className='item'>
-					</div>
-					<div className='item'>
-					</div>
+					<SlotInventory />
+					<SlotInventory />
+					<SlotInventory />
+					<SlotInventory />
 				</div>
 				<div className='row' style={{ display: 'flex', flexDirection: 'row' }}>
-					<div className='item'>
-					</div>
-					<div className='item'>
-					</div>
-					<div className='item'>
-					</div>
-					<div className='item'>
-					</div>
+					<SlotInventory />
+					<SlotInventory />
+					<SlotInventory />
+					<SlotInventory />
 				</div>
-				<div className='row' style={{ display: 'flex', flexDirection: 'row' }}>
-					<div className='item'>
-					</div>
-					<div className='item'>
-					</div>
-					<div className='item'>
-					</div>
-					<div className='item'>
-					</div>
-				</div>
-				<div className='row' style={{ display: 'flex', flexDirection: 'row' }}>
-					<div className='item'>
-					</div>
-					<div className='item'>
-					</div>
-					<div className='item'>
-					</div>
-					<div className='item'>
-					</div>
-				</div>
-				
-				
-			</div>
-		</Grid>
+		</DefaultPage>
 	);
 };

@@ -46,7 +46,7 @@
         0 0 15px rgb(211, 206, 246),
         0 0 15px rgb(192, 173, 249);
 
-    animation: float 2.5s ease-in-out infinite;
+    animation: float 2.5s linear infinite;
 }
 
 
