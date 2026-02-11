@@ -4,15 +4,16 @@
   left: -30px;
   display: flex;
   flex-direction: column;
-  align-items: center;
   margin: 0px auto 10px;
 
   
   font-size: 38px;  
   font-weight: bold;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  align-items: flex-start;
+  padding-left: 6%;
 
-  border:none;
+  border: none;
   transition: color 0.3s, text-shadow 0.3s;
 }
 
@@ -44,10 +45,10 @@
 
 .engraved-text {
   padding-right: 30px;
-  background-color: rgba(35, 17, 1, 0.8);
+  background-color: rgba(28, 14, 0, 0.7);
   -webkit-background-clip: text;
   color: transparent;
-  text-shadow: 4px 0px 1px rgba(181, 81, 41, 0.4);
+  text-shadow: 4px 0px 1px rgba(109, 74, 4, 0.466);
 }
 
 .sidebar-logo-root {
