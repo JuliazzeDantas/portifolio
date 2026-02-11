@@ -1,29 +1,20 @@
-import React, { PropsWithChildren } from 'react';
-import LogoFull from './LogoFull';
-import LogoIcon from './LogoIcon';
+import { PropsWithChildren } from 'react';
 import { SidebarSearchModal } from '@backstage/plugin-search';
 import {
   Sidebar,
   SidebarGroup,
   SidebarScrollWrapper,
   SidebarPage,
-  useSidebarOpenState,
-  Link,
 } from '@backstage/core-components';
 import SearchIcon from '@material-ui/icons/Search';
+
 import './styles/style-sidebar.css';
 import './styles/style-button.css';
 import './styles/style-submenu.css';
 
-
 import { SidebarButton } from './SidebarButton';
 import { BottomSection } from './BottomSection';
 import { SidebarLogo } from './SidebarLogo';
-
-
-
-
-
 
 export const CustomRoot = ({ children }: PropsWithChildren<{}>) => (
   <SidebarPage > 

@@ -1,5 +1,3 @@
-
-import { HomepageCompositionRoot } from '@backstage/plugin-home';
 import { Grid } from '@material-ui/core';
 import { useNavigate } from 'react-router-dom';
 

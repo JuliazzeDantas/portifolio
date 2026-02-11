@@ -1,9 +1,8 @@
-import React from 'react';
 import LogoFull from './LogoFull';
 import LogoIcon from './LogoIcon';
 import { Link, useSidebarOpenState } from '@backstage/core-components';
-import './styles/style-sidebar.css';
 
+import './styles/style-sidebar.css';
 
 export const SidebarLogo = () => {
   const { isOpen } = useSidebarOpenState();
