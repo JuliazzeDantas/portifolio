@@ -1,37 +1,35 @@
 .high-panel {
-  height: 15%;
+  height: auto;
+  min-height: 200px; /* altura mínima para accommodar o conteúdo */
+  width: 100%;
   box-sizing: border-box;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row; /* elementos lado a lado */
+  justify-content: flex-start;
   align-items: center;
   position: relative;
   z-index: 1;
-  
+  margin-bottom: 20px; /* espaçamento inferior para evitar sobreposição */
+  padding: 30px; /* espaçamento interno */
 }
 
 .photo-box {
-  position: absolute;
-    height: 150px;
-    width: 150px;
-  top: 30px;
-  left: 35px;
+  height: 150px;
+  width: 150px;
   border: 2px solid #000; /* cor e espessura da borda */
   background: transparent; /* centro transparente */
   box-sizing: border-box;
+  margin-right: 20px; /* espaçamento para a direita */
+  flex-shrink: 0; /* não encolher */
 }
 
 .basic-information{
-  position: absolute;
-  top: 10px;
-  left: 205px; 
-  
   background: transparent; /* centro transparente */
   box-sizing: border-box;
-  height: 150px;
-  width: 620px;
+  flex: 1; /* ocupa o espaço restante */
   /* TEXTO */
   color: #000;
   font-size: 1.3em;
   font-family: 'Cinzel', 'Times New Roman', Times, serif;
+  
 }

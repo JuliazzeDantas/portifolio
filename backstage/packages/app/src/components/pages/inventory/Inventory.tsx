@@ -13,6 +13,7 @@ import { DefaultPage } from '../../core/DefaultPage';
 export const InventoryPage: React.FC= () => {
 	return (
 		<DefaultPage titleHeader="Inventory">
+			<div className='inventory-container'>
 				<div className='row' style={{ display: 'flex', flexDirection: 'row' }}>
 					<SlotInventory name="Scroll" image={scroll} aspectRatio={0.75} />
 					<SlotInventory name="Book" image={book} aspectRatio={0.6} />
@@ -44,6 +45,19 @@ export const InventoryPage: React.FC= () => {
 					<SlotInventory />
 					<SlotInventory />
 				</div>
+				<div className='row' style={{ display: 'flex', flexDirection: 'row' }}>
+					<SlotInventory />
+					<SlotInventory />
+					<SlotInventory />
+					<SlotInventory />
+				</div>
+				<div className='row' style={{ display: 'flex', flexDirection: 'row' }}>
+					<SlotInventory />
+					<SlotInventory />
+					<SlotInventory />
+					<SlotInventory />
+				</div>
+			</div>
 		</DefaultPage>
 	);
 };
