@@ -1,0 +1,108 @@
+.float-window{
+    height: 80%;
+    width: 60%;
+    left: 27%;
+    top: 10%;
+    position: fixed;
+    
+    background-color: #e8dfd1;
+    border-radius: 2%;
+    border: 1px solid #473f3f;
+
+    /* padding: 20px; */
+    z-index: 1000;
+}
+
+.float-window-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #473f3f;
+
+    color: rgb(0, 0, 0, 1)
+}
+
+.float-window p{
+    padding: 20px;
+    font-size: 1.2em;
+    color: rgb(0, 0, 0, 0.8);
+
+    max-height: 60%;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(46, 22, 5, 0.8) transparent;
+}
+
+.float-window-bottom{
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    /* align-items: flex-end; */
+}
+
+.modal-orverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(0, 0, 0, 0.5);
+
+    z-index: 999;   
+}
+
+.float-window-status-completed {
+    position: absolute;
+    bottom: 2%;
+    right: 3%;
+    font-size: 1.3em;
+    color: rgb(1, 83, 1);
+    margin: 0;
+    text-shadow: 
+        0px 0px 5px rgb(0, 255, 0),
+        0px 0px 10px rgb(0, 255, 0),
+        0px 0px 20px rgb(0, 255, 0),
+        0px 0px 20px rgb(0, 255, 0),
+        0px 0px 20px rgb(0, 255, 0),
+        0px 0px 30px rgb(0, 255, 0);
+}
+
+.float-window-status-failed {
+    position: absolute;
+    bottom: 2%;
+    right: 3%;
+    font-size: 1.3em;
+    color: rgb(86, 0, 0);
+    margin: 0;
+    text-shadow: 
+        0px 0px 10px rgb(255, 0, 0),
+        0px 0px 10px rgb(255, 0, 0),
+        0px 0px 20px rgb(255, 0, 0),
+        0px 0px 20px rgb(255, 0, 0),
+        0px 0px 20px rgb(255, 0, 0),
+        0px 0px 20px rgb(255, 0, 0),
+        0px 0px 30px rgb(255, 0, 0);
+}
+
+.float-window-status-in-progress {
+    position: absolute;
+    bottom: 2%;
+    right: 3%;
+    font-size: 1.3em;
+    color: rgb(0, 2, 95);
+    margin: 0;
+    text-shadow: 
+        0px 0px 5px rgb(0, 0, 255),
+        0px 0px 10px rgb(0, 0, 255),
+        0px 0px 20px rgb(0, 0, 255),
+        0px 0px 20px rgb(0, 0, 255),
+        0px 0px 20px rgb(0, 0, 255),
+        0px 0px 30px rgb(0, 0, 255);
+}

@@ -44,6 +44,7 @@ import { SignalsDisplay } from '@backstage/plugin-signals';
 import { HomepageCompositionRoot } from '@backstage/plugin-home';
 import { HomePage } from './components/pages/home/HomePage';
 import { InventoryPage } from './components/pages/inventory/Inventory';
+import { QuestPage } from './components/pages/quests/PageQuests';
 
 const app = createApp({
   apis,
@@ -108,6 +109,7 @@ const routes = (
     <Route path="/catalog-graph" element={<CatalogGraphPage />} />
     <Route path="/notifications" element={<NotificationsPage />} />
     <Route path="/inventory" element={<InventoryPage />} />
+    <Route path="/quests" element={<QuestPage />} />
   </FlatRoutes>
 );
 
