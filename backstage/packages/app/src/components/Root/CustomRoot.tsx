@@ -29,6 +29,8 @@ export const CustomRoot = ({ children }: PropsWithChildren<{}>) => (
             <SidebarButton path="/home" text="Character" />
             <SidebarButton path="/inventory" text="Inventory" />
             <SidebarButton path="/catalog" text="Skills" submenu={[{to: '/home', label: 'Webscrapping'}, {to: '/home', label: 'APIs'}, {to: '/home', label: 'CI/CD'}, {to: '/home', label: 'Kubernetes'}]} />
+            <SidebarButton path="/quests" text="Quests" />
+            <SidebarButton path="/invocation" text="Invocation" />
             <SidebarButton path="/docs" text="Docs" />
             <SidebarScrollWrapper>
               {/* Items in this group will be scrollable if they run out of space */}

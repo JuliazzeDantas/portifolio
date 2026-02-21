@@ -10,7 +10,7 @@ import book from './images/book.png';
 import {SlotInventory} from './Slot';
 import { DefaultPage } from '../../core/DefaultPage';
 
-export const InventoryPage: React.FC= () => {
+export const InventoryPage: React.FC= () => { 
 	return (
 		<DefaultPage titleHeader="Inventory">
 			<div className='inventory-container'>

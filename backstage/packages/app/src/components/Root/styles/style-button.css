@@ -5,8 +5,7 @@
   display: flex;
   flex-direction: column;
   margin: 0px auto 10px;
-
-  
+    
   font-size: 38px;  
   font-weight: bold;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -15,6 +14,7 @@
 
   border: none;
   transition: color 0.3s, text-shadow 0.3s;
+  cursor: pointer;
 }
 
 .button:hover {
@@ -48,7 +48,7 @@
   background-color: rgba(28, 14, 0, 0.7);
   -webkit-background-clip: text;
   color: transparent;
-  text-shadow: 4px 0px 1px rgba(109, 74, 4, 0.466);
+  text-shadow: 4.5px 0px 1px rgba(88, 48, 8, 0.466);
 }
 
 .sidebar-logo-root {
