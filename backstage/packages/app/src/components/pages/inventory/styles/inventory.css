@@ -74,7 +74,7 @@
 }
 
 .item-label {
-    font-size: 18px;
+    font-size: 3vh;
     font-weight: bold;
     text-align: center;
 
@@ -83,7 +83,7 @@
 
 .slot:hover .item-label {
     transform: translateY(-10%);
-    font-size: 32px;
+    font-size: 4.3vh;
     font-weight: bold;
     text-align: center;
 }
