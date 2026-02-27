@@ -1,0 +1,19 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: degree-bachelor-science-and-technology
+  title: Degree
+  description: Representation of a degree in Bachelor of Science and Technology.
+  tags:
+    - degree
+    - computer-science
+    - math
+    - physics
+spec:
+  type: inventory
+  owner: group:default/unifesp
+  dependencyOff:
+    - user:default/vinicius-juliasse-dantas
+  links:
+    - url: https://unifesp.br/campus/sjc/
+      title: Site

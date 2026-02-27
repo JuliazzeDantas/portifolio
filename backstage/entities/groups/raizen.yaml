@@ -1,0 +1,12 @@
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: raizen
+  title: Raízen
+  description: Group representing Raízen.
+  tags:
+    - company
+    - data
+spec:
+  type: job
+  children: []

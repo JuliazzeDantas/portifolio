@@ -1,0 +1,10 @@
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  name: vinicius-juliasse-dantas
+  title: Vinícius Juliasse Dantas
+spec:
+  profile:
+    displayName: Vinícius Juliasse Dantas
+    email: juliassedantas@gmail.com
+  memberOf: [group:default/unifesp, group:default/raizen, group:default/course]

@@ -1,0 +1,18 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: kubernetes-course
+  title: Kubernetes
+  description: Representation of a Kubernetes course.
+  tags:
+    - course
+    - devops
+    - kubernetes
+spec:
+  type: inventory
+  owner: group:default/course
+  dependencyOff:
+    - user:default/vinicius-juliasse-dantas
+  links:
+    - url: https://www.udemy.com/course/kubernetes-power-profissional-formacao-inicial-completa/
+      title: Udemy Course
