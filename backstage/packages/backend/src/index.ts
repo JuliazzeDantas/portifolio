@@ -1,12 +1,6 @@
-/*
- * Hi!
- *
- * Note that this is an EXAMPLE Backstage backend. Please check the README.
- *
- * Happy hacking!
- */
-
 import { createBackend } from '@backstage/backend-defaults';
+
+// import { Teste } from '../../plugins/table-inventory-generator-backend/src/services/Teste1';
 
 const backend = createBackend();
 
@@ -63,4 +57,9 @@ backend.add(import('@backstage/plugin-kubernetes-backend'));
 backend.add(import('@backstage/plugin-notifications-backend'));
 backend.add(import('@backstage/plugin-signals-backend'));
 
+// Custom Plugins
+// backend.add(Teste); // Testes
+
+
 backend.start();
+ 

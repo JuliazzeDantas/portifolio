@@ -3,7 +3,6 @@ import { SidebarSearchModal } from '@backstage/plugin-search';
 import {
   Sidebar,
   SidebarGroup,
-  SidebarScrollWrapper,
   SidebarPage,
 } from '@backstage/core-components';
 import SearchIcon from '@material-ui/icons/Search';
@@ -32,9 +31,7 @@ export const CustomRoot = ({ children }: PropsWithChildren<{}>) => (
             <SidebarButton path="/quests" text="Quests" />
             <SidebarButton path="/invocation" text="Invocation" />
             <SidebarButton path="/docs" text="Docs" />
-            <SidebarScrollWrapper>
-              {/* Items in this group will be scrollable if they run out of space */}
-            </SidebarScrollWrapper>
+            <SidebarButton path="/catalog" text="Catalog" />
           </SidebarGroup>
           <BottomSection>
             <hr className={"sidebar-divider"}/>

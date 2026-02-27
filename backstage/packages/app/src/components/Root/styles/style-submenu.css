@@ -24,8 +24,6 @@
     padding: 0.5rem 0;
     animation: slideFromSidebar 0.5s ease-out forwards;
     background-image: linear-gradient(to right, rgba(55, 250, 244, 0.7), transparent);
-
-    overflow: visible !important;
 }
 
 
