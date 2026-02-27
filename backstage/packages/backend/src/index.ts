@@ -58,8 +58,6 @@ backend.add(import('@backstage/plugin-notifications-backend'));
 backend.add(import('@backstage/plugin-signals-backend'));
 
 // Custom Plugins
-// backend.add(Teste); // Testes
-
 
 backend.start();
  
