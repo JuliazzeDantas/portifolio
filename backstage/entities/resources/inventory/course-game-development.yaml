@@ -1,0 +1,19 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: game-development-course
+  title: Game Development
+  description: Representation of a game development course.
+  tags:
+    - course
+    - game-development
+    - programming
+    - udemy
+spec:
+  type: inventory
+  owner: user:default/vinicius-juliasse-dantas
+  dependsOn:
+    - group:default/course
+  links:
+    - url: https://www.udemy.com/course/o-guia-definitivo-para-desenvolvimento-de-jogos-com-unity/
+      title: Udemy Course

@@ -1,0 +1,12 @@
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: course
+  title: Course
+  description: Group representing courses completed
+  tags:
+    - course
+    - udemy
+spec:
+  type: study
+  children: []

@@ -1,0 +1,14 @@
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: unifesp
+  title: UNIFESP
+  description: Group representing the Federal University of São Paulo (UNIFESP).
+  tags:
+    - math
+    - physics
+    - computer-science
+    - university
+spec:
+  type: study
+  children: []

@@ -10,7 +10,7 @@ spec:
   - ./components/*.yaml
   # - ./domains/*.yaml
   - ./groups/*.yaml
-  # - ./resources/workspace-databricks/*.yaml
+  - ./resources/inventory/*.yaml
   # - ./systems/*.yaml
   # - ./templates/*.yaml
-  #- ./users/*.yaml
+  - ./users/*.yaml
