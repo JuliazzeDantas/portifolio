@@ -52,6 +52,63 @@ export const HomePage = () => {
               <button className='project-button' onClick={() => navigate('/catalog')}>FastAPI</button>
               <div className='project-description'>Project 1 -----------------------------------dasdiosajfiosjafiojsafoisjdfoisjdoij</div>
             </div>  
+            <div className='project-row'>
+              <button className='project-button' onClick={() => navigate('/catalog')}>FastAPI</button>
+              <div className='project-description'>Project 1 -----------------------------------dasdiosajfiosjafiojsafoisjdfoisjdoij</div>
+            </div> 
+            <div className='project-row'>
+              <button className='project-button' onClick={() => navigate('/catalog')}>FastAPI</button>
+              <div className='project-description'>Project 1 -----------------------------------dasdiosajfiosjafiojsafoisjdfoisjdoij</div>
+            </div> 
+            <div className='project-row'>
+              <button className='project-button' onClick={() => navigate('/catalog')}>FastAPI</button>
+              <div className='project-description'>Project 1 -----------------------------------dasdiosajfiosjafiojsafoisjdfoisjdoij</div>
+            </div> 
+            <div className='project-row'>
+              <button className='project-button' onClick={() => navigate('/catalog')}>FastAPI</button>
+              <div className='project-description'>Project 1 -----------------------------------dasdiosajfiosjafiojsafoisjdfoisjdoij</div>
+            </div> 
+            <div className='project-row'>
+              <button className='project-button' onClick={() => navigate('/catalog')}>FastAPI</button>
+              <div className='project-description'>Project 1 -----------------------------------dasdiosajfiosjafiojsafoisjdfoisjdoij</div>
+            </div> 
+            <div className='project-row'>
+              <button className='project-button' onClick={() => navigate('/catalog')}>FastAPI</button>
+              <div className='project-description'>Project 1 -----------------------------------dasdiosajfiosjafiojsafoisjdfoisjdoij</div>
+            </div> 
+            <div className='project-row'>
+              <button className='project-button' onClick={() => navigate('/catalog')}>FastAPI</button>
+              <div className='project-description'>Project 1 -----------------------------------dasdiosajfiosjafiojsafoisjdfoisjdoij</div>
+            </div> 
+            <div className='project-row'>
+              <button className='project-button' onClick={() => navigate('/catalog')}>FastAPI</button>
+              <div className='project-description'>Project 1 -----------------------------------dasdiosajfiosjafiojsafoisjdfoisjdoij</div>
+            </div> 
+            <div className='project-row'>
+              <button className='project-button' onClick={() => navigate('/catalog')}>FastAPI</button>
+              <div className='project-description'>Project 1 -----------------------------------dasdiosajfiosjafiojsafoisjdfoisjdoij</div>
+            </div> 
+            <div className='project-row'>
+              <button className='project-button' onClick={() => navigate('/catalog')}>FastAPI</button>
+              <div className='project-description'>Project 1 -----------------------------------dasdiosajfiosjafiojsafoisjdfoisjdoij</div>
+            </div> 
+            <div className='project-row'>
+              <button className='project-button' onClick={() => navigate('/catalog')}>FastAPI</button>
+              <div className='project-description'>Project 1 -----------------------------------dasdiosajfiosjafiojsafoisjdfoisjdoij</div>
+            </div> 
+            <div className='project-row'>
+              <button className='project-button' onClick={() => navigate('/catalog')}>FastAPI</button>
+              <div className='project-description'>Project 1 -----------------------------------dasdiosajfiosjafiojsafoisjdfoisjdoij</div>
+            </div> 
+            <div className='project-row'>
+              <button className='project-button' onClick={() => navigate('/catalog')}>FastAPI</button>
+              <div className='project-description'>Project 1 -----------------------------------dasdiosajfiosjafiojsafoisjdfoisjdoij</div>
+            </div> 
+            <div className='project-row'>
+              <button className='project-button' onClick={() => navigate('/catalog')}>FastAPI</button>
+              <div className='project-description'>Project 1 -----------------------------------dasdiosajfiosjafiojsafoisjdfoisjdoij</div>
+            </div> 
+            
           </div>
         </Grid>
     </DefaultPage>

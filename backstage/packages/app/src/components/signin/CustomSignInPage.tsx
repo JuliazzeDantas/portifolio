@@ -2,6 +2,7 @@ import { SignInPage } from '@backstage/core-components';
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid, Typography, Button } from '@material-ui/core';
 import { ComponentProps, useRef } from 'react';
+import { useNavigate } from 'react-router';
 
 import adventureLoginPanel from './images/adventureLogin.png';
 import scrollPanel from './images/scrollPanel.png';

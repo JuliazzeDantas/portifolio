@@ -1,7 +1,7 @@
 
 
 import React from 'react';
-import { SkillsSubmenu } from './CustomSubmenu';
+import { CustomSubmenu } from './CustomSubmenu';
 import { useNavigate } from 'react-router-dom';
 import './styles/style-button.css';
 
@@ -30,7 +30,7 @@ export const SidebarButton = ({path, text, submenu = [] }: {path: string, text: 
         </button>
         {submenuOpen && (
           <div>
-            <SkillsSubmenu submenu={submenu}/>
+            <CustomSubmenu submenu={submenu}/>
           </div>
         )}
       </div>

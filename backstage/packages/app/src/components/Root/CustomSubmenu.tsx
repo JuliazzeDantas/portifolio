@@ -2,13 +2,16 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './styles/style-submenu.css';
 
-type Item = { to: string; label: string };
+type Item = { 
+  to: string; 
+  label: string 
+};
 
-type SkillsSubmenuProps = {
+type CustomSubmenuProps = {
   submenu?: Item[];
 };
 
-export const SkillsSubmenu: React.FC<SkillsSubmenuProps> = ({ submenu = [] }) => {
+export const CustomSubmenu: React.FC<CustomSubmenuProps> = ({ submenu = [] }: CustomSubmenuProps) => {
   const navigate = useNavigate();
   return (
     <div className="submenu">

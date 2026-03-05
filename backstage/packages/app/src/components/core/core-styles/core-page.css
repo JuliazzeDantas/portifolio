@@ -1,42 +1,44 @@
-
-
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
 
 .container {
     width: 100%;
-    min-height: 100vh; /* Ocupa pelo menos toda a altura da tela */
-    height: 100%; /* Ocupa 100% da altura do pai se disponível */
-    
+    min-height: 103vh;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     align-items: stretch;
     position: relative;
-    padding-bottom: 20px; /* espaçamento inferior */
+    padding: 2% 4%;
+    box-sizing: border-box;
 
     background-color: rgb(249, 220, 187);
     background-image: url('../images/paper.png'); 
     background-repeat: no-repeat;
-    background-size: 100% 100%; /* Estica a imagem para cobrir largura e altura exatas */
+    background-size: 100% 100%;
     background-position: center;
-    background-attachment: fixed; /* Imagem fixa como na sidebar */
+    background-attachment: fixed;
 
     box-shadow: 
         inset 30px 0px 30px 0px rgba(15, 8, 1, 0.877),
         inset 0px 0px 50px 0px rgba(55, 29, 7, 0.864);
+
 }
 
 
 .margin {
-  position: absolute;
-
-  top: 2%;
-  left: 4%;
-  right: 4%;
-  bottom: 2%;
-  border: 2px solid #000; /* cor e espessura da borda */
+  flex: 1;
+  overflow: visible;
+  border: 2px solid #000;
   border-collapse: collapse;
-  background: transparent; /* centro transparente */
+  background: transparent;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
 }
 
 .header {
