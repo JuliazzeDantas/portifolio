@@ -3,9 +3,11 @@
 
 .container {
     width: 100%;
+    max-width: 100%;
     min-height: 100vh; /* Ocupa pelo menos toda a altura da tela */
-    height: 100%; /* Ocupa 100% da altura do pai se disponível */
-    
+    height: 101vh; /* Ocupa 100% da altura do pai se disponível */
+       
+
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
