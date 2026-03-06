@@ -34,24 +34,54 @@ export const HomePage = () => {
             <div className="attribute-body">Back-end: FastAPI</div>
             <div className="attribute-body">Infra: Kubernetes </div>
           </div>
-          <div className="project-box">
-            <div className='project-title'>Type of Magics</div>
-            <div className='project-row'>
-              <button className='project-button'>Web Scraping</button>
-              <div className='project-description'>Project 1 -----------------------------------dasdiosajfiosjafiojsafoisjdfoisjdoij</div>
+          <div className="magic-box">
+            <div className='magic-title'>Type of Magics</div>
+            <div className='magic-body'>
+              <div className='magic-row'>
+                <button className='magic-button'>Web Scraping</button>
+                <div className='magic-description'>Project 1 -----------------------------------dasdiosajfiosjafiojsafoisjdfoisjdoij</div>
+              </div>
+              <div className='magic-row'>
+                <button className='magic-button'>Kubernetes</button>
+                <div className='magic-description'>Project 1 -----------------------------------dasdiosajfiosjafiojsafoisjdfoisjdoij</div>
+              </div>
+              <div className='magic-row'>
+                <button className='magic-button'>CI/CD</button>
+                <div className='magic-description'>Project 1 -----------------------------------dasdiosajfiosjafiojsafoisjdfoisjdoij</div>
+              </div>
+              <div className='magic-row'>
+                <button className='magic-button' onClick={() => navigate('/catalog')}>FastAPI</button>
+                <div className='magic-description'>Project 1 -----------------------------------dasdiosajfiosjafiojsafoisjdfoisjdoij</div>
+              </div>  
+              <div className='magic-row'>
+                <button className='magic-button' onClick={() => navigate('/catalog')}>FastAPI</button>
+                <div className='magic-description'>Project 1 -----------------------------------dasdiosajfiosjafiojsafoisjdfoisjdoij</div>
+              </div>  
+              <div className='magic-row'>
+                <button className='magic-button' onClick={() => navigate('/catalog')}>FastAPI</button>
+                <div className='magic-description'>Project 1 -----------------------------------dasdiosajfiosjafiojsafoisjdfoisjdoij</div>
+              </div>  
+              <div className='magic-row'>
+                <button className='magic-button' onClick={() => navigate('/catalog')}>FastAPI</button>
+                <div className='magic-description'>Project 1 -----------------------------------dasdiosajfiosjafiojsafoisjdfoisjdoij</div>
+              </div>  
+              <div className='magic-row'>
+                <button className='magic-button' onClick={() => navigate('/catalog')}>FastAPI</button>
+                <div className='magic-description'>Project 1 -----------------------------------dasdiosajfiosjafiojsafoisjdfoisjdoij</div>
+              </div>  
+              <div className='magic-row'>
+                <button className='magic-button' onClick={() => navigate('/catalog')}>FastAPI</button>
+                <div className='magic-description'>Project 1 -----------------------------------dasdiosajfiosjafiojsafoisjdfoisjdoij</div>
+              </div>  
+              <div className='magic-row'>
+                <button className='magic-button' onClick={() => navigate('/catalog')}>FastAPI</button>
+                <div className='magic-description'>Project 1 -----------------------------------dasdiosajfiosjafiojsafoisjdfoisjdoij</div>
+              </div>  
+              <div className='magic-row'>
+                <button className='magic-button' onClick={() => navigate('/catalog')}>FastAPI</button>
+                <div className='magic-description'>Project 1 -----------------------------------dasdiosajfiosjafiojsafoisjdfoisjdoij</div>
+              </div>  
             </div>
-            <div className='project-row'>
-              <button className='project-button'>Kubernetes</button>
-              <div className='project-description'>Project 1 -----------------------------------dasdiosajfiosjafiojsafoisjdfoisjdoij</div>
-            </div>
-            <div className='project-row'>
-              <button className='project-button'>CI/CD</button>
-              <div className='project-description'>Project 1 -----------------------------------dasdiosajfiosjafiojsafoisjdfoisjdoij</div>
-            </div>
-            <div className='project-row'>
-              <button className='project-button' onClick={() => navigate('/catalog')}>FastAPI</button>
-              <div className='project-description'>Project 1 -----------------------------------dasdiosajfiosjafiojsafoisjdfoisjdoij</div>
-            </div>  
           </div>
         </Grid>
     </DefaultPage>
