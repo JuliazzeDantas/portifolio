@@ -8,9 +8,9 @@ spec:
   targets:
   # - ./apis/*.yaml
   - ./components/*.yaml
-  # - ./domains/*.yaml
+  - ./domains/*.yaml
   - ./groups/*.yaml
   - ./resources/inventory/*.yaml
-  # - ./systems/*.yaml
+  - ./systems/*.yaml
   # - ./templates/*.yaml
   - ./users/*.yaml

@@ -1,0 +1,15 @@
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: knowledge
+  title: Knowledge
+  description: Group representing all knowledge acquired.
+  tags:
+    - tech
+    - knowledge
+    - data-engineering
+    - devops
+    - development
+spec:
+  type: knowledge
+  children: []
