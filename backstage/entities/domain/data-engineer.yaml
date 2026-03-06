@@ -1,0 +1,8 @@
+apiVersion: backstage.io/v1alpha1
+kind: Domain
+metadata:
+  name: data-engineering
+  title: Data Engineering
+  description: All the magic of data engineering
+spec:
+  owner: group:default/knowledge

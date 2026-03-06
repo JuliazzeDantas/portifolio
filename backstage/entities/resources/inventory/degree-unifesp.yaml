@@ -11,9 +11,9 @@ metadata:
     - physics
 spec:
   type: inventory
-  owner: group:default/unifesp
+  owner: user:default/vinicius-juliasse-dantas
   dependencyOff:
-    - user:default/vinicius-juliasse-dantas
+    - group:default/unifesp
   links:
     - url: https://unifesp.br/campus/sjc/
       title: Site

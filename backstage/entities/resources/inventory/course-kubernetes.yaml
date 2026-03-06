@@ -10,9 +10,9 @@ metadata:
     - kubernetes
 spec:
   type: inventory
-  owner: group:default/course
+  owner: user:default/vinicius-juliasse-dantas
   dependencyOff:
-    - user:default/vinicius-juliasse-dantas
+    - group:default/course
   links:
     - url: https://www.udemy.com/course/kubernetes-power-profissional-formacao-inicial-completa/
       title: Udemy Course

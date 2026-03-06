@@ -11,9 +11,9 @@ metadata:
     - udemy
 spec:
   type: inventory
-  owner: group:default/course
+  owner: user:default/vinicius-juliasse-dantas
   dependencyOff:
-    - user:default/vinicius-juliasse-dantas
+    - group:default/course
   links:
     - url: https://www.udemy.com/course/o-guia-definitivo-para-desenvolvimento-de-jogos-com-unity/
       title: Udemy Course

@@ -106,6 +106,7 @@ const routes = (
       {searchPage}
     </Route>
     <Route path="/settings" element={<UserSettingsPage />} />
+    <Route path="/catalog" element={<CatalogIndexPage />} />
     <Route path="/catalog-graph" element={<CatalogGraphPage />} />
     <Route path="/notifications" element={<NotificationsPage />} />
     <Route path="/inventory" element={<InventoryPage />} />

@@ -6,6 +6,9 @@ organization:
   name: My Company
 
 backend:
+  auth:
+    dangerouslyDisableDefaultAuthPolicy: true
+
   # Used for enabling authentication, secret is shared by all backend plugins
   # See https://backstage.io/docs/auth/service-to-service-auth for
   # information on the format
@@ -76,23 +79,23 @@ catalog:
     entityFilename: catalog-info.yaml
     pullRequestBranchName: backstage-integration
   rules:
-    - allow: [Component, System, API, Resource, Location]
+  - allow: [API, Component, Domain, Group, System, Template, Resource, Location, User]  
   locations:
     # Local example data, file locations are relative to the backend process, typically `packages/backend`
     - type: file
-      target: ../../examples/entities.yaml
+      target: ../../entities/locations.yaml
 
-    # Local example template
-    - type: file
-      target: ../../examples/template/template.yaml
-      rules:
-        - allow: [Template]
+    # # Local example template
+    # - type: file
+    #   target: ../../examples/template/template.yaml
+    #   rules:
+    #     - allow: [Template]
 
-    # Local example organizational data
-    - type: file
-      target: ../../examples/org.yaml
-      rules:
-        - allow: [User, Group]
+    # # Local example organizational data
+    # - type: file
+    #   target: ../../examples/org.yaml
+    #   rules:
+    #     - allow: [User, Group]
 
     ## Uncomment these lines to add more example data
     # - type: url

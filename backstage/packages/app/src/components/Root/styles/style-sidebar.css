@@ -13,7 +13,6 @@
   box-shadow:  
     inset -12px 0px 10px -1px rgba(54, 27, 4, 0.8),
     inset -20px 0px 20px -5px rgba(96, 56, 23, 0.6);
-  overflow: visible !important;
 }
 
 .sidebar-divider {

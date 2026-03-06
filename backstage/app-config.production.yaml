@@ -3,6 +3,8 @@ app:
   baseUrl: http://localhost:7007
 
 backend:
+  auth:
+    dangerouslyDisableDefaultAuthPolicy: true
   # Note that the baseUrl should be the URL that the browser and other clients
   # should use when communicating with the backend, i.e. it needs to be
   # reachable not just from within the backend host, but from all of your
@@ -33,6 +35,8 @@ auth:
     guest: {}
 
 catalog:
+  rules:
+  - allow: [API, Component, Domain, Group, System, Template, Resource, Location, User]  
   # Overrides the default list locations from app-config.yaml as these contain example data.
   # See https://backstage.io/docs/features/software-catalog/#adding-components-to-the-catalog for more details
   # on how to get entities into the catalog.
@@ -40,16 +44,16 @@ catalog:
     # Local example data, replace this with your production config, these are intended for demo use only.
     # File locations are relative to the backend process, typically in a deployed context, such as in a Docker container, this will be the root
     - type: file
-      target: ./examples/entities.yaml
+      target: ../../entities/locations.yaml
 
-    # Local example template
-    - type: file
-      target: ./examples/template/template.yaml
-      rules:
-        - allow: [Template]
+    # # Local example template
+    # - type: file
+    #   target: ./examples/template/template.yaml
+    #   rules:
+    #     - allow: [Template]
 
-    # Local example organizational data
-    - type: file
-      target: ./examples/org.yaml
-      rules:
-        - allow: [User, Group]
+    # # Local example organizational data
+    # - type: file
+    #   target: ./examples/org.yaml
+    #   rules:
+    #     - allow: [User, Group]
