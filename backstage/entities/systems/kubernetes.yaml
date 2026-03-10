@@ -1,0 +1,13 @@
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: kubernetes
+  title: Kubernetes
+  description: Kubernetes system for container orchestration
+  tags:
+    - container-orchestration 
+    - security
+spec:
+  owner: user:default/vinicius-juliasse-dantas
+  domain: domain:default/devops-engineering
+  type: skill

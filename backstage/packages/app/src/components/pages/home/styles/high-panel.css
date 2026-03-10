@@ -9,8 +9,6 @@
   align-items: center;
   position: relative;
   z-index: 1;
-  margin-bottom: 20px; /* espaçamento inferior para evitar sobreposição */
-  padding: 30px; /* espaçamento interno */
 }
 
 .photo-box {
@@ -19,7 +17,8 @@
   border: 2px solid #000; /* cor e espessura da borda */
   background: transparent; /* centro transparente */
   box-sizing: border-box;
-  margin-right: 20px; /* espaçamento para a direita */
+  margin-left: 2vw; /* espaçamento para a direita */
+  margin-top: 0px; /* espaçamento superior */
   flex-shrink: 0; /* não encolher */
 }
 

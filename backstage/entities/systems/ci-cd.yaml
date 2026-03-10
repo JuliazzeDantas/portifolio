@@ -1,0 +1,14 @@
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: ci-cd
+  title: CI/CD
+  description: Continuous Integration and Continuous Deployment
+  tags:
+    - github-actions
+    - ci-cd
+    - automation
+spec:
+  owner: user:default/vinicius-juliasse-dantas
+  domain: domain:default/devops-engineering
+  type: skill

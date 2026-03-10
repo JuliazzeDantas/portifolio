@@ -6,14 +6,13 @@
     max-width: 100%;
     min-height: 100vh; /* Ocupa pelo menos toda a altura da tela */
     height: 101vh; /* Ocupa 100% da altura do pai se disponível */
-       
 
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     align-items: stretch;
     position: relative;
-    padding-bottom: 20px; /* espaçamento inferior */
+    padding-bottom: 1%; /* espaçamento inferior */
 
     background-color: rgb(249, 220, 187);
     background-image: url('../images/paper.png'); 
@@ -39,6 +38,9 @@
   border-collapse: collapse;
   background: transparent; /* centro transparente */
   box-sizing: border-box;
+
+  flex-direction: column; /* Organiza os filhos em coluna */
+  overflow: hidden; /* Esconde qualquer conteúdo que ultrapasse os limites da borda */
 }
 
 .header {
@@ -54,9 +56,12 @@
 
     justify-content: center;
     align-items: center;
-    font-size: 38px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #000;
+    font-size: 2.7em;
+    font-family: 'Cinzel', 'Times New Roman', Times, serif;
+   
 }
+
 
 
 
