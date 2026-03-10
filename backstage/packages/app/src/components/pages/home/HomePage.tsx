@@ -33,26 +33,28 @@ export const HomePage = () => {
           <div className="attribute-box">
             <div className="attribute-title">Attributes</div>
             <div className="attribute-body">
-              <h1>Languages: </h1>
-              <p>Python</p>
-              <p>Java</p>
-              <p>TypeScript</p>
-            </div>
-            <div className="attribute-body">
-              <h1>Front-end:</h1>
-              <p>React</p>
-            </div>
-            <div className="attribute-body">
-              <h1>Back-end:</h1>
-              <p>FastAPI</p>
-            </div>
-            <div className="attribute-body">
-              <h1>DevOps:</h1>
-              <p>Kubernetes</p>
-              <p>Docker</p>
-              <p>Azure</p>
-              <p>CI/CD (GitHub Actions)</p>
-              <p>Grafana/Prometheus</p>
+              <div className="attribute-item">
+                <h1>Languages: </h1>
+                <p>Python</p>
+                <p>Java</p>
+                <p>TypeScript</p>
+              </div>
+              <div className="attribute-item">
+                <h1>Front-end:</h1>
+                <p>React</p>
+              </div>
+              <div className="attribute-item">
+                <h1>Back-end:</h1>
+                <p>FastAPI</p>
+              </div>
+              <div className="attribute-item">
+                <h1>DevOps:</h1>
+                <p>Kubernetes</p>
+                <p>Docker</p>
+                <p>Azure</p>
+                <p>CI/CD (GitHub Actions)</p>
+                <p>Grafana/Prometheus</p>
+              </div>
             </div>
           </div>
           <div className="skill-box">
