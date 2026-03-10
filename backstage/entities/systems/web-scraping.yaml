@@ -10,4 +10,6 @@ metadata:
     - python
 spec:
   owner: user:default/vinicius-juliasse-dantas
+  domain: domain:default/data-engineering
+  type: skill
   

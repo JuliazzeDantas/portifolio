@@ -1,0 +1,8 @@
+apiVersion: backstage.io/v1alpha1
+kind: Domain
+metadata:
+  name: software-engineering
+  title: Software Engineering
+  description: All the magic of software engineering
+spec:
+  owner: group:default/knowledge

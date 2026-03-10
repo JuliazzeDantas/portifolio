@@ -1,19 +1,22 @@
 import { Grid } from '@material-ui/core';
-import { useNavigate } from 'react-router-dom';
 
 import '../../core/core-styles/core-page.css';
 import './styles/high-panel.css';
 import './styles/medium-panel.css';
 import './styles/low-panel.css';
 
+import photo from './images/profile2.png'
+
 import { DefaultPage } from '../../core/DefaultPage';
+import { SkillTypeGenerator } from './SkillTypeGenerator';
 
 export const HomePage = () => {
-  const navigate = useNavigate();
   return (
     <DefaultPage titleHeader="Character Profile">
       <Grid item className="high-panel">
-          <div className="photo-box"></div>
+          <div className="photo-box" >
+            <img src={photo} alt="Profile" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+          </div>
           <div className="basic-information">
             <ul>
               <li key="name" >Name: Vinícius Juliasse Dantas</li>
@@ -29,58 +32,33 @@ export const HomePage = () => {
         <Grid item className="medium-panel">
           <div className="attribute-box">
             <div className="attribute-title">Attributes</div>
-            <div className="attribute-body">Languages: Python, Typescript, Java</div>
-            <div className="attribute-body">Front-end: React</div>
-            <div className="attribute-body">Back-end: FastAPI</div>
-            <div className="attribute-body">Infra: Kubernetes </div>
+            <div className="attribute-body">
+              <h1>Languages: </h1>
+              <p>Python</p>
+              <p>Java</p>
+              <p>TypeScript</p>
+            </div>
+            <div className="attribute-body">
+              <h1>Front-end:</h1>
+              <p>React</p>
+            </div>
+            <div className="attribute-body">
+              <h1>Back-end:</h1>
+              <p>FastAPI</p>
+            </div>
+            <div className="attribute-body">
+              <h1>DevOps:</h1>
+              <p>Kubernetes</p>
+              <p>Docker</p>
+              <p>Azure</p>
+              <p>CI/CD (GitHub Actions)</p>
+              <p>Grafana/Prometheus</p>
+            </div>
           </div>
-          <div className="magic-box">
-            <div className='magic-title'>Type of Magics</div>
-            <div className='magic-body'>
-              <div className='magic-row'>
-                <button className='magic-button'>Web Scraping</button>
-                <div className='magic-description'>Project 1 -----------------------------------dasdiosajfiosjafiojsafoisjdfoisjdoij</div>
-              </div>
-              <div className='magic-row'>
-                <button className='magic-button'>Kubernetes</button>
-                <div className='magic-description'>Project 1 -----------------------------------dasdiosajfiosjafiojsafoisjdfoisjdoij</div>
-              </div>
-              <div className='magic-row'>
-                <button className='magic-button'>CI/CD</button>
-                <div className='magic-description'>Project 1 -----------------------------------dasdiosajfiosjafiojsafoisjdfoisjdoij</div>
-              </div>
-              <div className='magic-row'>
-                <button className='magic-button' onClick={() => navigate('/catalog')}>FastAPI</button>
-                <div className='magic-description'>Project 1 -----------------------------------dasdiosajfiosjafiojsafoisjdfoisjdoij</div>
-              </div>  
-              <div className='magic-row'>
-                <button className='magic-button' onClick={() => navigate('/catalog')}>FastAPI</button>
-                <div className='magic-description'>Project 1 -----------------------------------dasdiosajfiosjafiojsafoisjdfoisjdoij</div>
-              </div>  
-              <div className='magic-row'>
-                <button className='magic-button' onClick={() => navigate('/catalog')}>FastAPI</button>
-                <div className='magic-description'>Project 1 -----------------------------------dasdiosajfiosjafiojsafoisjdfoisjdoij</div>
-              </div>  
-              <div className='magic-row'>
-                <button className='magic-button' onClick={() => navigate('/catalog')}>FastAPI</button>
-                <div className='magic-description'>Project 1 -----------------------------------dasdiosajfiosjafiojsafoisjdfoisjdoij</div>
-              </div>  
-              <div className='magic-row'>
-                <button className='magic-button' onClick={() => navigate('/catalog')}>FastAPI</button>
-                <div className='magic-description'>Project 1 -----------------------------------dasdiosajfiosjafiojsafoisjdfoisjdoij</div>
-              </div>  
-              <div className='magic-row'>
-                <button className='magic-button' onClick={() => navigate('/catalog')}>FastAPI</button>
-                <div className='magic-description'>Project 1 -----------------------------------dasdiosajfiosjafiojsafoisjdfoisjdoij</div>
-              </div>  
-              <div className='magic-row'>
-                <button className='magic-button' onClick={() => navigate('/catalog')}>FastAPI</button>
-                <div className='magic-description'>Project 1 -----------------------------------dasdiosajfiosjafiojsafoisjdfoisjdoij</div>
-              </div>  
-              <div className='magic-row'>
-                <button className='magic-button' onClick={() => navigate('/catalog')}>FastAPI</button>
-                <div className='magic-description'>Project 1 -----------------------------------dasdiosajfiosjafiojsafoisjdfoisjdoij</div>
-              </div>  
+          <div className="skill-box">
+            <div className='skill-title'>Type of Magics</div>
+            <div className='skill-body'>
+              <SkillTypeGenerator />
             </div>
           </div>
         </Grid>

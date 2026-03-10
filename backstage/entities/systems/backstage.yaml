@@ -1,0 +1,14 @@
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: backstage
+  title: Backstage
+  description: Platform for developers
+  tags:
+    - typescript
+    - react
+    - css
+spec:
+  owner: user:default/vinicius-juliasse-dantas
+  domain: domain:default/software-engineering
+  type: skill
