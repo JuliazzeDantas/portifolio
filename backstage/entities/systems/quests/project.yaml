@@ -1,0 +1,12 @@
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: project
+  title: Project
+  description: Representation of all projects I have ever worked on
+  tags:
+    - project
+spec:
+  owner: user:default/vinicius-juliasse-dantas
+  type: quest
+  

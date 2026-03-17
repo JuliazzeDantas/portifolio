@@ -1,8 +1,0 @@
-apiVersion: backstage.io/v1alpha1
-kind: Domain
-metadata:
-  name: devops-engineering
-  title: Devops Engineering
-  description: All the magic of Devops engineering
-spec:
-  owner: group:default/knowledge

@@ -1,0 +1,19 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: bachelor-unifesp
+  title: Bachelor of Science and Technology
+  description: My time as a student at UNIFESP, where I acquired a lot of knowledge in different areas of technology, math and physics.
+  namespace: student
+  tags:
+    - tutorial
+    - university
+    - computer-science
+    - math
+    - physics
+spec:
+  type: quest
+  owner: group:default/unifesp
+  lifecycle: completed
+  system: system:default/tutorial
+

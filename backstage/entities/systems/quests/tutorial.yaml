@@ -1,0 +1,14 @@
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: tutorial
+  title: Tutorial
+  description: Representation of all the roles I have ever held
+  tags:
+    - tutorial
+    - beginner
+    - study
+spec:
+  owner: group:default/unifesp
+  domain: domain:default/student
+  type: quest

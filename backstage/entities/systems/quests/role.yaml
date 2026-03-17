@@ -1,0 +1,12 @@
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: role
+  title: Role
+  description: Representation of all the roles I have ever held
+  tags:
+    - roles
+    - long-missions
+spec:
+  owner: group:default/raizen
+  type: quest

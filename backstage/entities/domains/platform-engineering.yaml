@@ -1,0 +1,8 @@
+apiVersion: backstage.io/v1alpha1
+kind: Domain
+metadata:
+  name: platform-engineering
+  title: Platform Engineering
+  description: This system contains all my knowledge about platform engineering.
+spec:
+  owner: group:default/knowledge

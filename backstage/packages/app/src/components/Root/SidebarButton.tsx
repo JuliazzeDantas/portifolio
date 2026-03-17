@@ -3,11 +3,12 @@
 import React from 'react';
 import { SkillsSubmenu } from './CustomSubmenu';
 import { useNavigate } from 'react-router-dom';
+
 import './styles/style-button.css';
 
-type Item = { to: string; label: string };
+import { SkillSubmenu } from './SkillSubmenuGenerator';
 
-export const SidebarButton = ({path, text, submenu = [] }: {path: string, text: string, submenu?: Item[] }) => {
+export const SidebarButton = ({path, text, submenu = [] }: {path: string, text: string, submenu?: SkillSubmenu[] }) => {
   const navigate = useNavigate();
   const [submenuOpen, setSubmenuOpen] = React.useState(false);
 

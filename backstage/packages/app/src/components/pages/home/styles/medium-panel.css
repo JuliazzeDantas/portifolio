@@ -164,8 +164,8 @@
 
 .skill-button {
   /* Size & Position */
-  height: 40px;
-  width: 30%;
+  height: 5.55vh;
+  width: 14vw;
   margin-right: 2%;
   margin-left: 5%;
   /* Style */
@@ -181,7 +181,7 @@
   transition: all 0.2s ease;
   /* Text */
   text-align: center;
-  font-size: 1.3em;
+  font-size: 1.4vw;
   font-weight: bold;
   text-transform: none;
   color: #E8E3C5;
@@ -189,32 +189,31 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  padding-bottom: 8px;
+  padding-bottom: 0.65vw;
+  padding-right: 1.05vw;
 }
 
 .skill-button:active{
   /* Size & Position */
-  height: 40px;
-  width: 30%;
-  margin-right: 2%;
-  margin-left: 5%;
+  height: 5.55vh;
+  width: 14vw;
   /* Style */
   box-shadow: inset 4px 5px 0px 0px rgba(0, 0, 0, 0.5);
-  padding-top: 5px ;
-  padding-left: 8px;
+  padding-top: 0.65vw;
+  padding-left: 1.05vw;
   border: 2px solid #000;
   border-radius: 10px;
   box-sizing: border-box;
   /* Text */
   text-align: center;
-  font-size: 1.3em;
+  font-size: 1.4vw;
   font-weight: bold;
   text-transform: none;
   text-shadow: 
     0px 0px 10px rgba(154, 246, 92, 0.872),
-    0px 0px 20px rgba(154, 246, 92, 0.872),
-    0px 0px 30px rgba(154, 246, 92, 0.872),
-    0px 0px 40px  rgba(232, 227, 197, 0.872);
+    0px 0px 10px rgba(154, 246, 92, 0.872),
+    0px 0px 10px rgba(154, 246, 92, 0.872),
+    0px 0px 10px  rgba(232, 227, 197, 0.872);
   display: flex;
   align-items: center;
   justify-content: center;

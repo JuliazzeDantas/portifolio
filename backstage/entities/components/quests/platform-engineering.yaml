@@ -1,0 +1,15 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: platform-engineering
+  title: Platform Engineering
+  description: Componente de exemplo atrelado a um repositório no GitHub
+  namespace: platform-engineering
+  tags:
+    - exemplo
+    - github
+spec:
+  type: quest
+  owner: group:default/raizen
+  lifecycle: in-progress
+  system: system:default/role

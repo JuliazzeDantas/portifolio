@@ -9,11 +9,12 @@ metadata:
     - computer-science
     - math
     - physics
+  links:
+    - url: https://unifesp.br/campus/sjc/
+      title: University - UNIFESP
 spec:
   type: inventory
   owner: user:default/vinicius-juliasse-dantas
-  dependencyOff:
+  dependencyOf:
     - group:default/unifesp
-  links:
-    - url: https://unifesp.br/campus/sjc/
-      title: Site
+    - component:default/bachelor-unifesp
