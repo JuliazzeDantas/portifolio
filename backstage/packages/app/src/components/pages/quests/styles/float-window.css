@@ -1,16 +1,18 @@
 .float-window{
     height: 80%;
     width: 60%;
-    left: 27%;
-    top: 10%;
-    position: fixed;
+    max-width: 900px;
+    min-width: 380px;
     
     background-color: #e8dfd1;
     border-radius: 2%;
     border: 1px solid #473f3f;
 
-    /* padding: 20px; */
-    z-index: 1000;
+    z-index: 1400;
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
 }
 
 .float-window-header{
@@ -23,48 +25,102 @@
     color: rgb(0, 0, 0, 1)
 }
 
-.float-window p{
-    padding: 20px;
+.float-window-description{
+    flex: 1;
+    min-height: 0;
+    margin-left: 2vw;
+    margin-right: 2vw;
+    margin-top: 4.5vh;
+    margin-bottom: 1vh;
     font-size: 1.2em;
     color: rgb(0, 0, 0, 0.8);
-
-    max-height: 60%;
     overflow-y: auto;
     scrollbar-width: thin;
     scrollbar-color: rgba(46, 22, 5, 0.8) transparent;
+
+    /* border: 1px solid rgba(46, 22, 5, 0.8); */
+
 }
 
-.float-window-bottom{
-    position: fixed;
-    bottom: 0;
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-    /* align-items: flex-end; */
-}
+.float-window a{
+    position: absolute;
+    bottom: 2vw;
+    left: 2vw;
+    margin: 0%;
 
-.modal-orverlay {
-    position: fixed;
-    top: 0;
-    left: 0;
+    padding: 2%;
+    background:  #2F5D50;
+    box-shadow: 2px 4px 5px 0px rgba(0, 0, 0, 0.5), inset -3px -4px 0px 0px rgba(0, 0, 0, 0.6);
+    border-radius: 5px;
+
+    font-size: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+
+
+    color: #E8E3C5;
+    font-family: 'Cinzel', 'Times New Roman', Times, serif;
+}
+
+.float-window-bottom{
+    position: relative;
+    bottom: 0;
+
     width: 100%;
-    height: 100%;
+    height: 15%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 4%;
+    padding-right: 4%;
+    padding-top: 2%;
+
+    /* border-top:rgba(46, 22, 5, 0.8) 1px solid; */
+}
+
+.float-window-bottom button{
+
+    height: 5vh;
+    min-height: 14px;
+    width: 24%;
+    min-width: 110px;
+
+    background:  #2F5D50;
+    box-shadow: 2px 4px 5px 0px rgba(0, 0, 0, 0.5), inset -3px -4px 0px 0px rgba(0, 0, 0, 0.6);
+    border-radius: 5px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2%;
+    padding: 2%;
+
+    font-size: 100%;
+    color: #E8E3C5;
+    font-family: 'Cinzel', 'Times New Roman', Times, serif;
+
+    cursor: pointer;
+}
+
+.modal-orverlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     background-color: rgba(0, 0, 0, 0.5);
 
-    z-index: 999;   
+    z-index: 1300;   
 }
 
 .float-window-status-completed {
-    position: absolute;
-    bottom: 2%;
-    right: 3%;
     font-size: 1.3em;
-    color: rgb(1, 83, 1);
     margin: 0;
+    margin-bottom: 2%;
+    color: rgb(1, 83, 1);
     text-shadow: 
         0px 0px 5px rgb(0, 255, 0),
         0px 0px 10px rgb(0, 255, 0),
@@ -75,12 +131,10 @@
 }
 
 .float-window-status-failed {
-    position: absolute;
-    bottom: 2%;
-    right: 3%;
     font-size: 1.3em;
-    color: rgb(86, 0, 0);
     margin: 0;
+    margin-bottom: 2%;
+    color: rgb(86, 0, 0);
     text-shadow: 
         0px 0px 10px rgb(255, 0, 0),
         0px 0px 10px rgb(255, 0, 0),
@@ -92,17 +146,15 @@
 }
 
 .float-window-status-in-progress {
-    position: absolute;
-    bottom: 2%;
-    right: 3%;
     font-size: 1.3em;
-    color: rgb(0, 2, 95);
     margin: 0;
+    margin-bottom: 2%;
+    color: rgb(112, 61, 3);
     text-shadow: 
-        0px 0px 5px rgb(0, 0, 255),
-        0px 0px 10px rgb(0, 0, 255),
-        0px 0px 20px rgb(0, 0, 255),
-        0px 0px 20px rgb(0, 0, 255),
-        0px 0px 20px rgb(0, 0, 255),
-        0px 0px 30px rgb(0, 0, 255);
+        0px 0px 5px rgb(246, 255, 0),
+        0px 0px 10px rgb(246, 255, 0),
+        0px 0px 20px rgb(246, 255, 0),
+        0px 0px 20px rgb(246, 255, 0),
+        0px 0px 20px rgb(246, 255, 0),
+        0px 0px 30px rgb(246, 255, 0);
 }

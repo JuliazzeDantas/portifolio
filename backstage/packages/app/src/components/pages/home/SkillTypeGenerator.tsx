@@ -8,8 +8,7 @@ import { Skill } from "./Skill";
 const Generator = async (catalog: CatalogApi) => {
     
     const entities = await catalog.getEntities();
-	const items = entities.items.filter((e: any) => e.kind === 'System' && e.spec.type === 'skill');
-	console.log('Entidades do tipo System:', items);   
+	const items = entities.items.filter((e: any) => e.kind === 'System' && e.spec.type === 'skill');  
 
     return items.map(item => {
         return <Skill name={item.metadata.name} namespace={item.metadata.namespace || 'default'} description={item.metadata.description || 'No description'} />

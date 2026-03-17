@@ -2,10 +2,10 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './styles/style-submenu.css';
 
-type Item = { to: string; label: string };
+import { SkillSubmenu } from './SkillSubmenuGenerator';
 
 type SkillsSubmenuProps = {
-  submenu?: Item[];
+  submenu?: SkillSubmenu[];
 };
 
 export const SkillsSubmenu: React.FC<SkillsSubmenuProps> = ({ submenu = [] }) => {
@@ -14,7 +14,7 @@ export const SkillsSubmenu: React.FC<SkillsSubmenuProps> = ({ submenu = [] }) =>
     <div className="submenu">
       {submenu.map((item, idx) => (
         <div key={idx} className="submenu-item" onClick={() => navigate(item.to)}>
-          {item.label}
+          {item.name}
         </div>
       ))}
     </div>

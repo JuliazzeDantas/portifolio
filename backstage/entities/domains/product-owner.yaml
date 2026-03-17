@@ -1,0 +1,8 @@
+apiVersion: backstage.io/v1alpha1
+kind: Domain
+metadata:
+  name: product-ownership
+  title: Product Ownership
+  description: This system contains all my knowledge about product ownership.
+spec:
+  owner: group:default/knowledge

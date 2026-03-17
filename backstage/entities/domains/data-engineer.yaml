@@ -3,6 +3,6 @@ kind: Domain
 metadata:
   name: data-engineering
   title: Data Engineering
-  description: All the magic of data engineering
+  description: This system contains all my knowledge about data engineering.
 spec:
   owner: group:default/knowledge

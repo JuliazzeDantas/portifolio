@@ -1,0 +1,18 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: product-owner
+  title: Product Owner
+  description: My time as a product owner, where I acquired a lot of knowledge in different areas of product management and agile methodologies.
+  namespace: product-ownership
+  tags:
+    - role
+    - product-management
+    - management
+spec:
+  type: quest
+  owner: group:default/raizen
+  lifecycle: completed
+  system: system:default/role
+  # dependsOn: 
+  #   - domain:default/product-ownership

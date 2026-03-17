@@ -1,0 +1,8 @@
+apiVersion: backstage.io/v1alpha1
+kind: Domain
+metadata:
+  name: student
+  title: Student
+  description: This system contains my knowledge acquired during university
+spec:
+  owner: group:default/knowledge
