@@ -3,7 +3,7 @@ kind: Component
 metadata:
   name: azure-cost-reduction
   title: Redução de Custos Azure
-  description: I created a script to reduce 
+  description: I created a script to get all repositories in ACR and check if this images are being used in our Cluster. I verified the use of the images 
   namespace: student
   tags:
     - tutorial
