@@ -7,8 +7,8 @@ spec:
   type: file
   targets:
   # - ./apis/*.yaml
-  - ./components/*.yaml
-  - ./components/quests/*.yaml
+  - ./components/quests/projects/*.yaml
+  - ./components/quests/roles/*.yaml
   - ./domains/*.yaml
   - ./groups/*.yaml
   - ./resources/inventory/*.yaml

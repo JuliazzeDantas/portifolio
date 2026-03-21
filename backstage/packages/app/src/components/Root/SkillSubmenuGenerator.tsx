@@ -19,6 +19,7 @@ export const SkillSubmenuGenerator = async (catalog: CatalogApi) => {
             to = `/catalog/default/system/${item.metadata.name}`;
             skillSubmenu.push({name, to});
         })
+        console.log('Submenu de habilidades gerado:', skillSubmenu);
         return skillSubmenu;
     }
     catch(error){

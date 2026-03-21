@@ -13,3 +13,5 @@ spec:
   owner: group:default/raizen
   lifecycle: in-progress
   system: system:default/role
+  dependsOn: 
+    - domain:default/platform-engineering

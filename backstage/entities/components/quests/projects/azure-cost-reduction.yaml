@@ -1,0 +1,21 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: azure-cost-reduction
+  title: Redução de Custos Azure
+  description: I created a script to reduce 
+  namespace: student
+  tags:
+    - tutorial
+    - university
+    - computer-science
+    - math
+    - physics
+spec:
+  type: quest
+  owner: group:default/unifesp
+  lifecycle: completed
+  system: system:default/tutorial
+  dependsOn: 
+    - domain:default/student
+
