@@ -1,13 +1,11 @@
 apiVersion: backstage.io/v1alpha1
 kind: Location
 metadata:
-  name: entities
+  name: quests-locations
   description: A collection of all the catalog entities
 spec:
   type: file
   targets:
-  # - ./apis/*.yaml
-  - ./groups/*.yaml
-  # - ./templates/*.yaml
-  - ./domains/*.yaml
-  - ./users/*.yaml
+  - ./quests/type-quests/*.yaml
+  - ./quests/quests/projects/*.yaml
+  - ./quests/quests/roles/*.yaml

@@ -1,0 +1,14 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: acr-cleaner
+  title: ACR Cleaner
+  namespace: platform-engineering
+  description: I created a script that deletes all unused images.  This saved 50%
+spec:
+  type: skill
+  owner: user:default/vinicius-juliasse-dantas
+  lifecycle: none
+  system: system:default/automations
+  dependsOn: 
+    - component:default/azure-cost-reduction
