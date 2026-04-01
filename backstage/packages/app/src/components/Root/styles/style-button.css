@@ -10,20 +10,20 @@
   margin-left: 12%;
 
   border: none;
-  transition: color 0.3s, text-shadow 0.3s;
+  transition: color 0.01s, text-shadow 0.01s;
   cursor: pointer;
 }
 
 .button:hover {
   /* Cor da fonte antes do efeito */
-  color: rgba(153, 252, 255, 0.799);
+  color: rgb(22, 166, 173);
   /* filter: blur(0.5px); */
   /* Efeito engraved: sombra clara acima e escura abaixo para simular escultura interna */
     text-shadow:
-      0 0 15px #d2f1f0,
-      0 0 30px #00fff7,
-      0 0 60px #01e6f6,
-      0 0 80px #00fff7;
+      0 0 15px rgb(131, 235, 232),
+      0 0 30px rgb(104, 239, 235),
+      0 0 60px rgb(43, 241, 234),
+      0 0 80px rgb(4, 238, 230);
   /* Efeito de brilho esverdeado no texto */
    /* text-shadow: 0 0 2px rgb(255, 153, 247), 0 0 4px rgb(255, 207, 153), 0 0 8px rgb(11, 143, 1); */
   /* Remover fundo e outros efeitos para focar no brilho do texto */
@@ -32,7 +32,7 @@
 }
 
 .button:active {
-  color: #ffd700; /* dourado */
+  color: #D4B46A; /* dourado */
   text-shadow:
     0 0 15px #ffd700,
     0 0 30px #ffd700,
@@ -47,7 +47,7 @@
   color: transparent;
   font-size: 200%;  
   font-weight: bold;
-  font-family: 'Pixelify Sans', 'Arial Narrow', Arial;
+  font-family: 'Cinzel';
   /* text-shadow: 4px 0px 1px rgba(103, 90, 72, 0.687); */
 }
 
