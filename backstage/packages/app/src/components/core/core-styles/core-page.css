@@ -5,7 +5,7 @@
     width: 100%;
     max-width: 100%;
     /* min-height: 100vh;  */
-    min-height: 1200px;
+    min-height: 500px;
     min-width: 900px;
     height: 101vh; /* Ocupa 100% da altura do pai se disponível */
 
@@ -14,7 +14,8 @@
     flex-wrap: nowrap;
     align-items: stretch;
     position: relative;
-    padding-bottom: 1%; /* espaçamento inferior */
+    /* padding-bottom: 50%;  */
+    /* padding-right: 3%;  */
 
     background-color: rgb(249, 220, 187);
     background-image: url('../images/paper.png'); 

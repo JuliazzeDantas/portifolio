@@ -27,7 +27,7 @@
   box-sizing: border-box;
   flex: 1; /* ocupa o espaço restante */
   /* TEXTO */
-  color: #000;
+  color: rgb(47, 38, 38);
   font-size: 1.3em;
   font-family: 'Cinzel';
   

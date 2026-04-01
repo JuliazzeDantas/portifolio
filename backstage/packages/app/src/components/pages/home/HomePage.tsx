@@ -9,19 +9,41 @@ import './styles/low-panel.css';
 import photo from './images/profile2.png'
 import botaoMenuActivate from './images/plus.png';
 import botaoMenuDeactivate from './images/less.png';
-import imgAttributeTitle from './images/attribute-title.png';
 
 import { DefaultPage } from '../../core/DefaultPage';
 import { SkillTypeGenerator } from './SkillTypeGenerator';
 
+const AttributeItemMenu = ({ title, items}: {title: string, items:string[]}) => {
+  
+  const[ isOpen, setIsOpen ] = useState(false);
+  const clickMenu = () => {
+    setIsOpen(!isOpen);
+  }
+  return (
+    <div className="attribute-item">
+      <div className="attribute-item-menu-title">
+        <p>{title}</p>
+        <button onClick={clickMenu} className="drop-down-menu-button" type="button" aria-expanded={isOpen}>
+          <img
+            src={isOpen ? botaoMenuDeactivate : botaoMenuActivate}
+            alt="Menu"
+            style={isOpen ? { transform: 'rotate(180deg)', transition: 'transform 0.5s' } : { transition: 'transform 0.5s' }}
+          />
+        </button>
+      </div>
+      <div className={`attribute-item-menu-list${isOpen ? ' open' : ''}`}>
+        {items.map((item, index) => (
+          <p key={index}>{item}</p>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+
 export const HomePage = () => {
 
-  const[ openMenu, setOpenMenu ] = useState(false);
-
-  const clickedMenu = () => {
-    setOpenMenu(!openMenu);
-  }
-
+  
   return (
     <DefaultPage titleHeader="Character Profile">
       <Grid item className="high-panel">
@@ -42,42 +64,16 @@ export const HomePage = () => {
         </Grid>
         <Grid item className="medium-panel">
           <div className="attribute-box">
-            <div className="attribute-title">Attributes</div>
+            <div className="title">Attributes</div>
             <div className="attribute-body">
-              <div className="attribute-item">
-                <div className='attribute-item-menu-title'>
-                  {/* <img src={imgAttributeTitle} alt='Attribute Title' /> */}
-                  Languages 
-                  <button onClick={clickedMenu} className='drop-down-menu-button'>
-                    <img src={openMenu ? botaoMenuDeactivate : botaoMenuActivate} alt='Menu'/>
-                  </button>
-                </div>
-                <div className="attribute-item-menu" style={{ height: '0px', overflow: 'hidden' }}>
-                  <p>Python</p>
-                  <p>Java</p>
-                  <p>TypeScript</p>
-                </div>
-              </div>
-              <div className="attribute-item">
-                <h1>Front-end:</h1>
-                <p>React</p>
-              </div>
-              <div className="attribute-item">
-                <h1>Back-end:</h1>
-                <p>FastAPI</p>
-              </div>
-              <div className="attribute-item">
-                <h1>DevOps:</h1>
-                <p>Kubernetes</p>
-                <p>Docker</p>
-                <p>Azure</p>
-                <p>CI/CD (GitHub Actions)</p>
-                <p>Grafana/Prometheus</p>
-              </div>
+              <AttributeItemMenu title="Languages" items={['Python', 'Java', 'TypeScript']} />
+              <AttributeItemMenu title="Front-end" items={['React']} />
+              <AttributeItemMenu title="Back-end" items={['Node.js', 'FastAPI']} />
+              <AttributeItemMenu title="DevOps" items={['Kubernetes', 'Docker', 'Azure', 'CI/CD (GitHub Actions)', 'Grafana/Prometheus']} />
             </div>
           </div>
           <div className="skill-box">
-            <div className='skill-title'>Type of Magics</div>
+            <div className='title'>Type of Magics</div>
             <div className='skill-body'>
               <SkillTypeGenerator />
             </div>
