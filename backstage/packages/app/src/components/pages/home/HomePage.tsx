@@ -1,4 +1,5 @@
 import { Grid } from '@material-ui/core';
+import { useState } from 'react';
 
 import '../../core/core-styles/core-page.css';
 import './styles/high-panel.css';
@@ -6,11 +7,21 @@ import './styles/medium-panel.css';
 import './styles/low-panel.css';
 
 import photo from './images/profile2.png'
+import botaoMenuActivate from './images/plus.png';
+import botaoMenuDeactivate from './images/less.png';
+import imgAttributeTitle from './images/attribute-title.png';
 
 import { DefaultPage } from '../../core/DefaultPage';
 import { SkillTypeGenerator } from './SkillTypeGenerator';
 
 export const HomePage = () => {
+
+  const[ openMenu, setOpenMenu ] = useState(false);
+
+  const clickedMenu = () => {
+    setOpenMenu(!openMenu);
+  }
+
   return (
     <DefaultPage titleHeader="Character Profile">
       <Grid item className="high-panel">
@@ -34,10 +45,18 @@ export const HomePage = () => {
             <div className="attribute-title">Attributes</div>
             <div className="attribute-body">
               <div className="attribute-item">
-                <h1>Languages: </h1>
-                <p>Python</p>
-                <p>Java</p>
-                <p>TypeScript</p>
+                <div className='attribute-item-menu-title'>
+                  {/* <img src={imgAttributeTitle} alt='Attribute Title' /> */}
+                  Languages 
+                  <button onClick={clickedMenu} className='drop-down-menu-button'>
+                    <img src={openMenu ? botaoMenuDeactivate : botaoMenuActivate} alt='Menu'/>
+                  </button>
+                </div>
+                <div className="attribute-item-menu" style={{ height: '0px', overflow: 'hidden' }}>
+                  <p>Python</p>
+                  <p>Java</p>
+                  <p>TypeScript</p>
+                </div>
               </div>
               <div className="attribute-item">
                 <h1>Front-end:</h1>

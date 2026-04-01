@@ -1,6 +1,8 @@
 .sidebar-style {
   background-image: url('../images/SideBarWood.png');
-  background-size: cover;
+  background-size: 130% 110%;
+  background-repeat: no-repeat;
+  background-position: center;
   background-color: rgba(247, 218, 177, 0.8); /* navigation.background */
 
   display: flex;
