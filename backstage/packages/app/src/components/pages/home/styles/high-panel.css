@@ -27,8 +27,8 @@
   box-sizing: border-box;
   flex: 1; /* ocupa o espaço restante */
   /* TEXTO */
-  color: rgb(47, 38, 38);
+  color: rgb(0, 0, 0);
   font-size: 1.3em;
   font-family: 'Cinzel';
-  
+  font-weight: bold;
 }
