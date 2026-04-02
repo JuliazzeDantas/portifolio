@@ -157,7 +157,7 @@
   font-size: 1.2em;
   font-family: 'Cinzel';
   font-weight: bold;
-  color: #2C1F17;
+  color: #000000;
   opacity: 0;
   transform: translateY(-6px);
   transition: opacity 1.4s ease, transform 1.2s ease;
