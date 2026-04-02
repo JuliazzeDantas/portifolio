@@ -1,0 +1,224 @@
+/* Campo dos projetos */
+.skill-box {
+  flex-direction: column;
+  align-items: stretch;
+  max-height: 90%;
+  width: 60%;
+  height: 97%;
+  /* border: 2px solid #000; */
+  background: transparent; /* centro transparente */
+  box-sizing: border-box;
+
+  margin-right: 0%;
+  margin-left: 0%;
+}
+
+
+.skill-body{
+  scrollbar-width: thin;
+  scrollbar-color: rgba(46, 22, 5, 0.8) transparent;
+  overflow-y: auto;
+  height: calc(100% - 6vh); /* altura disponível menos espaço do título */
+  max-height: 47vh;
+}
+
+.skill-type {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  height: auto;
+  width: 100%;
+  /* border: 2px solid #000;  */
+  background: transparent; 
+  box-sizing: border-box;
+  padding: 7px 0;
+}
+
+.skill-type p{
+  height: 40px;
+  width: 70%;
+  margin-right: 2%;
+  margin-top: 0;    /* Remove margem padrão */
+  margin-bottom: 0; /* Remove margem padrão */
+
+  background: transparent; 
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+  text-align: left;
+  font-size: 1.1em;
+  font-family: 'Cinzel', 'Times New Roman', Times, serif;
+  color: #000;
+}
+
+.skill-button {
+  /* Size & Position */
+  height: 5.55vh;
+  width: 14vw;
+  margin-right: 2%;
+  margin-left: 5%;
+  /* Style */
+  background:  #2F5D50;
+  box-shadow: 2px 4px 5px 0px rgba(0, 0, 0, 0.5), inset -3px -4px 0px 0px rgba(0, 0, 0, 0.6);
+  padding-right: 2px;
+  border: 2px solid #000; 
+  border-radius: 8px;
+  font-variant: small-caps;
+  letter-spacing: 1px;
+  box-sizing: border-box;
+  /* Animation */
+  transition: all 0.2s ease;
+  /* Text */
+  text-align: center;
+  font-size: 1.4vw;
+  font-weight: bold;
+  text-transform: none;
+  color: #E8E3C5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding-bottom: 0.65vw;
+  padding-right: 1.05vw;
+}
+
+.skill-button:active{
+  /* Size & Position */
+  height: 5.55vh;
+  width: 14vw;
+  /* Style */
+  box-shadow: inset 4px 5px 0px 0px rgba(0, 0, 0, 0.5);
+  padding-top: 0.65vw;
+  padding-left: 1.05vw;
+  border: 2px solid #000;
+  border-radius: 10px;
+  box-sizing: border-box;
+  /* Text */
+  text-align: center;
+  font-size: 1.4vw;
+  font-weight: bold;
+  text-transform: none;
+  text-shadow: 
+    0px 0px 10px rgba(154, 246, 92, 0.872),
+    0px 0px 10px rgba(154, 246, 92, 0.872),
+    0px 0px 10px rgba(154, 246, 92, 0.872),
+    0px 0px 10px  rgba(232, 227, 197, 0.872);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.skill-space {
+
+  width: 49%;
+  height: 16.5vh;
+
+  display: flex;
+  flex-direction: column;
+
+  cursor: pointer;
+}
+
+
+.skill-space h1{
+  height: 25%;
+
+  background-image: url(../images/magic-box-title.png);
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  padding-bottom: 6%;
+  padding-top: 8%;
+  margin-bottom: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-y: hidden;
+  overflow-x: hidden;
+
+  font-size: 1.5em;
+  font-family: 'Cinzel';
+
+  color: rgb(255, 229, 149)
+}
+
+.skill-space-body{
+  width: 100%;
+  height: 100%;
+
+  background-image: url(../images/magic-box-body.png);
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  overflow-y: hidden;
+  overflow-x: hidden;
+
+  margin-top: 0;
+
+  padding-top: 3%;
+  padding-left: 5%;
+  padding-right: 3.5%;
+
+  color:rgb(0, 0, 0);
+}
+
+.skill-space:hover h1{
+  animation: 
+    brigth-h1 0.4s forwards;
+}
+
+
+
+@keyframes brigth-h1 {
+  0% {
+    text-shadow: 
+      0px 0px 10px rgba(0, 0, 0, 0);
+  }
+  100% {
+    text-shadow: 
+      0px 0px 3px rgba(255, 197, 25,  0.9),
+      0px 0px 10px rgba(255, 209, 71, 0.872),
+      0px 0px 20px rgba(255, 227, 142, 0.6),
+      0px 0px 30px rgba(255, 240, 197, 0.3);
+  }
+}
+
+
+
+
+
+.skill-space-body p{
+
+  margin-top: 0;
+  margin-bottom: 10%;
+
+  font-family: 'Cinzel';
+  font-size: 1.1em;
+  line-height: 1.2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  line-clamp: 2;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  /* overflow-wrap: break-word; */
+}
+
+.skill-space-row {
+
+  padding-left: 4%;
+  padding-right: 4%;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: auto;
+}
