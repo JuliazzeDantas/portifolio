@@ -1,11 +1,9 @@
 import { PropsWithChildren } from 'react';
-import { SidebarSearchModal } from '@backstage/plugin-search';
 import {
   Sidebar,
   SidebarGroup,
   SidebarPage,
 } from '@backstage/core-components';
-import SearchIcon from '@material-ui/icons/Search';
 import { useApi } from '@backstage/core-plugin-api';
 import { catalogApiRef } from '@backstage/plugin-catalog-react';
 import { useEffect, useState } from 'react';
