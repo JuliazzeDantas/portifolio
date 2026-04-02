@@ -1,0 +1,17 @@
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: automations
+  title: Automations
+  description: Automations for managing resources and processes in Azure and Kubernetes
+  tags:
+    - automation
+    - bash
+    - python
+    - cloud
+    - kubernetes
+spec:
+  owner: user:default/vinicius-juliasse-dantas
+  domain: domain:default/platform-engineering
+  type: skill
+  

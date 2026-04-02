@@ -84,6 +84,12 @@ catalog:
     # Local example data, file locations are relative to the backend process, typically `packages/backend`
     - type: file
       target: ../../entities/locations.yaml
+    - type: file
+      target: ../../entities/locations-quests.yaml
+    - type: file
+      target: ../../entities/locations-skills.yaml
+    - type: file
+      target: ../../entities/locations-inventory.yaml
 
     # # Local example template
     # - type: file

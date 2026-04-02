@@ -14,5 +14,5 @@ spec:
   owner: group:default/raizen
   lifecycle: completed
   system: system:default/role
-  # dependsOn: 
-  #   - domain:default/product-ownership
+  dependsOn: 
+    - domain:default/product-ownership

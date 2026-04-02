@@ -13,6 +13,7 @@
     background-repeat: no-repeat;
     background-position: center;
     animation: rotatePortal var(--particle-velocity, 3s) linear infinite;
+    transition: filter 0.2s ease, opacity 0.2s ease, transform 0.7s ease;
 }
 
 .particle::after{
@@ -27,6 +28,20 @@
     box-shadow: 0 0 10px #00ffff,
                 0 0 20px #00ffff,
                 0 0 30px #00ffff;
+}
+
+.particle.particle--boost {
+    animation-duration: calc(var(--particle-velocity, 3s) * 0.28);
+    filter: brightness(1.8) saturate(1.4);
+}
+
+.particle.particle--boost::after {
+    filter: blur(12px);
+    background: #f7ffffd9;
+    box-shadow: 0 0 16px #7fffff,
+                0 0 32px #7fffff,
+                0 0 50px #00ffff,
+                0 0 70px #00d9ff;
 }
 
 @keyframes rotatePortal {

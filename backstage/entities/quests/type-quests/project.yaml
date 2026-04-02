@@ -8,5 +8,5 @@ metadata:
     - project
 spec:
   owner: user:default/vinicius-juliasse-dantas
-  type: quest
+  type: type-quest
   

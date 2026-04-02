@@ -1,7 +1,7 @@
 import { SignInPage } from '@backstage/core-components';
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid, Typography, Button } from '@material-ui/core';
-import { ComponentProps, useRef } from 'react';
+import { ComponentProps, useEffect, useMemo, useRef, useState } from 'react';
 
 import adventureLoginPanel from './images/adventureLogin.png';
 import scrollPanel from './images/scrollPanel.png';
@@ -141,25 +141,48 @@ type SignInPageProps = ComponentProps<typeof SignInPage>;
 export const CustomSignInPage = (props: SignInPageProps) => {
   const classes = useStyles();
   const signInRef = useRef<HTMLDivElement>(null);
+  const loginTimeoutRef = useRef<number | null>(null);
+  const [isPortalBoosting, setIsPortalBoosting] = useState(false);
 
   // Função que clica no botão do SignInPage original
   const handleLogin = () => {
-    const button = signInRef.current?.querySelector('button');
-    if (button) {
-      button.click();
+    if (isPortalBoosting) {
+      return;
     }
+
+    setIsPortalBoosting(true);
+
+    // Acelera e intensifica as partículas por 1.3s antes de acionar o login real
+    loginTimeoutRef.current = window.setTimeout(() => {
+      setIsPortalBoosting(false);
+
+      const button = signInRef.current?.querySelector('button');
+      if (button) {
+        button.click();
+      }
+    }, 1300);
+
+    return;
   };
 
   // Configuração das partículas: raio e delay
   // Gera partículas com raio, delay e velocidade dentro de intervalos definidos
   const minVelocity = 0.7;
-  const particlesConfig = [
+  const particlesConfig = useMemo(() => [
     ...Array.from({ length: 80 }, () => ({
       radius: Math.floor(Math.random() * 9) + 12,
       delay: -Math.abs(+(Math.random() * 15).toFixed(2)),
       velocity: +((Math.random() + minVelocity)* 6).toFixed(2),
     })),
-  ];
+  ], []);
+
+  useEffect(() => {
+    return () => {
+      if (loginTimeoutRef.current) {
+        window.clearTimeout(loginTimeoutRef.current);
+      }
+    };
+  }, []);
 
   return (
     <div className={classes.container}>
@@ -197,7 +220,7 @@ export const CustomSignInPage = (props: SignInPageProps) => {
           {particlesConfig.map((p, i) => (
             <div
               key={i}
-              className="particle"
+              className={`particle ${isPortalBoosting ? 'particle--boost' : ''}`}
               style={{
                 ['--particle-velocity' as any]: `${p.velocity}s`,
                 animationDelay: `${p.delay}s`,
@@ -210,6 +233,7 @@ export const CustomSignInPage = (props: SignInPageProps) => {
               className={classes.loginButton}
               onClick={handleLogin}
               variant="contained"
+              disabled={isPortalBoosting}
               style={{ padding: '6px 15px', fontSize: "1rem" }}
             >
               Enter the portal

@@ -17,8 +17,8 @@
   border: 2px solid #000; /* cor e espessura da borda */
   background: transparent; /* centro transparente */
   box-sizing: border-box;
-  margin-left: 2vw; /* espaçamento para a direita */
-  margin-top: 0px; /* espaçamento superior */
+  margin-left: 1vw; /* espaçamento para a direita */
+  
   flex-shrink: 0; /* não encolher */
 }
 
@@ -27,8 +27,8 @@
   box-sizing: border-box;
   flex: 1; /* ocupa o espaço restante */
   /* TEXTO */
-  color: #000;
+  color: rgb(47, 38, 38);
   font-size: 1.3em;
-  font-family: 'Cinzel', 'Times New Roman', Times, serif;
+  font-family: 'Cinzel';
   
 }

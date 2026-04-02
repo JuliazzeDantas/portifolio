@@ -16,4 +16,6 @@ spec:
   owner: group:default/unifesp
   lifecycle: completed
   system: system:default/tutorial
+  dependsOn: 
+    - domain:default/student
 

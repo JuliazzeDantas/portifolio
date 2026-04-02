@@ -104,6 +104,11 @@
     cursor: pointer;
 }
 
+.float-window-bottom button:active{
+    background:  #2F5D50;
+    box-shadow: inset 2px 4px 5px 0px rgba(0, 0, 0, 0.5), inset 3px 4px 0px 0px rgba(0, 0, 0, 0.8);
+}
+
 .modal-orverlay {
     position: absolute;
     inset: 0;

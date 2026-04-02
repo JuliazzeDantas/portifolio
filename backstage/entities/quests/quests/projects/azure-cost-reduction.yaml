@@ -1,0 +1,19 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: azure-cost-reduction
+  title: Redução de Custos Azure
+  description: I created a script that deletes all unused images and old tags. This saved 70% of the cost with Azure Container Registry.
+  namespace: platform-engineering
+  tags:
+    - save-cost
+    - raizen
+    - azure
+    - bash
+spec:
+  type: quest
+  owner: group:default/raizen
+  lifecycle: completed
+  system: system:default/project
+
+

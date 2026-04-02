@@ -1,11 +1,9 @@
 import { PropsWithChildren } from 'react';
-import { SidebarSearchModal } from '@backstage/plugin-search';
 import {
   Sidebar,
   SidebarGroup,
   SidebarPage,
 } from '@backstage/core-components';
-import SearchIcon from '@material-ui/icons/Search';
 import { useApi } from '@backstage/core-plugin-api';
 import { catalogApiRef } from '@backstage/plugin-catalog-react';
 import { useEffect, useState } from 'react';
@@ -38,9 +36,9 @@ export const CustomRoot = ({ children }: PropsWithChildren<{}>) => {
         <Sidebar> 
           <div className={"sidebar-style"}>
             <SidebarLogo />
-            <SidebarGroup label="Search" icon={<SearchIcon />} to="/search">
-              <SidebarSearchModal /> {/* Vou deixar o search baseado no Backstage, poi sé mais simples*/}
-            </SidebarGroup>
+            {/* <SidebarGroup label="Search" icon={<SearchIcon />} to="/search">
+              <SidebarSearchModal /> Vou deixar o search baseado no Backstage, poi sé mais simples
+            </SidebarGroup> */}
             <hr className={"sidebar-divider"}/>
             <SidebarGroup label="Character">
               <SidebarButton path="/home" text="Character" />
@@ -53,7 +51,7 @@ export const CustomRoot = ({ children }: PropsWithChildren<{}>) => {
             </SidebarGroup>
             <BottomSection>
               <hr className={"sidebar-divider"}/>
-              <SidebarButton path="/settings" text="Settings" />
+              <SidebarButton path="/settings" text="Settings"/>
             </BottomSection>
 
           </div>  

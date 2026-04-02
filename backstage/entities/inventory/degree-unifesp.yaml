@@ -15,6 +15,5 @@ metadata:
 spec:
   type: inventory
   owner: user:default/vinicius-juliasse-dantas
-  dependencyOf:
-    - group:default/unifesp
+  dependsOn:
     - component:default/bachelor-unifesp
