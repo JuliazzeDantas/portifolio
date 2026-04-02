@@ -4,7 +4,8 @@ import { useState } from 'react';
 import '../../core/core-styles/core-page.css';
 import './styles/high-panel.css';
 import './styles/medium-panel.css';
-import './styles/low-panel.css';
+import './styles/skill-box.css';
+import './styles/attribute-box.css';
 
 import photo from './images/profile2.png'
 import botaoMenuActivate from './images/plus.png';
@@ -33,12 +34,13 @@ const AttributeItemMenu = ({ title, items}: {title: string, items:string[]}) => 
       </div>
       <div className={`attribute-item-menu-list${isOpen ? ' open' : ''}`}>
         {items.map((item, index) => (
-          <p key={index}>{item}</p>
+          <li key={index}>{item}</li>
         ))}
       </div>
     </div>
   );
 }
+
 
 
 export const HomePage = () => {
@@ -75,7 +77,9 @@ export const HomePage = () => {
           <div className="skill-box">
             <div className='title'>Type of Magics</div>
             <div className='skill-body'>
+              
               <SkillTypeGenerator />
+              
             </div>
           </div>
         </Grid>
