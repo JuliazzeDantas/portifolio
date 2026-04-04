@@ -1,0 +1,111 @@
+.skill-container{
+    height: calc(100% - 60px); /* altura disponível menos espaço do header */
+    max-height: 83vh; /* altura máxima para garantir que a rolagem aparece */
+    overflow-y: auto; /* barra de rolagem vertical */
+    overflow-x: hidden; /* sem rolagem horizontal */
+    margin-top: 3%;
+ 
+    scrollbar-width: thin;
+    scrollbar-color: rgba(46, 22, 5, 0.8) transparent;
+}
+
+.skill-head {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    padding-left: 4%;
+    padding-right: 14%;
+
+
+}
+
+.skill-head p { 
+    
+    font-family: 'Cinzel';
+    font-size: 1.6em;
+    font-weight: bold;
+    color: rgb(0, 0, 0);  
+
+
+}
+
+.card-skill{
+    min-height: 3vh;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    
+    padding-left: 2%;
+    padding-right: 0.5%;
+    text-align: left;
+    align-items: center;
+
+    background: linear-gradient(90deg, rgba(119, 54, 4, 0.486) 0%, transparent 70%);
+    border: 0px;
+    cursor: pointer;
+
+    box-shadow: inset 0px 0px 8px 0px rgba(58, 26, 1, 0.486);
+
+    color: rgb(0, 0, 0);
+    font-family: 'Cinzel';
+}
+
+.card-skill:hover{
+    background: rgba(119, 54, 4, 0.486);
+}
+
+.card-skill-system {
+    font-family: 'Cinzel';
+    font-size: 1.3em;
+    color: rgb(10, 6, 6);
+
+}
+
+.card-skill-tags {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 4px;
+    width: 20%;
+    overflow-x: hidden;
+}
+
+.card-skill-tags span{
+
+    width: fit-content;
+    padding: 0.8%;
+    padding-left: 0.8%;
+    padding-right: 0.8%;
+    
+    font-family: 'Cinzel';
+    font-size: 0.9em;
+    font-weight: bold;
+    color: rgb(9, 6, 6);
+    /* white-space: nowrap; */
+
+    border: 1px solid rgba(4, 3, 3, 0.8);
+    border-radius: 5px;
+
+}
+
+
+
+.card-skill-type {
+    font-size: 1.2em;
+    margin-top: 30px;
+    margin-bottom: 0px;
+    text-align: right;
+    padding-right: 20px;
+}
+
+.card-skill-description {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    text-align: left;
+    padding-left: 12px;
+}

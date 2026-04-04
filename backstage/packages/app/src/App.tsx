@@ -45,6 +45,7 @@ import { HomepageCompositionRoot } from '@backstage/plugin-home';
 import { HomePage } from './components/pages/home/HomePage';
 import { InventoryPage } from './components/pages/inventory/Inventory';
 import { QuestPage } from './components/pages/quests/PageQuests';
+import { SkillPage } from './components/pages/skills/PageSkills';
 
 const app = createApp({
   apis,
@@ -111,6 +112,7 @@ const routes = (
     <Route path="/notifications" element={<NotificationsPage />} />
     <Route path="/inventory" element={<InventoryPage />} />
     <Route path="/quests" element={<QuestPage />} />
+    <Route path="/skills" element={<SkillPage />} />
   </FlatRoutes>
 );
 
