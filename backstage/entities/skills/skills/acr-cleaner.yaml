@@ -5,6 +5,10 @@ metadata:
   title: ACR Cleaner
   namespace: platform-engineering
   description: I created a script that deletes all unused images.  This saved 50%
+  tags:
+    - automation
+    - azure
+    - bash-script
 spec:
   type: skill
   owner: user:default/vinicius-juliasse-dantas
