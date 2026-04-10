@@ -6,6 +6,9 @@ organization:
   name: My Company
 
 backend:
+  reading:
+    allow:
+      - host: raw.githubusercontent.com
   auth:
     dangerouslyDisableDefaultAuthPolicy: true
 
@@ -45,6 +48,7 @@ integrations:
     # - host: ghe.example.net
     #   apiBaseUrl: https://ghe.example.net/api/v3
     #   token: ${GHE_TOKEN}
+
 
 proxy:
   ### Example for how to add a proxy endpoint for the frontend.
@@ -90,6 +94,11 @@ catalog:
       target: ../../entities/locations-skills.yaml
     - type: file
       target: ../../entities/locations-inventory.yaml
+      
+    - type: url
+      target: https://raw.githubusercontent.com/JuliazzeDantas/infra-automations/master/catalog-info.yaml
+      rules:
+        - allow: [Component] 
 
     # # Local example template
     # - type: file

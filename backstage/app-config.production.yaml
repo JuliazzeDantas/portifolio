@@ -43,10 +43,10 @@ catalog:
   locations:
     # Local example data, replace this with your production config, these are intended for demo use only.
     # File locations are relative to the backend process, typically in a deployed context, such as in a Docker container, this will be the root
-    - type: file
-      target: ../../entities/locations.yaml
+    # - type: file
+    #   target: ../../entities/locations.yaml
 
-    # # Local example template
+    # # # Local example template
     # - type: file
     #   target: ./examples/template/template.yaml
     #   rules:
