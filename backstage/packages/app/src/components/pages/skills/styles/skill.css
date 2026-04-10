@@ -40,7 +40,7 @@
     width: 100%;
     justify-content: space-between;
     
-    padding-left: 2%;
+    padding-left: 2.5%;
     padding-right: 0.5%;
     text-align: left;
     align-items: center;
@@ -64,6 +64,22 @@
     font-size: 1.3em;
     color: rgb(10, 6, 6);
 
+}
+
+.card-skill-description {
+    font-family: 'Cinzel';
+    font-size: 1.3em;
+    color: rgb(10, 6, 6);
+
+    width: 15%;
+
+    line-height: 1.2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    line-clamp: 2;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
 }
 
 .card-skill-tags {

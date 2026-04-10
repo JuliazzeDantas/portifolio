@@ -67,7 +67,7 @@ export const SkillList: React.FC = () => {
         <>
             {
                 generatedSkills.map((skill, key) => (
-                    <ItemSkill key={key} name={skill.name} title={skill.title} description={skill.description} system={skill.system} owner={skill.owner} namespace={skill.namespace} tags={skill.tags} />
+                    <ItemSkill key={key} name={skill.name} title={skill.title} description={skill.description} system={skill.system} namespace={skill.namespace} tags={skill.tags} />
                 ))
             }
         </>
