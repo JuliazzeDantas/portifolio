@@ -6,6 +6,6 @@ metadata:
 spec:
   type: file
   targets:
-  # - ./skills/skills/*.yaml
+  - ./skills/skills/*.yaml
   - ./skills/type-skills/*.yaml
 

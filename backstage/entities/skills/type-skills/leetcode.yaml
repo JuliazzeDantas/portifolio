@@ -1,0 +1,13 @@
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: leetcode
+  title: Leetcode
+  description: Automations for managing resources and processes in Azure and Kubernetes
+  tags:
+    - python
+spec:
+  owner: user:default/vinicius-juliasse-dantas
+  domain: domain:default/student
+  type: skill
+  

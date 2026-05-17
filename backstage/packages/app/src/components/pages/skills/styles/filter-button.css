@@ -1,0 +1,79 @@
+.filter-button {
+    position: relative;
+    top: 2%;
+    left: 2%;
+    display: flex;
+    flex-direction: row;
+    
+    width: auto;
+    height: auto;
+    
+    border-radius: 10px;
+    border: none;
+    background-color: transparent;
+
+    cursor: pointer;
+}
+
+.filter-button:hover {
+        cursor: pointer;
+}
+
+.filter-button:hover p {
+    text-shadow: 
+      0 0 8px rgb(52, 249, 242),
+      0 0 16px rgb(104, 239, 235),
+      0 0 24px rgb(149, 245, 242),
+      0 0 32px rgb(218, 252, 251),
+      0 0 40px rgb(242, 248, 247);
+}
+
+.filter-button:hover .filter-image {
+        filter:
+            drop-shadow(0 0 8px rgb(52, 249, 242))
+            drop-shadow(0 0 8px rgb(52, 249, 242))
+            drop-shadow(0 0 16px rgb(104, 239, 235))
+            drop-shadow(0 0 24px rgb(149, 245, 242))
+            drop-shadow(0 0 32px rgb(218, 252, 251))
+            drop-shadow(0 0 40px rgb(242, 248, 247));
+}
+
+.filter-button p{
+    margin: 0px !important;
+    font-family: 'Cinzel';
+    font-size: 1.4em;
+    color: black;
+        transition: text-shadow 0.2s ease;
+}
+
+.filter-button:hover p {
+    text-shadow: 
+      0 0 8px rgb(52, 249, 242),
+      0 0 16px rgb(104, 239, 235),
+      0 0 24px rgb(149, 245, 242),
+      0 0 32px rgb(218, 252, 251),
+      0 0 40px rgb(242, 248, 247);
+}
+
+.filter-image{
+    width: 30px;
+    height: 20px;
+    display: flex;
+    position: relative;
+    bottom: 0;
+
+    padding-left: 6px;
+    transition: filter None;
+    
+}
+
+.filter-button:hover .filter-image {
+    filter:
+        drop-shadow(0 0 8px rgb(52, 249, 242))
+        drop-shadow(0 0 8px rgb(52, 249, 242))
+        drop-shadow(0 0 16px rgb(104, 239, 235))
+        drop-shadow(0 0 24px rgb(149, 245, 242))
+        drop-shadow(0 0 32px rgb(218, 252, 251))
+        drop-shadow(0 0 40px rgb(242, 248, 247));
+}
+

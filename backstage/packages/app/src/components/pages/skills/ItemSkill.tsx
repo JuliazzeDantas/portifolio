@@ -1,9 +1,20 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import './styles/skill.css';
+import './styles/skill-head.css';
+import './styles/skill-body.css';
 
-export const ItemSkill: React.FC<{key?:number, name?: string, title?: string, namespace?:string, description?: string, system?: string, tags?: string[]}> = ({key, name, namespace, title, description, system, tags}) => { 
+export type Skill = {
+    name?: string;
+    title?: string;
+    description?:string;
+    system?: string
+    namespace?: string;
+    owner?: string;
+    tags?: string[];
+}
+
+export const ItemSkill: React.FC<Skill> = ({name, namespace, title, description, system, tags}) => { 
 
     const navigate = useNavigate();
 
@@ -13,8 +24,8 @@ export const ItemSkill: React.FC<{key?:number, name?: string, title?: string, na
 
     return (
         <div>
-            <button className='card-skill' onClick={onClickSkill} key={key}>
-                <h3>{title}</h3>
+            <button className='card-skill' onClick={onClickSkill} key={name}>
+                <p className='card-skill-name'>{title}</p>
                 <p className='card-skill-system'>{system}</p>
                 <p className='card-skill-description'>{description}</p>
                 <div className='card-skill-tags'>
