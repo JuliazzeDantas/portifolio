@@ -1,0 +1,99 @@
+.modal-orverlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: rgba(0, 0, 0, 0.5);
+
+    z-index: 1300;   
+}
+
+.window-filter{
+    height: 80%;
+    width: 60%;
+    max-width: 900px;
+    min-width: 380px;
+    
+    background-color: #e8dfd1;
+    border-radius: 2%;
+    border: 1px solid #473f3f;
+
+    z-index: 1400;
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.float-window-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #473f3f;
+
+    color: rgb(0, 0, 0, 1)
+}
+
+.window-filter-body {
+    display: flex;
+    flex-direction: row;
+
+    justify-content: center;
+    align-items: center;
+    
+
+    width: 100%;
+    height: 100%;
+
+    border-radius: 9px;
+    justify-content: space-between;
+}
+
+.column-filter{
+    height: 100%;
+    width: 100%;
+    border: 6px rgb(0, 0, 0);
+    
+    padding: 3%;
+    margin-left: 15px;
+
+    display:flex;
+    flex-direction: column;
+
+
+}
+
+.item-filter{
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    align-content: center;
+    
+    gap: 10px;
+    /* justify-content: center; */ 
+}
+
+.item-filter input{
+    margin: 0px;
+}
+
+.item-filter span{
+    position: relative;
+    bottom: 2px;
+    padding-bottom: 0px;
+    color: black;
+    font-family: 'Cinzel';
+}
+
+
+.button-apply {
+    width: 100%;
+    
+}

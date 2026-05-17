@@ -1,25 +1,32 @@
 import { CatalogApi } from "@backstage/plugin-catalog-react";
 
 export type  SkillSubmenu = {
-    name: string;
+    namespace: string;
     to: string;
 }
 
 export const SkillSubmenuGenerator = async (catalog: CatalogApi) => {
     let skillSubmenu: SkillSubmenu[] = [];
-    let name: string;
+    let namespace: string;
     let to: string;
 
     try{
         const entities = await catalog.getEntities();
-        const items = entities.items.filter((e: any) => e.kind === 'System' && e.spec.type === 'skill');
+        const items = entities.items.filter((e: any) => e.kind === 'Component' && e.spec.type === 'skill');
 
-        items.forEach((item:any) => {
-            name = item.metadata.title;
-            to = `/catalog/default/system/${item.metadata.name}`;
-            skillSubmenu.push({name, to});
-        })
-        console.log('Submenu de habilidades gerado:', skillSubmenu);
+        const namespaces = [...new Set(
+            items.map(item => item.metadata.namespace || 'default')
+        )].sort((a,b) => a.localeCompare(b))
+
+
+        namespaces.forEach(
+            (namespace: any) => {
+                const name = namespace.toLowerCase().split('-').map((word: string) => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
+                skillSubmenu.push({
+                    namespace: name, 
+                    to: `/catalog?filters%5Bkind%5D=component&filters%5Btype%5D=skill&filters%5Bnamespace%5D=${namespace}&filters%5Buser%5D=all`})
+            }
+        );
         return skillSubmenu;
     }
     catch(error){

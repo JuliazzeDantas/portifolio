@@ -37,10 +37,14 @@
   left: 4%;
   right: 4%;
   bottom: 2%;
+
+  max-height: 93vh;
+
   /* border: 2px solid #000;  */
   border-collapse: collapse;
   background: transparent; /* centro transparente */
   box-sizing: border-box;
+    display: flex;
 
   flex-direction: column; /* Organiza os filhos em coluna */
   overflow: hidden; /* Esconde qualquer conteúdo que ultrapasse os limites da borda */

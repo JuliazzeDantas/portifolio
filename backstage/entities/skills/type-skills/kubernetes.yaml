@@ -9,5 +9,5 @@ metadata:
     - security
 spec:
   owner: user:default/vinicius-juliasse-dantas
-  domain: domain:default/devops-engineering
+  domain: domain:default/platform-engineering
   type: skill

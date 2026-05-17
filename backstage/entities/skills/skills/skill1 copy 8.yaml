@@ -1,0 +1,17 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: skill-8
+  title: ACR Cleaner
+  namespace: platform-engineering
+  description: I created a script that deletes all unused images. This resulted in savings of over 70% in ACR usage.
+  tags:
+    - automation
+    - azure
+    - bash-script
+spec:
+  type: skill
+  owner: user:default/vinicius-juliasse-dantas
+  lifecycle: none
+  system: system:default/automations
+  subcomponentOf: component:platform-engineering/azure-cost-reduction
