@@ -65,4 +65,4 @@ export const SkillList: React.FC<FilteredList> = (filteredList: FilteredList) =>
             }
         </>
     );
-}
+} 
