@@ -7,8 +7,6 @@ export type  SkillSubmenu = {
 
 export const SkillSubmenuGenerator = async (catalog: CatalogApi) => {
     let skillSubmenu: SkillSubmenu[] = [];
-    let namespace: string;
-    let to: string;
 
     try{
         const entities = await catalog.getEntities();
