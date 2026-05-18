@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import {DefaultPage} from '../../core/DefaultPage';
 import { SkillList } from './GeneratorSkill';
