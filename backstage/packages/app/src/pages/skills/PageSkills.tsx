@@ -1,6 +1,6 @@
 import React from "react";
 
-import {DefaultPage} from '../../core/DefaultPage';
+import {DefaultPage} from '../../components/core/DefaultPage';
 import { SkillList } from './GeneratorSkill';
 import { FilterButton } from './FilterButton';
 

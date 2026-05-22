@@ -22,9 +22,7 @@ const  ItemGenerator = async (catalog: CatalogApi) => {
 	try {
 		const entities = await catalog.getEntities();
 		const items = entities.items.filter((e: any) => e.kind === 'Resource' && e.spec?.type === 'inventory');
-		console.log('Entidades do tipo Resource e type=inventory:', items);
 		for (const item of items) {
-			console.log('Processando item:', item);
 			const name = item.metadata.title;
 			const id = item.metadata.name;
 			const namespace = item.metadata.namespace || 'default';

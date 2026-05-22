@@ -1,7 +1,10 @@
 import { CatalogApi } from "@backstage/plugin-catalog-react";
+import { Entity } from "@backstage/catalog-model";
+
+import { Generator } from "../generator/Generator";
 
 export type  SkillSubmenu = {
-    namespace: string;
+    system: string;
     to: string;
 }
 
@@ -9,20 +12,21 @@ export const SkillSubmenuGenerator = async (catalog: CatalogApi) => {
     let skillSubmenu: SkillSubmenu[] = [];
 
     try{
-        const entities = await catalog.getEntities();
-        const items = entities.items.filter((e: any) => e.kind === 'Component' && e.spec.type === 'skill');
+       
+        const filter:any = ((e: any) => e.kind === 'Component' && e.spec.type === 'skill');
+        const items = await Generator(catalog, filter) as Entity[];
 
-        const namespaces = [...new Set(
-            items.map(item => item.metadata.namespace || 'default')
+        const systems = [...new Set(
+            items.map(item => item.metadata.system || 'default')
         )].sort((a,b) => a.localeCompare(b))
 
 
-        namespaces.forEach(
-            (namespace: any) => {
-                const name = namespace.toLowerCase().split('-').map((word: string) => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
+        systems.forEach(
+            (system: any) => {
+                const name = system.toLowerCase().split('-').map((word: string) => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
                 skillSubmenu.push({
-                    namespace: name, 
-                    to: `/catalog?filters%5Bkind%5D=component&filters%5Btype%5D=skill&filters%5Bnamespace%5D=${namespace}&filters%5Buser%5D=all`})
+                    system: name, 
+                    to: `/catalog?filters%5Bkind%5D=component&filters%5Btype%5D=skill&filters%5Bsystem%5D=${system}&filters%5Buser%5D=all`})
             }
         );
         return skillSubmenu;

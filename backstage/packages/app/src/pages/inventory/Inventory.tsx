@@ -1,10 +1,9 @@
 
 import React from 'react';
 
-import '../../core/core-styles/core-page.css';
 import './styles/inventory.css';
 
-import { DefaultPage } from '../../core/DefaultPage';
+import { DefaultPage } from '../../components/core/DefaultPage';
 import { RowGenerator } from './InventoryGenerator';
 
 
