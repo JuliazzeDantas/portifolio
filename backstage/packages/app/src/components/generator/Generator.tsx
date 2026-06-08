@@ -11,12 +11,12 @@ type Entity = {
     status: any;
 };
 
-export const Generator = async (
+export const generator = async (
     catalog: CatalogApi,
     filter: any, // Formato: => ((e:any) => e.kind === 'Component' && e.spec?.type === 'skill')
 ) => {
 
-    let itemList:any = [];
+    const itemList:any = [];
     const entities = await catalog.getEntities();
     const usableEntities = entities.items.filter(filter);
     
@@ -34,14 +34,14 @@ export const Generator = async (
     return itemList;
 }
 
-export const MapGenerator = async (
+export const mapGenerator = async (
     catalog: CatalogApi,
     filter: any, // Formato: => ((e:any) => e.kind === 'Component' && e.spec?.type === 'skill')
 ) => {
 
     
-    let itemMap = new Map<string, Entity>();
-    const usableEntities = await Generator(catalog, filter);
+    const itemMap = new Map<string, Entity>();
+    const usableEntities = await generator(catalog, filter);
     
     for (const item of usableEntities){
         itemMap.set(item.name, item);

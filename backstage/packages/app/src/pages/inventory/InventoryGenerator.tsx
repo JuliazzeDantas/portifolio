@@ -17,8 +17,8 @@ type SlotItem = {
 	namespace?: string;
 }
 
-const  ItemGenerator = async (catalog: CatalogApi) => {
-	let slotItems: SlotItem[] = [];
+const itemGenerator = async (catalog: CatalogApi) => {
+	const slotItems: SlotItem[] = [];
 	try {
 		const entities = await catalog.getEntities();
 		const items = entities.items.filter((e: any) => e.kind === 'Resource' && e.spec?.type === 'inventory');
@@ -43,12 +43,12 @@ const  ItemGenerator = async (catalog: CatalogApi) => {
 			}
 			slotItems.push({ name, image, aspectRatio, description, id, namespace });
 		}
-	} catch (error) {
-		console.error('Erro ao buscar entidades:', error);
+	} catch {
+		return slotItems;
 	}
 	return slotItems;
 }
-const SlotGenerator = async (slotItems: SlotItem[]): Promise<JSX.Element[]> => {
+const slotGenerator = async (slotItems: SlotItem[]): Promise<JSX.Element[]> => {
 	const length = slotItems.length;
 	if (length < 9) {
 		for (let quantity = length; quantity < 12; quantity++) {
@@ -79,8 +79,8 @@ export const RowGenerator: React.FC = () => {
 
 	useEffect(() => { 
 		const fetchData = async () => {
-			const item = await ItemGenerator(catalog);
-			const slot = await SlotGenerator(item);
+			const item = await itemGenerator(catalog);
+			const slot = await slotGenerator(item);
 			setSlots(slot);
 			
 		};

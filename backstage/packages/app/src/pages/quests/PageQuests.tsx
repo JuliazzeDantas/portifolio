@@ -1,5 +1,3 @@
-import React from "react";
-
 import {DefaultPage} from '../../components/core/DefaultPage';
 import { QuestList } from "./QuestGenerator";
 

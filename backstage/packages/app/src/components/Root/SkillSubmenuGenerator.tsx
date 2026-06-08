@@ -1,19 +1,19 @@
 import { CatalogApi } from "@backstage/plugin-catalog-react";
 
-import { Generator } from "../generator/Generator";
+import { generator } from "../generator/Generator";
 
 export type  SkillSubmenu = {
     system: string;
     to: string;
 }
 
-export const SkillSubmenuGenerator = async (catalog: CatalogApi) => {
-    let skillSubmenu: SkillSubmenu[] = [];
+export const skillSubmenuGenerator = async (catalog: CatalogApi) => {
+    const skillSubmenu: SkillSubmenu[] = [];
 
     try{
        
         const filter:any = ((e: any) => e.kind === 'Component' && e.spec?.type === 'skill');
-        const items: any[] = await Generator(catalog, filter);
+        const items: any[] = await generator(catalog, filter);
 
         const systems: string[] = [...new Set(
             items.map((item: any) => String(item.system || 'default'))
@@ -30,8 +30,7 @@ export const SkillSubmenuGenerator = async (catalog: CatalogApi) => {
         );
         return skillSubmenu;
     }
-    catch(error){
-        console.error('Erro ao buscar entidades:', error);
+    catch {
+        return [];
     }
-    return [];
 }

@@ -1,4 +1,3 @@
-import React from "react"
 import { useNavigate } from 'react-router-dom';
 
 import './styles/medium-panel.css';
@@ -18,7 +17,18 @@ export const Skill: React.FC<SkillType> = ({name, title, namespace, description}
     }
 
     return (
-        <div className="skill-space" onClick={onClick}>
+        <div
+            className="skill-space"
+            role="button"
+            tabIndex={0}
+            onClick={onClick}
+            onKeyDown={event => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    onClick();
+                }
+            }}
+        >
             <h1>{title}</h1>
             <div className="skill-space-body">
                 <p>{description}</p>

@@ -3,27 +3,25 @@ import { Entity } from "@backstage/catalog-model"
 
 import { Skill, ItemSkill } from './ItemSkill';
 import { FilteredList } from '../../components/filter/types';
-import React from 'react';
 
-import { Generator, MapGenerator } from '../../components/generator/Generator';
+import { generator, mapGenerator } from '../../components/generator/Generator';
 
-export const SkillGenerator = async (catalog: CatalogApi) => {
+export const skillGenerator = async (catalog: CatalogApi) => {
     
     try{
         const filterSkill:any = ((entity:Entity) => entity.kind === 'Component' && entity.spec?.type === 'skill');
         const filterSystem:any = ((e:Entity) => e.kind === 'System');
-        let skills = await Generator(catalog, filterSkill);
-        const systems = await MapGenerator(catalog, filterSystem);
+        const skills = await generator(catalog, filterSkill);
+        const systems = await mapGenerator(catalog, filterSystem);
 
         for (const item of skills){
             item.system = systems.get(item.system.replace("system:default/",""))?.title || "NO SYSTEM YET";
         }
         return skills as Skill[];
     }
-    catch(error){
-        console.error('Erro ao buscar entidades:', error);
+    catch {
+        return [];
     }
-    return [];
 }
 
 type SkillListProps = {

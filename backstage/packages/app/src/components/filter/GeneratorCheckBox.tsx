@@ -1,14 +1,12 @@
-import React from 'react';
-
 import './styles/window-filter.css';
 
-type ItemCheckBox = {
+type ItemCheckBoxProps = {
     inputName: string;
     checked: boolean;
     onToggle: (checked: boolean) => void;
 }
 
-export const ItemCheckBox: React.FC<ItemCheckBox> = ({inputName, checked, onToggle}) => {
+export const ItemCheckBox: React.FC<ItemCheckBoxProps> = ({inputName, checked, onToggle}) => {
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         onToggle(event.target.checked)

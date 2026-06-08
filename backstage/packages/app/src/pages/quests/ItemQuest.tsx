@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 import { createPortal } from 'react-dom';
 
 import './styles/quest.css';
@@ -6,7 +6,7 @@ import { QuestDetail } from './DetailQuest';
 
 export const ItemQuest: React.FC<{name?: string, title?: string, namespace?:string, description?: string, status: 'completed' | 'failed' | 'in-progress', type?: string, owner?: string}> = ({name, status, namespace, title, description, type, owner}) => { 
 
-    const [FloatWindowOpen, setFloatWindowOpen] = React.useState(false);
+    const [FloatWindowOpen, setFloatWindowOpen] = useState(false);
 
     const openFloatWindow = () => setFloatWindowOpen(true);
     const closeFloatWindow = () => setFloatWindowOpen(false);

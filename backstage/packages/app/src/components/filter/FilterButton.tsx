@@ -1,5 +1,5 @@
 import { createPortal } from 'react-dom';
-import React from 'react';
+import { useState } from 'react';
 import './styles/filter-button.css';
 
 import Filter from './image/filter.png';
@@ -24,7 +24,7 @@ export function FilterButton<T>({
     setFilteredList
 }: FilterProps<T>): JSX.Element  {
 
-    const [openWindowStatus, setWindowStatus] = React.useState(false);
+    const [openWindowStatus, setWindowStatus] = useState(false);
 
     const closeFloatWindow = () => setWindowStatus(false);
     const openFloatWindow = () => setWindowStatus(true);
@@ -42,7 +42,7 @@ export function FilterButton<T>({
                             getTags={getTags}
                             getSystem={getSystem}
                             getTitle={getTitle}
-                            CloseWindow={closeFloatWindow}
+                            closeWindow={closeFloatWindow}
                             filteredList={filteredList}
                             setFilteredList={setFilteredList}
                         />

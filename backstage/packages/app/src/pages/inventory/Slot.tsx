@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+
 export type Slot = {
     name?: string,
     image?: string, 
@@ -12,20 +13,34 @@ export const SlotInventory: React.FC<Slot> = ({ name, image, aspectRatio, id, na
 
     if (!image || !name || !aspectRatio || !id || !namespace) {
         return (
-            <div className='slot'>
-            </div>
+            <div className='slot' />
         );
-    } else {
+    } 
 		const onCLick = () => {
 			if (image && name && aspectRatio) {
 				navigate(`/catalog/${namespace}/resource/${id}`);
 			}
 		};
         return (
-            <div className='slot' style={{ flexDirection: 'column', cursor: 'pointer' }} onClick={onCLick}>
+            <div
+                className='slot'
+                style={{ 
+                    flexDirection: 'column', 
+                    cursor: 'pointer' 
+                }}
+                role="button"
+                tabIndex={0}
+                onClick={onCLick}
+                onKeyDown={event => {
+                    if (event.key === 'Enter' || event.key === ' ') {
+                        event.preventDefault();
+                        onCLick();
+                    }
+                }}
+            >
                 <img className="item" src={image} alt={`Inventory item: ${name}`} style={{ aspectRatio: `1 / ${aspectRatio}` }} />
                 <div className="item-label">{name}</div>
             </div>
         );
-    }
+    
 }

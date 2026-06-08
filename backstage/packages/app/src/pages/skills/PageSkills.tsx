@@ -1,4 +1,4 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import { useApi } from '@backstage/core-plugin-api';
 import { catalogApiRef } from '@backstage/plugin-catalog-react';
 
@@ -6,7 +6,7 @@ import { DefaultPage } from '../../components/core/DefaultPage';
 import { FilterButton } from '../../components/filter/FilterButton';
 import { FilteredList } from '../../components/filter/types';
 
-import { SkillGenerator, SkillList } from './GeneratorSkill';
+import { skillGenerator, SkillList } from './GeneratorSkill';
 import { Skill } from './ItemSkill';
 
 import './styles/skill-head.css'
@@ -14,16 +14,16 @@ import './styles/skill-head.css'
 export const SkillPage: React.FC = () => {
 
     const catalog = useApi(catalogApiRef);
-    const [skills, setSkills] = React.useState<Skill[]>([]);
-    const [filteredList, setFilteredList] = React.useState<FilteredList>({
+    const [skills, setSkills] = useState<Skill[]>([]);
+    const [filteredList, setFilteredList] = useState<FilteredList>({
         tagList: [],
         systemList: [],
         titleList: [],
     })
 
-    React.useEffect(() => {
+    useEffect(() => {
         const fetchSkills = async () => {
-            const generatedSkills = await SkillGenerator(catalog) || [];
+            const generatedSkills = await skillGenerator(catalog) || [];
             setSkills(generatedSkills);
         }
         fetchSkills();

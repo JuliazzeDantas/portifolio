@@ -1,4 +1,4 @@
-import React from 'react'
+import { useState } from 'react'
 
 import botaoMenuActivate from '../images/plus.png';
 import botaoMenuDeactivate from '../images/less.png';
@@ -8,7 +8,7 @@ import '../styles/attribute-box.css';
 
 export const AttributeTypeMenu = ({ title, items}: {title: string, items:string[]}) => {
   
-  const[ isOpen, setIsOpen ] = React.useState(false);
+  const[ isOpen, setIsOpen ] = useState(false);
   const clickMenu = () => {
     setIsOpen(!isOpen);
   }

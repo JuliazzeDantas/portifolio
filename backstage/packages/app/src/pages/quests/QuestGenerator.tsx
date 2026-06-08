@@ -1,11 +1,10 @@
 import { useApi } from '@backstage/core-plugin-api';
 import { CatalogApi, catalogApiRef } from '@backstage/plugin-catalog-react';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Entity } from "@backstage/catalog-model"
 
 import { ItemQuest } from './ItemQuest';
-import React from 'react';
-import { Generator } from '../../components/generator/Generator';
+import { generator } from '../../components/generator/Generator';
 
 export type Quest = {
     name?: string;
@@ -17,11 +16,11 @@ export type Quest = {
     owner?: string;
 }
 
-const QuestGenerator = async (catalog: CatalogApi) => {
+const questGenerator = async (catalog: CatalogApi) => {
 
     try{
         const filter: any = (e:Entity) => e.kind === 'Component' && e.spec?.type === 'quest';
-        const quests = await Generator(catalog, filter);
+        const quests = await generator(catalog, filter);
 
         for (const item of quests){
             item.system = String(item.system || 'project').replace("system:default/","").toUpperCase();
@@ -29,10 +28,9 @@ const QuestGenerator = async (catalog: CatalogApi) => {
         }
         return quests as Quest[];
     }
-    catch(error){
-        console.error('Erro ao buscar entidades:', error);
+    catch {
+        return [];
     }
-    return [];
 }
 
 const getSortPriority = (quest: Quest): number => {
@@ -49,12 +47,12 @@ const getSortPriority = (quest: Quest): number => {
 
 export const QuestList: React.FC = () => {
     const catalog = useApi(catalogApiRef);
-    const [generatedQuests, setQuests] = React.useState<Quest[]>([]);
+    const [generatedQuests, setQuests] = useState<Quest[]>([]);
 
     useEffect(() => {
         const fetchQuests = async () => {
-            const generatedQuests = await QuestGenerator(catalog) || [];
-            setQuests(generatedQuests);
+            const quests = await questGenerator(catalog) || [];
+            setQuests(quests);
         }
         fetchQuests();
     }, [catalog]);
