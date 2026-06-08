@@ -1,9 +1,9 @@
 app:
-  title: Scaffolded Backstage App
+  title: Ficha do Personagem
   baseUrl: http://localhost:3000
 
 organization:
-  name: My Company
+  name: RPG Techgit add 
 
 backend:
   reading:
