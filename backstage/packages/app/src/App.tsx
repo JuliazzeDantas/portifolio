@@ -24,7 +24,6 @@ import { apis } from './apis';
 import { entityPage } from './components/catalog/EntityPage';
 import { searchPage } from './components/search/SearchPage';
 import { CustomRoot } from './components/Root/CustomRoot';
-// import { Root } from './components/Root/Root';
 
 
 import {

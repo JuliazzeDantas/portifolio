@@ -8,13 +8,14 @@ export type Slot = {
 }
 
 export const SlotInventory: React.FC<Slot> = ({ name, image, aspectRatio, id, namespace}) => {
+    const navigate = useNavigate();
+
     if (!image || !name || !aspectRatio || !id || !namespace) {
         return (
             <div className='slot'>
             </div>
         );
     } else {
-		const navigate = useNavigate();
 		const onCLick = () => {
 			if (image && name && aspectRatio) {
 				navigate(`/catalog/${namespace}/resource/${id}`);

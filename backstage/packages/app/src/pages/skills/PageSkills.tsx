@@ -1,28 +1,44 @@
 import React from "react";
+import { useApi } from '@backstage/core-plugin-api';
+import { catalogApiRef } from '@backstage/plugin-catalog-react';
 
-import {DefaultPage} from '../../components/core/DefaultPage';
-import { SkillList } from './GeneratorSkill';
-import { FilterButton } from './FilterButton';
+import { DefaultPage } from '../../components/core/DefaultPage';
+import { FilterButton } from '../../components/filter/FilterButton';
+import { FilteredList } from '../../components/filter/types';
+
+import { SkillGenerator, SkillList } from './GeneratorSkill';
+import { Skill } from './ItemSkill';
 
 import './styles/skill-head.css'
 
-export type FilteredList = {
-    tagList:string[];
-    systemList:string[];
-    titleList:string[];
-}
-
 export const SkillPage: React.FC = () => {
 
+    const catalog = useApi(catalogApiRef);
+    const [skills, setSkills] = React.useState<Skill[]>([]);
     const [filteredList, setFilteredList] = React.useState<FilteredList>({
         tagList: [],
         systemList: [],
         titleList: [],
     })
 
+    React.useEffect(() => {
+        const fetchSkills = async () => {
+            const generatedSkills = await SkillGenerator(catalog) || [];
+            setSkills(generatedSkills);
+        }
+        fetchSkills();
+    }, [catalog]);
+
     return (
         <DefaultPage titleHeader="Skills">
-            <FilterButton filteredList={filteredList} setFilteredList={setFilteredList}/>
+            <FilterButton
+                entityList={skills}
+                getTags={skill => skill.tags}
+                getSystem={skill => skill.system}
+                getTitle={skill => skill.title}
+                filteredList={filteredList}
+                setFilteredList={setFilteredList}
+            />
             <div className="skill-head">
                 <div className="column-skill-head skill-head-name"><p>Skills</p></div>
                 <div className="column-skill-head skill-head-system"><p>System</p></div>
@@ -30,7 +46,7 @@ export const SkillPage: React.FC = () => {
                 <div className="column-skill-head skill-head-tag"><p>Tags</p></div>
             </div>
             <div className="skill-container">
-                <SkillList {...filteredList} />
+                <SkillList skills={skills} filteredList={filteredList} />
             </div>
         </DefaultPage>
     );

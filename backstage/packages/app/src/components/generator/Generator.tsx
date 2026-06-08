@@ -21,8 +21,6 @@ export const Generator = async (
     const usableEntities = entities.items.filter(filter);
     
     for (const item of usableEntities){
-        console.log("item");
-        console.log(item);
         const name = item.metadata.name || "No name";
         const title = item.metadata.title || "No name provided";
         const system = String(item.spec?.system || "No System").replace("system:default/","");

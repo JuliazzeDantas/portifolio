@@ -7,10 +7,10 @@ import { Skill } from "./Skill";
 
 const MagicPlaceGenerator = async (catalog: CatalogApi) => {
     const entities = await catalog.getEntities();
-	const items = entities.items.filter((e: any) => e.kind === 'System' && e.spec.type === 'skill');  
+	const items = entities.items.filter((e: any) => e.kind === 'System' && e.spec?.type === 'skill');  
 
     return items.map(item => {
-        return <Skill name={item.metadata.name} title={item.metadata.title || item.metadata.name} namespace={item.metadata.namespace || 'default'} description={item.metadata.description || 'No description'} />
+        return <Skill key={item.metadata.name} name={item.metadata.name} title={item.metadata.title || item.metadata.name} namespace={item.metadata.namespace || 'default'} description={item.metadata.description || 'No description'} />
     })
 }
 

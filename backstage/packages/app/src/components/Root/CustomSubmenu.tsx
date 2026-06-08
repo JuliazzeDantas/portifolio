@@ -14,7 +14,7 @@ export const SkillsSubmenu: React.FC<SkillsSubmenuProps> = ({ submenu = [] }) =>
     <div className="submenu">
       {submenu.map((item, idx) => (
         <div key={idx} className="submenu-item" onClick={() => navigate(item.to)}>
-          {item.namespace}
+          {item.system}
         </div>
       ))}
     </div>

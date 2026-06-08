@@ -60,8 +60,8 @@ const SlotGenerator = async (slotItems: SlotItem[]): Promise<JSX.Element[]> => {
 			slotItems.push({});
 		}
 	}
-	return slotItems.map((item) => (
-		<SlotInventory name={item.name} image={item.image} aspectRatio={item.aspectRatio} id={item.id} namespace={item.namespace} />
+	return slotItems.map((item, index) => (
+		<SlotInventory key={item.id ?? `empty-${index}`} name={item.name} image={item.image} aspectRatio={item.aspectRatio} id={item.id} namespace={item.namespace} />
 	));
 }
 

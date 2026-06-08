@@ -24,7 +24,7 @@ const QuestGenerator = async (catalog: CatalogApi) => {
         const quests = await Generator(catalog, filter);
 
         for (const item of quests){
-            item.system = String(item.spec?.system || 'project').replace("system:default/","").toUpperCase();
+            item.system = String(item.system || 'project').replace("system:default/","").toUpperCase();
             item.owner = String(item.spec?.owner || 'raizen').replace("group:default/","").replace("user:default/","");
         }
         return quests as Quest[];

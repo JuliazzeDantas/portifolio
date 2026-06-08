@@ -4,14 +4,25 @@ import './styles/filter-button.css';
 
 import Filter from './image/filter.png';
 import { WindowFilter } from './WindowFilter'
-import { FilteredList } from './PageSkills';
+import { FilteredList } from './types'
 
-type FilterProps = {
+type FilterProps<T> = {
+    entityList: T[];
+    getTags: (item: T) => string[] | undefined;
+    getSystem: (item: T) => string | undefined;
+    getTitle: (item: T) => string | undefined;
     filteredList: FilteredList;
     setFilteredList:  React.Dispatch<React.SetStateAction<FilteredList>>
 }
 
-export const FilterButton: React.FC<FilterProps> = ({filteredList, setFilteredList}) => {
+export function FilterButton<T>({
+    entityList, 
+    getTags, 
+    getSystem, 
+    getTitle, 
+    filteredList, 
+    setFilteredList
+}: FilterProps<T>): JSX.Element  {
 
     const [openWindowStatus, setWindowStatus] = React.useState(false);
 
@@ -26,7 +37,15 @@ export const FilterButton: React.FC<FilterProps> = ({filteredList, setFilteredLi
             {
                 openWindowStatus && createPortal(
                     <div className='modal-overlay'>
-                        <WindowFilter CloseWindow={closeFloatWindow} filteredList={filteredList} setFilteredList={setFilteredList}/>
+                        <WindowFilter
+                            entityList={entityList}
+                            getTags={getTags}
+                            getSystem={getSystem}
+                            getTitle={getTitle}
+                            CloseWindow={closeFloatWindow}
+                            filteredList={filteredList}
+                            setFilteredList={setFilteredList}
+                        />
                     </div>,
                     document.querySelector('.container') as HTMLElement
                 )
