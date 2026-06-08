@@ -1,6 +1,4 @@
-import React from "react";
-
-import {DefaultPage} from '../../core/DefaultPage';
+import {DefaultPage} from '../../components/core/DefaultPage';
 import { QuestList } from "./QuestGenerator";
 
 export const QuestPage: React.FC = () => {

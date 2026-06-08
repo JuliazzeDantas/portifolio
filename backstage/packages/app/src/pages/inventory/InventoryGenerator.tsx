@@ -17,14 +17,12 @@ type SlotItem = {
 	namespace?: string;
 }
 
-const  ItemGenerator = async (catalog: CatalogApi) => {
-	let slotItems: SlotItem[] = [];
+const itemGenerator = async (catalog: CatalogApi) => {
+	const slotItems: SlotItem[] = [];
 	try {
 		const entities = await catalog.getEntities();
 		const items = entities.items.filter((e: any) => e.kind === 'Resource' && e.spec?.type === 'inventory');
-		console.log('Entidades do tipo Resource e type=inventory:', items);
 		for (const item of items) {
-			console.log('Processando item:', item);
 			const name = item.metadata.title;
 			const id = item.metadata.name;
 			const namespace = item.metadata.namespace || 'default';
@@ -45,12 +43,12 @@ const  ItemGenerator = async (catalog: CatalogApi) => {
 			}
 			slotItems.push({ name, image, aspectRatio, description, id, namespace });
 		}
-	} catch (error) {
-		console.error('Erro ao buscar entidades:', error);
+	} catch {
+		return slotItems;
 	}
 	return slotItems;
 }
-const SlotGenerator = async (slotItems: SlotItem[]): Promise<JSX.Element[]> => {
+const slotGenerator = async (slotItems: SlotItem[]): Promise<JSX.Element[]> => {
 	const length = slotItems.length;
 	if (length < 9) {
 		for (let quantity = length; quantity < 12; quantity++) {
@@ -62,8 +60,8 @@ const SlotGenerator = async (slotItems: SlotItem[]): Promise<JSX.Element[]> => {
 			slotItems.push({});
 		}
 	}
-	return slotItems.map((item) => (
-		<SlotInventory name={item.name} image={item.image} aspectRatio={item.aspectRatio} id={item.id} namespace={item.namespace} />
+	return slotItems.map((item, index) => (
+		<SlotInventory key={item.id ?? `empty-${index}`} name={item.name} image={item.image} aspectRatio={item.aspectRatio} id={item.id} namespace={item.namespace} />
 	));
 }
 
@@ -81,8 +79,8 @@ export const RowGenerator: React.FC = () => {
 
 	useEffect(() => { 
 		const fetchData = async () => {
-			const item = await ItemGenerator(catalog);
-			const slot = await SlotGenerator(item);
+			const item = await itemGenerator(catalog);
+			const slot = await slotGenerator(item);
 			setSlots(slot);
 			
 		};

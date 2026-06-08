@@ -24,7 +24,6 @@ import { apis } from './apis';
 import { entityPage } from './components/catalog/EntityPage';
 import { searchPage } from './components/search/SearchPage';
 import { CustomRoot } from './components/Root/CustomRoot';
-// import { Root } from './components/Root/Root';
 
 
 import {
@@ -42,10 +41,10 @@ import { SignalsDisplay } from '@backstage/plugin-signals';
 
 
 import { HomepageCompositionRoot } from '@backstage/plugin-home';
-import { HomePage } from './components/pages/home/HomePage';
-import { InventoryPage } from './components/pages/inventory/Inventory';
-import { QuestPage } from './components/pages/quests/PageQuests';
-import { SkillPage } from './components/pages/skills/PageSkills';
+import { HomePage } from './pages/home/HomePage';
+import { InventoryPage } from './pages/inventory/Inventory';
+import { QuestPage } from './pages/quests/PageQuests';
+import { SkillPage } from './pages/skills/PageSkills';
 
 const app = createApp({
   apis,

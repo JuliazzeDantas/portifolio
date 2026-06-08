@@ -1,20 +1,20 @@
-import React, { useState, useEffect} from "react";
+import { useState, useEffect} from "react";
 import { useApi } from '@backstage/core-plugin-api';
 import { CatalogApi, catalogApiRef } from '@backstage/plugin-catalog-react';
 
 import { Skill } from "./Skill";
 
 
-const MagicPlaceGenerator = async (catalog: CatalogApi) => {
+const magicPlaceGenerator = async (catalog: CatalogApi) => {
     const entities = await catalog.getEntities();
-	const items = entities.items.filter((e: any) => e.kind === 'System' && e.spec.type === 'skill');  
+	const items = entities.items.filter((e: any) => e.kind === 'System' && e.spec?.type === 'skill');  
 
     return items.map(item => {
-        return <Skill name={item.metadata.name} title={item.metadata.title || item.metadata.name} namespace={item.metadata.namespace || 'default'} description={item.metadata.description || 'No description'} />
+        return <Skill key={item.metadata.name} name={item.metadata.name} title={item.metadata.title || item.metadata.name} namespace={item.metadata.namespace || 'default'} description={item.metadata.description || 'No description'} />
     })
 }
 
-const RowGenerator = (skills: JSX.Element[]) => {
+const rowGenerator = (skills: JSX.Element[]) => {
     const rows = [];
     for(let i = 0; i < skills.length; i += 2){
         rows.push(
@@ -33,13 +33,13 @@ export const SkillTypeGenerator: React.FC = () => {
 
     useEffect(() => {
         const fetchSkillTypes = async () => {
-            const skillTypes = await MagicPlaceGenerator(catalog)
-            setSkillTypes(skillTypes);
+            const generatedSkillTypes = await magicPlaceGenerator(catalog)
+            setSkillTypes(generatedSkillTypes);
         }
         fetchSkillTypes();
     }, [catalog]);
     
     return(<>
-        {RowGenerator(skillTypes)}
+        {rowGenerator(skillTypes)}
      </>)
 }

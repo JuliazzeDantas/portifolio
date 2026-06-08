@@ -1,6 +1,6 @@
 
 
-import React from 'react';
+import { useState } from 'react';
 import { SkillsSubmenu } from './CustomSubmenu';
 import { useNavigate } from 'react-router-dom';
 
@@ -10,7 +10,7 @@ import { SkillSubmenu } from './SkillSubmenuGenerator';
 
 export const SidebarButton = ({path, text, submenu = [] }: {path: string, text: string, submenu?: SkillSubmenu[] }) => {
   const navigate = useNavigate();
-  const [submenuOpen, setSubmenuOpen] = React.useState(false);
+  const [submenuOpen, setSubmenuOpen] = useState(false);
 
   const handleMouseEnter = () => setSubmenuOpen(true);
   const handleMouseLeave = () => setSubmenuOpen(false);
@@ -23,7 +23,7 @@ export const SidebarButton = ({path, text, submenu = [] }: {path: string, text: 
       </button>
     );
   }
-  else{
+  
     return (
       <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
         <button className="button engraved-text" onClick={handleClick}>
@@ -36,5 +36,5 @@ export const SidebarButton = ({path, text, submenu = [] }: {path: string, text: 
         )}
       </div>
     );
-  }
+  
 };

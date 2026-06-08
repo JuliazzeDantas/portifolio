@@ -1,34 +1,36 @@
 import { CatalogApi } from "@backstage/plugin-catalog-react";
 
+import { generator } from "../generator/Generator";
+
 export type  SkillSubmenu = {
-    namespace: string;
+    system: string;
     to: string;
 }
 
-export const SkillSubmenuGenerator = async (catalog: CatalogApi) => {
-    let skillSubmenu: SkillSubmenu[] = [];
+export const skillSubmenuGenerator = async (catalog: CatalogApi) => {
+    const skillSubmenu: SkillSubmenu[] = [];
 
     try{
-        const entities = await catalog.getEntities();
-        const items = entities.items.filter((e: any) => e.kind === 'Component' && e.spec.type === 'skill');
+       
+        const filter:any = ((e: any) => e.kind === 'Component' && e.spec?.type === 'skill');
+        const items: any[] = await generator(catalog, filter);
 
-        const namespaces = [...new Set(
-            items.map(item => item.metadata.namespace || 'default')
-        )].sort((a,b) => a.localeCompare(b))
+        const systems: string[] = [...new Set(
+            items.map((item: any) => String(item.system || 'default'))
+        )].sort((a, b) => a.localeCompare(b))
 
 
-        namespaces.forEach(
-            (namespace: any) => {
-                const name = namespace.toLowerCase().split('-').map((word: string) => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
+        systems.forEach(
+            (system: string) => {
+                const name = system.toLowerCase().split('-').map((word: string) => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
                 skillSubmenu.push({
-                    namespace: name, 
-                    to: `/catalog?filters%5Bkind%5D=component&filters%5Btype%5D=skill&filters%5Bnamespace%5D=${namespace}&filters%5Buser%5D=all`})
+                    system: name, 
+                    to: `/catalog?filters%5Bkind%5D=component&filters%5Btype%5D=skill&filters%5Bsystem%5D=${system}&filters%5Buser%5D=all`})
             }
         );
         return skillSubmenu;
     }
-    catch(error){
-        console.error('Erro ao buscar entidades:', error);
+    catch {
+        return [];
     }
-    return [];
 }

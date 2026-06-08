@@ -16,7 +16,7 @@ import { SidebarButton } from './SidebarButton';
 import { BottomSection } from './BottomSection';
 import { SidebarLogo } from './SidebarLogo';
 
-import { SkillSubmenu, SkillSubmenuGenerator } from './SkillSubmenuGenerator';
+import { SkillSubmenu, skillSubmenuGenerator } from './SkillSubmenuGenerator';
 
 
 export const CustomRoot = ({ children }: PropsWithChildren<{}>) => {
@@ -25,8 +25,8 @@ export const CustomRoot = ({ children }: PropsWithChildren<{}>) => {
 
   useEffect(() => {
     const fetchSubmenu = async () => {
-      const submenu = await SkillSubmenuGenerator(catalog);
-      setSubmenu(submenu ?? []);
+      const generatedSubmenu = await skillSubmenuGenerator(catalog);
+      setSubmenu(generatedSubmenu ?? []);
     }
     fetchSubmenu();
   }, [catalog]);
@@ -34,12 +34,12 @@ export const CustomRoot = ({ children }: PropsWithChildren<{}>) => {
   return (
     <SidebarPage > 
         <Sidebar> 
-          <div className={"sidebar-style"}>
+          <div className="sidebar-style">
             <SidebarLogo />
             {/* <SidebarGroup label="Search" icon={<SearchIcon />} to="/search">
               <SidebarSearchModal /> Vou deixar o search baseado no Backstage, poi sé mais simples
             </SidebarGroup> */}
-            <hr className={"sidebar-divider"}/>
+            <hr className="sidebar-divider"/>
             <SidebarGroup label="Character">
               <SidebarButton path="/home" text="Character" />
               <SidebarButton path="/inventory" text="Inventory" />
@@ -50,7 +50,7 @@ export const CustomRoot = ({ children }: PropsWithChildren<{}>) => {
               <SidebarButton path="/catalog" text="Catalog" />
             </SidebarGroup>
             <BottomSection>
-              <hr className={"sidebar-divider"}/>
+              <hr className="sidebar-divider"/>
               <SidebarButton path="/settings" text="Settings"/>
             </BottomSection>
 

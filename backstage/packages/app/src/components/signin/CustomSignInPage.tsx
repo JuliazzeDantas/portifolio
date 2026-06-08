@@ -12,7 +12,7 @@ import './styles/particle.css';
 
 const useStyles = makeStyles(theme => ({
   container: {
-    minHeight: '100vh', //Garante que a tela de login ocupe a página inteira
+    minHeight: '100vh', // Garante que a tela de login ocupe a página inteira
     display: 'flex', // Permite organizar os filhos de forma flexível
     background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', // Cores em degradê num ângulo de 135º
     position: 'relative',
@@ -27,11 +27,11 @@ const useStyles = makeStyles(theme => ({
     backgroundSize: 'cover', // Cobre todo o painel
     backgroundPosition: 'center', // Centraliza a imagem
     backgroundRepeat: 'no-repeat', // Não repete a imabasegem
-    //borderRadius: '0 20px 20px 0', // Bordas arredondadas apenas no canto superior direito e inferior direito
+    // borderRadius: '0 20px 20px 0', // Bordas arredondadas apenas no canto superior direito e inferior direito
     padding: theme.spacing(4), // Espaçamento interno. 4 x 8px = 32px
     color: '#fff', // Cor do texto branca
     position: 'relative', // Permite o usar o zindex para controlar camadas
-    zIndex: 1, //Define camada. Maior = mais para frente
+    zIndex: 1, // Define camada. Maior = mais para frente
   },
   rightPanel: {
     display: 'flex',
@@ -41,7 +41,7 @@ const useStyles = makeStyles(theme => ({
     backgroundSize: 'cover', // Cobre todo o painel
     backgroundPosition: 'center', // Centraliza a imagem
     backgroundRepeat: 'no-repeat', // Não repete a imabasegem
-    //borderRadius: '20px 0 0 20px', // Bordas arredondadas apenas no canto superior esquerdo e inferior esquerdo
+    // borderRadius: '20px 0 0 20px', // Bordas arredondadas apenas no canto superior esquerdo e inferior esquerdo
     padding: theme.spacing(4), // Espaçamento interno
     position: 'relative', // Para posicionar overlay se necessário
     [theme.breakpoints.down('sm')]: { // Responsividade para telas pequenas
@@ -52,13 +52,13 @@ const useStyles = makeStyles(theme => ({
     width: 90, // Largura do logo
     height: 90, // Altura do logo
     marginBottom: theme.spacing(1.5), // Espaçamento abaixo do logo. Separa ele dos textos abaixo 
-    //animation: '$float 3s ease-in-out infinite', // Animação de flutuar
+    // animation: '$float 3s ease-in-out infinite', // Animação de flutuar
   },
   title: {
     fontSize: '2rem', // Tamanho relativo da fonte (relativo ao root) 
     fontWeight: 700, // Negrito
     marginBottom: theme.spacing(2), // Espaçamento abaixo do título
-    //textShadow: '2px 2px 4px rgba(0,0,0,0.2)', // Sombra para destacar o texto
+    // textShadow: '2px 2px 4px rgba(0,0,0,0.2)', // Sombra para destacar o texto
     color: '#242322ff', 
   },
   subtitle: {
@@ -103,7 +103,7 @@ const useStyles = makeStyles(theme => ({
     marginTop: 150, // Empurra o botão para baixo (ajuste o valor conforme necessário)
     zIndex: 2,
     position: 'relative',
-    //background: '#666',
+    // background: '#666',
   },
 
   loginSubtext: {
@@ -238,8 +238,7 @@ export const CustomSignInPage = (props: SignInPageProps) => {
             >
               Enter the portal
             </Button>
-            <Typography className={classes.loginSubtext}>
-            </Typography>
+            <Typography className={classes.loginSubtext} />
           </div>
 
           {/* SignInPage escondido - mantém a funcionalidade */}
