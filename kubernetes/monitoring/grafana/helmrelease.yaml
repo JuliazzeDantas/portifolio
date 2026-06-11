@@ -1,0 +1,42 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: grafana
+  namespace: monitoring
+spec:
+  interval: 30m
+  releaseName: grafana
+  chart:
+    spec:
+      chart: grafana
+      version: "12.4.4"
+      sourceRef:
+        kind: HelmRepository
+        name: grafana-community
+        namespace: monitoring
+      interval: 12h
+  install:
+    remediation:
+      retries: 3
+  upgrade:
+    remediation:
+      retries: 3
+  values:
+    adminUser: admin
+    adminPassword: admin
+    persistence:
+      enabled: true
+      size: 5Gi
+    service:
+      type: NodePort
+      port: 80
+      nodePort: 30080
+    datasources:
+      datasources.yaml:
+        apiVersion: 1
+        datasources:
+          - name: Prometheus
+            type: prometheus
+            access: proxy
+            url: http://prometheus-server.monitoring.svc.cluster.local
+            isDefault: true

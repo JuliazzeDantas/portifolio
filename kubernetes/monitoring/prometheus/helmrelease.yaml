@@ -1,0 +1,40 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: prometheus
+  namespace: monitoring
+spec:
+  interval: 30m
+  releaseName: prometheus
+  chart:
+    spec:
+      chart: prometheus
+      version: "29.10.1"
+      sourceRef:
+        kind: HelmRepository
+        name: prometheus-community
+        namespace: monitoring
+      interval: 12h
+  install:
+    createNamespace: false
+    crds: Create
+    remediation:
+      retries: 3
+  upgrade:
+    crds: CreateReplace
+    remediation:
+      retries: 3
+  values:
+    server:
+      retention: "15d"
+      persistentVolume:
+        enabled: true
+        size: 8Gi
+    alertmanager:
+      enabled: true
+    kube-state-metrics:
+      enabled: true
+    prometheus-node-exporter:
+      enabled: true
+    prometheus-pushgateway:
+      enabled: false
