@@ -3,28 +3,34 @@ import { createPortal } from 'react-dom';
 
 import './styles/quest.css';
 import { QuestDetail } from './DetailQuest';
+import { ListCard } from '../../components/table/ListCard';
 
-export const ItemQuest: React.FC<{name?: string, title?: string, namespace?:string, description?: string, status: 'completed' | 'failed' | 'in-progress', type?: string, owner?: string}> = ({name, status, namespace, title, description, type, owner}) => { 
+export const ItemQuest: React.FC<{name?: string, title?: string, namespace?:string, description?: string, status: 'completed' | 'failed' | 'in-progress', type?: string, owner?: string, tags?: string[]}> = ({name, status, namespace, title, description, type, owner, tags}) => { 
 
     const [FloatWindowOpen, setFloatWindowOpen] = useState(false);
 
     const openFloatWindow = () => setFloatWindowOpen(true);
     const closeFloatWindow = () => setFloatWindowOpen(false);
 
+    const prettyStatus = status.replace("-", " ").replace(/\b\w/g, char => char.toUpperCase());
+
     return (
-        <div>
-            <button className='card-quest' onClick={openFloatWindow}>
-                <h3 className='card-quest-title'>[{type}] - {title}</h3>
-                <p className={`card-quest-status-${status}`}>{status.replace("-", " ").replace(/\b\w/g, char => char.toUpperCase())}</p>
-            </button>
+        <>
+            <ListCard
+                title={title}
+                system={type}
+                tags={tags}
+                onClick={openFloatWindow}
+                third={<span className={`card-quest-status-${status}`}>{prettyStatus}</span>}
+            />
             {
                 FloatWindowOpen && createPortal(
-                    <div className='modal-orverlay'>
+                    <div className='modal-overlay'>
                         <QuestDetail CloseWindow={closeFloatWindow} title={title} name={name} description={description} type={type} status={status} owner={owner} namespace={namespace}/>
                     </div>,
                     document.querySelector('.container') as HTMLElement // Pega como referencia o .container para poder cobrir todo ele com o modelpverlay
                 )
             }
-        </div>
+        </>
     );
 }

@@ -1,10 +1,9 @@
-import { useApi } from '@backstage/core-plugin-api';
-import { CatalogApi, catalogApiRef } from '@backstage/plugin-catalog-react';
-import { useEffect, useState } from 'react';
+import { CatalogApi } from '@backstage/plugin-catalog-react';
 import { Entity } from "@backstage/catalog-model"
 
 import { ItemQuest } from './ItemQuest';
 import { generator } from '../../components/generator/Generator';
+import { FilteredList } from '../../components/filter/types';
 
 export type Quest = {
     name?: string;
@@ -14,9 +13,10 @@ export type Quest = {
     system?: string
     namespace?: string;
     owner?: string;
+    tags?: string[];
 }
 
-const questGenerator = async (catalog: CatalogApi) => {
+export const questGenerator = async (catalog: CatalogApi) => {
 
     try{
         const filter: any = (e:Entity) => e.kind === 'Component' && e.spec?.type === 'quest';
@@ -45,19 +45,23 @@ const getSortPriority = (quest: Quest): number => {
     return 8;
 };
 
-export const QuestList: React.FC = () => {
-    const catalog = useApi(catalogApiRef);
-    const [generatedQuests, setQuests] = useState<Quest[]>([]);
+type QuestListProps = {
+    quests: Quest[];
+    filteredList: FilteredList;
+}
 
-    useEffect(() => {
-        const fetchQuests = async () => {
-            const quests = await questGenerator(catalog) || [];
-            setQuests(quests);
+export const QuestList: React.FC<QuestListProps> = ({ quests, filteredList }) => {
+    const noFilter = filteredList.tagList.length === 0 &&
+                    filteredList.systemList.length === 0 &&
+                    filteredList.statusList.length === 0;
+
+    const filteredQuests = noFilter ? quests : quests.filter(
+        item => {
+            return item.tags?.some(tag => filteredList.tagList.includes(tag)) || filteredList.systemList.includes(item.system ?? "") || filteredList.statusList.includes(item.status ?? "")
         }
-        fetchQuests();
-    }, [catalog]);
+    );
 
-    const sortedQuests = [...generatedQuests].sort(
+    const sortedQuests = [...filteredQuests].sort(
         (a, b) => getSortPriority(a) - getSortPriority(b)
     );
 
@@ -65,7 +69,7 @@ export const QuestList: React.FC = () => {
         <>
             {
                 sortedQuests.map((quest, key) => (
-                    <ItemQuest key={key} status={quest.status ?? 'failed'} name={quest.name} title={quest.title} description={quest.description} type={quest.system} owner={quest.owner} namespace={quest.namespace}/>
+                    <ItemQuest key={key} status={quest.status ?? 'failed'} name={quest.name} title={quest.title} description={quest.description} type={quest.system} owner={quest.owner} namespace={quest.namespace} tags={quest.tags}/>
                 ))
             }
         </>

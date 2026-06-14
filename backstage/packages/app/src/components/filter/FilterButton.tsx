@@ -10,7 +10,8 @@ type FilterProps<T> = {
     entityList: T[];
     getTags: (item: T) => string[] | undefined;
     getSystem: (item: T) => string | undefined;
-    getTitle: (item: T) => string | undefined;
+    getTitle?: (item: T) => string | undefined;
+    getStatus?: (item: T) => string | undefined;
     filteredList: FilteredList;
     setFilteredList:  React.Dispatch<React.SetStateAction<FilteredList>>
 }
@@ -20,6 +21,7 @@ export function FilterButton<T>({
     getTags, 
     getSystem, 
     getTitle, 
+    getStatus, 
     filteredList, 
     setFilteredList
 }: FilterProps<T>): JSX.Element  {
@@ -42,6 +44,7 @@ export function FilterButton<T>({
                             getTags={getTags}
                             getSystem={getSystem}
                             getTitle={getTitle}
+                            getStatus={getStatus}
                             closeWindow={closeFloatWindow}
                             filteredList={filteredList}
                             setFilteredList={setFilteredList}

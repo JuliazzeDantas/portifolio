@@ -3,7 +3,7 @@
     max-height: 83vh; /* altura máxima para garantir que a rolagem aparece */
     overflow-y: auto; /* barra de rolagem vertical */
     overflow-x: hidden; /* sem rolagem horizontal */
-    margin-top: 3%;
+
  
     scrollbar-width: thin;
     scrollbar-color: rgba(46, 22, 5, 0.8) transparent;

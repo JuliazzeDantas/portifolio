@@ -1,7 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 
-import './styles/skill-head.css';
-import './styles/skill-body.css';
+import { ListCard } from '../../components/table/ListCard';
 
 export type Skill = {
     name?: string;
@@ -22,15 +21,12 @@ export const ItemSkill: React.FC<Skill> = ({name, namespace, title, description,
     }
 
     return (
-        <div>
-            <button className='card-skill' onClick={onClickSkill} key={name}>
-                <p className='card-skill-name'>{title}</p>
-                <p className='card-skill-system'>{system}</p>
-                <p className='card-skill-description'>{description}</p>
-                <div className='card-skill-tags'>
-                    {tags?.map((tag) => <span className='card-skill-tag' key={tag}>{tag}</span>)}
-                </div>
-            </button>
-        </div>
+        <ListCard
+            title={title}
+            system={system}
+            third={description}
+            tags={tags}
+            onClick={onClickSkill}
+        />
     );
 }

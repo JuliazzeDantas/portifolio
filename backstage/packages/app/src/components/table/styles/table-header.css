@@ -1,4 +1,4 @@
-.skill-head {
+.table-header {
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -13,7 +13,7 @@
 }
 
 
-.column-skill-head { 
+.column-head-table { 
     font-family: 'Cinzel';
     font-size: 1.6em;
     font-weight: bold;
