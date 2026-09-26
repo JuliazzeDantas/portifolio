@@ -1,4 +1,4 @@
-apiVesrion: helm.toolkit.fluxcd.io/v2
+apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
   name: jenkins-helm-release
@@ -9,7 +9,7 @@ spec:
     spec:
       chart: jenkins
       version: "5.9.64"
-      surceRef:
+      sourceRef:
         kind: HelmRepository
         name: jenkins-helm-repository
   values:
