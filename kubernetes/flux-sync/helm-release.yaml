@@ -1,0 +1,28 @@
+apiVesrion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: jenkins-helm-release
+  namespace: jenkins
+spec:
+  interval: 24h
+  chart:
+    spec:
+      chart: jenkins
+      version: "5.9.64"
+      surceRef:
+        kind: HelmRepository
+        name: jenkins-helm-repository
+  values:
+    persistence:
+      enabled: true
+      existingClaim: pvc-jenkins
+    controller:
+      resources:
+        requests:
+          cpu: 500m
+          memory: 1Gi
+        limits:
+          cpu: 1000m
+          memory: 4Gi
+      
+      
