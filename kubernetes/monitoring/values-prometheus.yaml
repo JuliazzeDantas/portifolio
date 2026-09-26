@@ -1,0 +1,187 @@
+# VERSÂO 88.5.4
+
+grafana:
+  enabled: true
+
+
+prometheusOperator:
+  enabled: true
+  resources:
+    requests:
+      cpu: 100m
+      memory: 128Mi
+    limits:
+      cpu: 200m
+      memory: 256Mi
+  admissionWebhooks:
+    enabled: true
+    patch:
+      enabled: true
+
+prometheus:
+  prometheusSpec:
+    replicas: 1
+
+    retention: 14d
+    retentionSize: "15GB"
+
+    storageSpec:
+      volumeClaimTemplate:
+        spec:
+          storageClassName: "standard" 
+          accessModes: ["ReadWriteOnce"]
+          resources:
+            requests:
+              storage: 20Gi
+
+    resources:
+      requests:
+        cpu: 500m
+        memory: 2Gi
+      limits:
+        cpu: "1"
+        memory: 4Gi
+
+
+    serviceMonitorSelectorNilUsesHelmValues: false
+    podMonitorSelectorNilUsesHelmValues: false
+    ruleSelectorNilUsesHelmValues: false
+
+    podDisruptionBudget:
+      enabled: false
+
+
+    securityContext:
+      runAsNonRoot: true
+      runAsUser: 65534
+      fsGroup: 65534
+
+  podDisruptionBudget:
+    enabled: false
+
+alertmanager:
+  enabled: true
+  alertmanagerSpec:
+    replicas: 3
+    resources:
+      requests:
+        cpu: 50m
+        memory: 64Mi
+      limits:
+        cpu: 100m
+        memory: 128Mi
+    storage:
+      volumeClaimTemplate:
+        spec:
+          storageClassName: "standard" 
+          accessModes: ["ReadWriteOnce"]
+          resources:
+            requests:
+              storage: 5Gi
+  podDisruptionBudget:
+    enabled: true
+    minAvailable: 2
+
+  config: 
+    global:
+      resolve_timeout: 5m
+    route:
+      receiver: "teams"
+      group_by: ["alertname", "namespace"]
+      group_wait: 30s
+      group_interval: 2m
+      repeat_interval: 12h
+      
+      routes:
+        - receiver: "teams"
+          matchers:
+            - 'severity="critical"'
+          repeat_interval: 4h
+
+        - receiver: "teams"
+          matchers:
+            - 'severity!="critical"'
+          active_time_intervals:
+            - "horario-comercial"
+          repeat_interval: 24h
+          continue: false
+    
+    time_intervals:
+      - name: "horario-comercial"
+        time_intervals:
+          - location: "America/Sao_Paulo"
+            times:
+              - start_time: "08:00"
+                end_time: "18:00"
+    
+    inhibit_rules:
+    - source_matchers:
+        - severity = "critical"
+      target_matchers:
+        - severity = "warning"
+      equal: ["alertname", "namespace", "pod", "container"]
+
+    receivers:
+      - name: "teams"
+        msteamsv2_configs:
+          - send_resolved: true
+            title: '{{ if eq .Status "resolved" }}[RESOLVED] {{ end }}[OCI] {{ .CommonLabels.severity }}: {{ .CommonLabels.alertname }}'
+            text: |
+              {{ range .Alerts }}
+              **Alerta:** {{ .Labels.alertname }}
+              **Severidade:** {{ .Labels.severity }}
+              **Sumário:** {{ .Annotations.summary }}
+              **Descrição:** {{ .Annotations.description }}
+              {{ if .Annotations.type }}**Tipo:** {{ .Annotations.type }}
+              {{ end -}}
+              {{ if .Annotations.name }}**Name:** {{ .Annotations.name }}
+              {{ end -}}
+              {{ if .Annotations.namespace }}**Namespace:** {{ .Annotations.namespace }}
+              {{ end -}}
+              {{ if .Annotations.container }}**Container:** {{ .Annotations.container }}
+              {{ end -}}
+              {{ if .Annotations.resource }}**Recurso:** {{ .Annotations.resource }}
+              {{ end -}}
+              {{ if .Annotations.usage }}**Uso:** {{ .Annotations.usage }}
+              {{ end -}}
+              **Ambiente:** {{ .Annotations.environment }}
+
+              &nbsp;
+              {{ end }}
+
+nodeExporter:
+  enabled: true
+
+prometheus-node-exporter:
+  resources:
+    requests:
+      cpu: 50m
+      memory: 30Mi
+    limits:
+      cpu: 100m
+      memory: 50Mi
+
+
+kubeStateMetrics:
+  enabled: true
+
+kube-state-metrics:
+  resources:
+    requests:
+      cpu: 50m
+      memory: 64Mi
+    limits:
+      cpu: 100m
+      memory: 128Mi
+
+defaultRules:
+  create: false
+
+kubeControllerManager:
+  enabled: false
+kubeScheduler:
+  enabled: false
+kubeEtcd:
+  enabled: false
+kubeProxy:
+  enabled: true 
