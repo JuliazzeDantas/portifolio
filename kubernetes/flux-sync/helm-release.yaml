@@ -18,7 +18,7 @@ spec:
       existingClaim: pvc-jenkins
     serviceAccount:
       create: false
-    name: jenkins-service-account
+      name: jenkins-service-account
     annotations: {}
     controller:
       resources:
