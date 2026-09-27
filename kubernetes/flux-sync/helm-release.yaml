@@ -16,6 +16,10 @@ spec:
     persistence:
       enabled: true
       existingClaim: pvc-jenkins
+    serviceAccount:
+      create: false
+    name: jenkins-service-account
+    annotations: {}
     controller:
       resources:
         requests:
